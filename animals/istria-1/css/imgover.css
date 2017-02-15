@@ -1,0 +1,173 @@
+.zoomimg img {
+	transform: translateZ(0) !important;
+	-webkit-transform: translateZ(0) !important;
+	vertical-align:top;
+	outline:none;
+	max-width:100%;
+	height:auto;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+
+.zoomimg {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.zoomimg img {
+    width: 100%;
+	height:auto;
+}
+
+
+.zoom-wrap {
+	position:relative;
+	overflow:hidden;
+}
+
+.zoom-wrap a {
+	display:block;
+}
+
+.zoom-wrap .fadef {
+	width:0;
+	height:0;
+	left:50%;
+	top:50%;
+	transition: all 500ms;
+	-webkit-transition: all 500ms;
+}
+
+.zoom-wrap:hover .fadef {
+	opacity:0.8;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}
+
+
+.zoom-wrap {
+	position:relative;
+	overflow:hidden;
+}
+.zoom-wrap a {
+	display:block;
+}
+.zoom-wrap .fadef {
+	width:0;
+	height:0;
+	left:50%;
+	top:50%;
+	transition: all 500ms;
+	-webkit-transition: all 500ms;
+}
+
+.zoom-wrap:hover .fadef {
+	opacity:0.8;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}
+.zoom-wrap:hover .view_link {
+	visibility:visible;
+	opacity:1;
+	transform: scale(1, 1);
+	-webkit-transform: scale(1, 1);
+}
+.fadef {
+	opacity:0.6;
+}
+
+.fadef {
+	display:block;
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	background:#0099FF;
+	z-index:5;
+	opacity:0;
+	transition: opacity 500ms;
+	-webkit-transition: opacity 500ms;
+}
+.fadef {
+	width:0;
+	height:0;
+	left:50%;
+	top:50%;
+	transition: all 500ms;
+	-webkit-transition: all 500ms;
+}
+
+.zoom-wrap:hover .fadef {
+	opacity:0.8;
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+}
+
+
+.fixico {
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-40px 0 0 -40px;
+	z-index:10;
+	width:80px;
+	height:80px;
+	background-color:transparent;
+	font-size:24px;
+	line-height:78px;
+	text-align:center;
+	border-radius:50%;
+	-webkit-border-radius:50%;
+	border:1px #fff solid;
+	color:#fff;
+	display:block;
+	visibility:hidden;
+	opacity:0;
+	transition: all 500ms;
+	-webkit-transition: all 500ms;
+	font-size:20px;
+	transform: scale(1.2, 1.2);
+	-webkit-transform: scale(1.2, 1.2);
+}
+.fixico i {
+	color:#fff;
+	font-size:24px;
+	line-height:78px;
+	display:inline-block;
+	vertical-align:top;
+	padding-top:0;
+}
+
+.fixico:hover {
+	background-color:#fff;
+}
+
+.zoom-wrap:hover .fixico {
+	visibility:visible;
+	opacity:1;
+	transform: scale(1, 1);
+	-webkit-transform: scale(1, 1);
+}
+
+.fixico:hover,
+.fixico:hover i { color: #FF0000; }
+
+
+
+@media only screen and (max-width: 960px) {
+
+.zoomimg {
+		width: 100%;
+	}
+}		

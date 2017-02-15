@@ -1,0 +1,105 @@
+.banner, .banner .phrase-1, .banner .phrase-2 {
+	-webkit-transition: all ease 1s;
+	-moz-transition: all ease 1s;
+	-o-transition: all ease 1s;
+	-ms-transition: all ease 1s;
+	transition: all ease 1s;
+}
+.bannerbox { background: #FFF; padding: 6px; border: 1px solid #E9EAED; margin-top: 70px; }
+.banner { font-size: 32px; font-weight: bold; text-align: center; line-height: 4; cursor: pointer; width: 100%; height: 120px; overflow: hidden; background-color: #E3E9F2; position: relative; box-shadow: inset 0 0 0 2px #E9EAED; }
+.banner:hover {
+	background-color: #0099FF;
+}
+.banner .phrase-1, .banner .phrase-2 {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+.banner .phrase-1 { opacity: 1; color: #010860; text-shadow: 1px 1px 0 #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.banner .phrase-2 { opacity: 0; color: #FFF; text-shadow: 1px 1px 0 #000; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.banner:hover .phrase-1 {
+	opacity: 0;
+}
+.banner:hover .phrase-2 {
+	opacity: 1;
+}
+.banner .blob-1, .banner .blob-2, .banner .blob-3 {
+	position: absolute;
+	z-index: 1;
+	-webkit-transition: all ease 1s;
+	-moz-transition: all ease 1s;
+	-o-transition: all ease 1s;
+	-ms-transition: all ease 1s;
+	transition: all ease 1s;
+}
+.banner .blob-1 { border-radius: 25px; background-color: rgba(139, 164, 201, 0.2); width: 175px; height: 175px; top: -10%; left: 33%; -webkit-animation: rotating 10s ease-in infinite; -moz-animation: rotating 10s ease-in infinite; -ms-animation: rotating 10s ease-in infinite; animation: rotating 10s ease-in infinite; }
+.banner .banner:hover .blob-1 {
+	height: 600px;
+	width: 600px;
+	top: -30%;
+	left: 0%;
+}
+.banner .blob-2 { border-radius: 35px; background-color: rgba(139, 164, 201, 0.2); width: 185px; height: 185px; top: -5%; left: 30%; -webkit-animation: rotating 9s linear infinite; -moz-animation: rotating 9s linear infinite; -ms-animation: rotating 9s linear infinite; animation: rotating 9s linear infinite; }
+.banner .banner:hover .blob-2 {
+	height: 600px;
+	width: 600px;
+	top: -35%;
+	left: 5%;
+}
+.banner .blob-3 { border-radius: 35px; background-color: rgba(139, 164, 201, 0.2); width: 200px; height: 200px; top: -10%; left: 35%; -webkit-animation: rotating 8s ease-out infinite; -moz-animation: rotating 8s ease-out infinite; -ms-animation: rotating 8s ease-out infinite; animation: rotating 8s ease-out infinite; }
+.banner .banner:hover .blob-3 {
+	height: 700px;
+	width: 700px;
+	top: -40%;
+	left: -5%;
+}
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes rotating {
+    from{
+        -moz-transform: rotate(0deg);
+    }
+    to{
+        -moz-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes rotating {
+    from{
+        -ms-transform: rotate(0deg);
+    }
+    to{
+        -ms-transform: rotate(360deg);
+    }
+}
+@-keyframes rotating {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+@media all and (min-width: 960px) and (max-width: 1280px) {	
+.banner { font-size: 24px; margin-top: 70px;}
+}
+@media all and (max-width: 768px) {	
+.banner { font-size: 30px; margin-top: 20px;}
+}
+@media all and (max-width: 600px) {	
+.banner { font-size: 26px; margin-top: 20px;}
+}
+@media all and (max-width: 480px) {	
+.banner { font-size: 20px; margin-top: 20px;}
+}
+@media all and (max-width: 320px) {	
+.banner { font-size: 18px; margin-top: 20px;}
+}
+
