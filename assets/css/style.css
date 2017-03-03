@@ -187,11 +187,19 @@ color: #FFFFFF;
 }
 
 /* ==========================================================================
-   CONTACT SECTION
+   CHINA SECTION
    ========================================================================== */
-
-#contact-section {
+#china-section {
     background-color: #FAFAFA;
+    height: auto;
+    width: auto;
+    position: relative;
+}
+
+.img-china {
+    margin-top:30px;
+    position: relative;
+    height: 250px;
 }
 /* ==========================================================================
    FOOTER SECTION
