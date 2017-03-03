@@ -1,6 +1,6 @@
 var h, w;
-var walkers = []
-var points = []
+var walkers = [];
+var points = [];
 var checkSym4;
 function setup() {
 	h = windowHeight - 20;
@@ -16,16 +16,14 @@ function draw() {
 	for(var i = 0; i < walkers.length; i++){
 		walkers[i].move();
 	}
-
-	for(var i = 0; i < points.length; i++){
-		point(points[i].x, points[i].y);
+	for(var j = 0; j < points.length; j++){
+		print(points[j].x);
+		point(points[j].x, points[j].y);
 	}
 }
 
 function mousePressed(){
-	if(mouseY < h){
 		add(mouseX, mouseY);
-	}
 }
 function mouseDragged(){
 	add(mouseX, mouseY);	
@@ -33,26 +31,15 @@ function mouseDragged(){
 
 function add(x, y){
 	var newwalker = new Walker(x, y, checkSym4.checked());
-	append(walkers, newwalker)
+	append(walkers, newwalker);
 }
 
 function addL(x, y){
-	var l = points.length;
-	var found = false;
-	var pos = 0;
-	while (pos < l && ! found){
-		if(points[pos].x == x && points[pos].y == y){
-			found = true;
-		}
-		pos += 1;
-	}
-	if(! found){
-		append(points, P(x, y));
-	}
+	var here = new P(x,y);
+	append(points, here);
 }
 
 function P(x,y) {
 	this.x = x;
 	this.y = y;
-	return this;
 }

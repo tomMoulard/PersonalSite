@@ -4,6 +4,7 @@ var pos = 0;
 var hBox, wBox;
 var nbBoxX, nbBoxY;
 function setup() {
+	images = [];
 	h = windowHeight - 50;
 	w = windowWidth;
 	hBox = 25;
