@@ -1,0 +1,52 @@
+
+
+.media__image { display: block; }
+
+.media__body { bottom: 0; color: white; font-size: 1em; left: 0; opacity: 0; overflow: hidden; padding: 3.75em 3em; position: absolute; text-align: center; top: 0; right: 0; 
+-webkit-transition: 0.6s; transition: 0.6s; background: rgba(0, 153, 255, 0.94); }
+
+.media__body:hover { opacity: 1; }
+
+.media__body:after,
+.media__body:before {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  bottom: 1em;
+  content: '';
+  left: 1em;
+  opacity: 0;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+.media__body:before {
+  border-bottom: none;
+  border-top: none;
+  left: 2em;
+  right: 2em;
+}
+
+.media__body:after {
+  border-left: none;
+  border-right: none;
+  bottom: 2em;
+  top: 2em;
+}
+
+.media__body:hover:after,
+.media__body:hover:before {
+  opacity: 1;
+}
+
+.media__body h4 { margin-top: 0; font-size: 24px; font-weight: 700; color: #FFF; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }
+.media__body h4 span { font-size: 16px; font-weight: 400; }
+
+@media all and (max-width: 480px) {
+.media__body h4 { font-size: 14px; line-height: 16px;}
+.media__body h4 span { font-size: 12px; line-height: 12px; }
+}
+
+
+.boxy { position: relative; overflow: hidden; display: inline-block; width: 99%; vertical-align: top; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+.boxy a {cursor: url("../img/plus_cursor.png"), url('../img/plus_cursor.png'), alias;}

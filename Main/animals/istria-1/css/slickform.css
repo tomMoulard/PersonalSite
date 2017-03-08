@@ -1,0 +1,133 @@
+.slickwrap{
+	width:100%;	
+	float:none;
+	margin:0px auto 0px auto;
+	min-height:100px;
+	position:relative;
+}
+
+
+.slickwrap h3{
+	font-size:13pt;
+	font-weight: 400;
+	color: #4294FF;
+	margin:0px;
+	padding:0px;
+}
+
+hr{
+	color:#fff;
+	background-color:#fff;
+	height:1px;
+	border:none;
+	padding:0px;
+	margin:15px 0px 25px 0px;
+	width:100%;
+}
+
+.slickwrap fieldset{
+	border:0px;
+}
+
+.slickwrap label{
+	font-size:12pt;	
+	color: #666666;
+	width:20%;
+	display:inline-block;
+	float:left;
+	height:26px;
+	margin-bottom:20px;
+}
+
+.slickwrap label span{
+	font-size:9pt;
+	color: red;
+	padding-right:3px;
+}
+
+.slickwrap input, textarea, select{
+	width:50%;
+	margin:-7px 0px 20px 0px;
+	padding:7px 10px;
+	color:#666666;
+	background-color:#F5F5F5;
+	border:1px solid #CCC;
+	font-size:12pt;	
+	border-radius:3px;
+}
+
+.slickwrap input:focus, textarea:focus, select:focus{
+	width:50%;
+	margin:-7px 0px 20px 0px;
+	padding:7px 10px;
+	color:#666666;
+	background-color:white;
+	border:1px solid #09F;
+	font-size:12pt;	
+	border-radius:3px;
+}
+
+input[type=submit]{ margin-top: 10px; width: auto !important; background-color: #365189; color: white; text-shadow: 0 0 1px #000; padding-right: 40px; padding-left: 40px; cursor: pointer; float: right; }
+
+input[type=submit]:hover{
+	width:auto !important;
+	background-color:#0099FF;	
+}
+
+.largertextarea, .largertextarea:focus{
+	width:65%;
+	margin-top:0px;
+}
+
+.areyouhuman, .areyouhuman:focus{
+	width:40px !important;
+}
+
+.largebr{
+	margin-top:20px;
+}
+
+.slickreporting{
+	width:90%;
+	position:absolute;
+	left: 30px;
+	bottom: 108px;
+}
+
+.successcontainer{
+	float:left;
+	width:90%;
+	height:45px;
+	float:left;
+	padding:17px 0% 0px 10%;
+	background-image: url(../img/success.png);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	font-size:12pt;	
+	color:#349e1f;
+	display:none;
+}
+
+.errorcontainer{
+	float:left;
+	width:90%;
+	height:45px;
+	float:left;
+	padding:17px 0% 0px 10%;
+	background-image: url(../img/fail.png);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	font-size:12pt;	
+	color:#FF0000;
+	display:none;
+}
+
+@media screen and (max-width: 600px){
+	.slickwrap{width:98%;padding:20px 1%;}
+	.slickwrap label{width:30%;}
+	.slickreporting{left: 15px;}
+	.successcontainer{width:85%;padding:17px 0% 0px 15%;}
+	.errorcontainer{width:85%;padding:17px 0% 0px 15%;}
+	
+}
+

@@ -1,0 +1,50 @@
+#doorbg { background-color: #E3E9F2; width: 100%; padding-top: 60px; padding-bottom: 60px; border-top-width: 1px; border-bottom-width: 1px; border-top-style: solid; border-bottom-style: solid; border-top-color: #B8C7DE; border-bottom-color: #B8C7DE; }
+.cont-doors { background-color: rgba(255, 255, 255, 0.8); -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4); -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4); box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4); overflow-x: hidden; overflow-y: hidden; position: relative; width: 100%; padding: 50px; min-height: 300px; }
+.door-left, .door-right {
+    height: 100%; 
+	width: 50%;   
+    position: absolute;
+	top: 0;
+	text-align: center; 
+    transition-delay: 0s;
+    transition-duration: 1s;
+    transition-property: all;
+    transition-timing-function: ease;    
+}
+
+.title-door { font-size: 32px; color: #000; line-height: 40px; margin: 0px; padding: 0px; width: 600px; }
+.title-door span { font-size: 18px; font-weight: 700; color: #000; line-height: 22px; margin: 0px; padding: 0px; }
+.door-left { background-color: #fff; left: 0; border-right-width: 1px; border-right-style: solid; border-right-color: #ccc; }
+.door-right { background-color: #fff; left: 50%; }
+.bg1 { background: #04305F; }
+
+.cont-doors:hover .door-left {
+    left: -50%;
+}
+.cont-doors:hover .door-right {
+    left: 100%;
+}
+
+.image-bg .cont-doors {
+    box-shadow: none;
+}
+
+@media all and (min-width: 960px) and (max-width: 1280px) {	
+.title-door { width: 420px; }
+}
+@media all and (min-width: 769px) and (max-width: 959px) {	
+.title-door { width: 350px; }
+}
+@media only screen and (max-width: 768px) {
+.title-door { font-size: 24px; line-height: 30px; width: 260px; }
+.title-door span { font-size: 16px; }
+}
+@media only screen and (max-width: 600px) {
+.title-door { font-size: 20px; line-height: 24px; width: 220px; }
+.title-door span { font-size: 15px; }	
+}		
+@media only screen and (max-width: 480px) {
+.title-door { font-size: 18px; line-height: 22px; width: 150px; }
+.title-door span { font-size: 14px; }	
+}
+
