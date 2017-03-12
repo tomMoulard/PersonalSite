@@ -105,7 +105,7 @@
             There is also some limitations in the main core of the RDBMS about sizes. The max DB size is one crucial factor like the max table size is important and can allow the DataBase Administrator (DBA) to choose directly the DB that fit it's need.<br />
             Indexes are also a great changing factor to choose a RDBMS because it can significantly change the speed of the query of informations and therefore the speed of all the system.<br />
             Also some RDBMS does not have the same capabilities in managing data. Union, Intersect, Except, Inner joins, Outer joins, Merge joins, Inner select Blobs and Clobs or even Parallel query are some distinguishable characteristics of each RDBMS.<br />
-            
+            From a DB Designer (DBD) Data types inside the DB is quite significant. That is why Data Type are not the same inside each RDBMS.<br />
         </p>
     </div>
     <!-- END PART TWO SECTION -->
@@ -118,11 +118,14 @@
         </p>
             <h3>CAP</h3>
         <p>
-            Coucou
+            The CAP Theorem is composed of three main guaranties Consistency, Availability and Partition-Tolerance. Each one of them is possible to archive but the computer scientist Eric Brewer stated that it is impossible to provide a computer system with each three of these guarantees. The max possible inside a system is two out of three.<br />
+            Consistency ensure that every read receives the most recent write or an error.<br />
+            Availability require to have a full time functional system that give a response for each request.<br />
+            Partition-Tolerance explain that even if there is a subnet failure, this system is still usable.<br />
         </p>
             <h3>BASE</h3>
         <p>
-            Coucou
+            BASE is a label to classify consistent services to contrast with a more traditional ACID. In fact, this label promote availability over consistency. Data operations run with less efficiency without user's notice.
         </p>
             <h3>ACID</h3>
         <p>
@@ -130,7 +133,7 @@
             Atomicity require that transactions should be accomplished, and in the case there is something wrong in the procedure, the entire transaction is aborted.<br />
             Consistency is when one transaction is accomplished the database is still functional.<br />
             Isolation explain that each transaction should not have any interference with an other transaction even if there is another undergoing transaction.<br />
-            Durability ensure that when a transaction is accomplished successfully even a power loss cannot erase it.
+            Durability ensure that when a transaction is accomplished successfully even a power loss cannot erase it.<br />
         </p>
     </div>
     <!-- END PART THREE SECTION -->
