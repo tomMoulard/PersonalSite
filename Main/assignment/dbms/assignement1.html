@@ -1,5 +1,4 @@
-<!-- The same file is hosted here : http://tom/moulard.org/assignment/dbms -->
-
+<!-- This file is hosted here : http://tom/moulard.org/assignment/dbms -->
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -11,14 +10,11 @@
 <style> body {padding: 0; margin: 0;} </style>
 <!-- HEAD SECTION -->
 <head>
+    <title>Assignment n1 : DBMS : Tom Moulard, 16920041</title>
     <meta name="author" content="Tom MOULARD">
     <link rel="icon" type="image/css" href="http://tom.moulard.org/assets/img/cloneTrooper.ico">
-    <title>Assignment n1 : DBMS : Tom Moulard</title>
-    <!--BOOTSTRAP MAIN STYLES -->
     <link href="http://tom.moulard.org/assets/css/bootstrap.css" rel="stylesheet" />
-    <!--FONTAWESOME MAIN STYLE -->
     <link href="http://tom.moulard.org/assets/css/font-awesome.min.css" rel="stylesheet" />
-    <!--CUSTOM STYLE -->
     <link href="http://tom.moulard.org/assets/css/style.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,7 +35,7 @@
             By Tom Moulard
         </p>
         <p>
-            student ID : 
+            student ID : 16920041
         </p>
         <hr />
     </div>
@@ -102,10 +98,14 @@
     <div id="partTwo" class="main-low-margin col-md-offset-1">
         <h1>Part Two</h1>
         <p>
-            <h4>Comparison of relational database management systems.</h4>
+            <h4>Comparison of Relational DataBase Management Systems (RDBMS).</h4>
         </p>
         <p>
-
+            There is a lot of RDBMS as we can see <a href="http://db-engines.com/en/ranking/relational+dbms">here</a> and each one have different features. Main features are described with ACID, not all RDBMS have it natively. Also, not all RDBMS have transaction and referral integrity. Interfaces are also a point of divergence, there is a few ways to manage data inside th database : some use API call, GUI and SQL, some does not have any API calls available, but the most part uses SQL. Some others also uses QUEL or JSON to manage the data.<br />
+            There is also some limitations in the main core of the RDBMS about sizes. The max DB size is one crucial factor like the max table size is important and can allow the DataBase Administrator (DBA) to choose directly the DB that fit it's need.<br />
+            Indexes are also a great changing factor to choose a RDBMS because it can significantly change the speed of the query of informations and therefore the speed of all the system.<br />
+            Also some RDBMS does not have the same capabilities in managing data. Union, Intersect, Except, Inner joins, Outer joins, Merge joins, Inner select Blobs and Clobs or even Parallel query are some distinguishable characteristics of each RDBMS.<br />
+            
         </p>
     </div>
     <!-- END PART TWO SECTION -->
@@ -126,7 +126,11 @@
         </p>
             <h3>ACID</h3>
         <p>
-            Coucou
+            This is a set of elemental transactions made inside the database : Atomicity, Consistency, Isolation, Durability. Each one describe the fundamentals features of a DBMS.<br />
+            Atomicity require that transactions should be accomplished, and in the case there is something wrong in the procedure, the entire transaction is aborted.<br />
+            Consistency is when one transaction is accomplished the database is still functional.<br />
+            Isolation explain that each transaction should not have any interference with an other transaction even if there is another undergoing transaction.<br />
+            Durability ensure that when a transaction is accomplished successfully even a power loss cannot erase it.
         </p>
     </div>
     <!-- END PART THREE SECTION -->
@@ -134,7 +138,7 @@
     <div id="footer">
         <div class="container">
             <div class="">
-                &copy; 2017 tom.moulard.org | All Right Reserved
+                &copy; 2017 tom.moulard.org | All Right Reserved | http://tom.moulard.org/assignment/dbms/assignement1.html
             </div>
             
         </div>
