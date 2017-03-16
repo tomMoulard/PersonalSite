@@ -1,0 +1,146 @@
+<!-- This file is hosted here : http://tom/moulard.org/assignment/dbms -->
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- this line removes any default padding and style. you might only need one of these values set. -->
+<style> body {padding: 0; margin: 0;} </style>
+<!-- HEAD SECTION -->
+<head>
+    <title>Assignment n1 (due date : 13/03/17) : DBMS : Tom Moulard, 16920041</title>
+    <meta name="author" content="Tom MOULARD">
+    <link rel="icon" type="image/css" href="http://tom.moulard.org/assets/img/cloneTrooper.ico">
+    <link href="http://tom.moulard.org/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="http://tom.moulard.org/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://tom.moulard.org/assets/css/style.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+    <!--END HEAD SECTION -->
+<body>   
+    <!-- INTRODUCTION SECTION -->
+    <div id="introduction" class="text-center">
+        <h1> 
+            <strong class="color-red">
+                Assignment n1
+            </strong>
+        </h1>
+        <p>
+            By Tom Moulard
+        </p>
+        <p>
+            student ID : 16920041
+        </p>
+        <hr />
+    </div>
+    <!-- INTRODUCTION SECTION -->
+    <!-- PART ONE SECTION -->
+    <div id="partOne" class="main-low-margin col-md-offset-1">
+        <h1>Part One</h1>
+        <p>
+            <h4>Connect to 172.31.34.145:3306</h4>
+            username : your student number
+            password : your student number
+        </p>
+        <p>
+            <h4><a href="http://www.mysqltutorial.org/">section 1 to 9</a></h4>
+        </p>
+        <p>
+            <h4>Question Three : Describe the ANSI-SPARC three-level architecture of DBS, what are the advantages of this architecture ?</h4>
+        </p>
+        <p>
+            <h4>Question Four : What is Data Independence(DI) ?</h4>
+        </p>
+        <p>
+            <h4>Question Five : What are Logical Data Independence (LDI) and Physical Data Independence (PDI) respectively ?</h4>
+        </p>
+        <p>
+            <h4>Question Six : What is a Data Model ?</h4>
+            The data model define the the structure of the data, it's manipulations and integrity aspect.
+        </p>
+        <p>
+            <h4>Question Seven : What is Conceptual Model ?</h4>
+            The Conceptual Model is a representation of a system. It merge different concept to generalize a process.
+        </p>
+        <p>
+            <h4>Question height : Write the function and components of Data Model.</h4>
+            The Data model is used to organize elements of data and to standardize how they relates to one another.
+            It is defined by three main components :<br />
+            Structure, a collection of data structure used to create the database.<br />
+            Integrity, a collection of rules to ensure a structural integrity among data structures.<br />
+            Manipulation, a collection operators used to manipulate data structures like query informations and update it.
+        </p>
+        <p>
+            <h4>Question Nine : Why can DBS provide Data Independence(DI) ?</h4>
+            Thanks to his level of abstraction, the DBS allow different users a Data Independence by using the different level of DI, LDI and PDI.
+        </p>
+        <p>
+            <h4>Question Ten : Tell the association and difference (Connection) between Conceptual Schema and Conceptual Model</h4>
+            The difference between the Conceptual Schema and Conceptual Model is the level of abstraction between them. The schema is used to describe the whole system composed by different models.
+        </p>
+    </div>
+    <!-- END PART ONE SECTION -->
+    <hr />
+    <!-- PART TWO SECTION -->
+    <div id="partTwo" class="main-low-margin col-md-offset-1">
+        <h1>Part Two</h1>
+        <p>
+            <h4>Comparison of Relational DataBase Management Systems (RDBMS).</h4>
+        </p>
+        <p>
+            There is a lot of RDBMS as we can see <a href="http://db-engines.com/en/ranking/relational+dbms">here</a> and each one have different features. Main features are described with ACID, not all RDBMS have it natively. Also, not all RDBMS have transaction and referral integrity. Interfaces are also a point of divergence, there is a few ways to manage data inside th database : some use API call, GUI and SQL, some does not have any API calls available, but the most part uses SQL. Some others also uses QUEL or JSON to manage the data.<br />
+            There is also some limitations in the main core of the RDBMS about sizes. The max DB size is one crucial factor like the max table size is important and can allow the DataBase Administrator (DBA) to choose directly the DB that fit it's need.<br />
+            Indexes are also a great changing factor to choose a RDBMS because it can significantly change the speed of the query of informations and therefore the speed of all the system.<br />
+            Also some RDBMS does not have the same capabilities in managing data. Union, Intersect, Except, Inner joins, Outer joins, Merge joins, Inner select Blobs and Clobs or even Parallel query are some distinguishable characteristics of each RDBMS.<br />
+            From a DB Designer (DBD) Data types inside the DB is quite significant. That is why Data Type are not the same inside each RDBMS.<br />
+        </p>
+    </div>
+    <!-- END PART TWO SECTION -->
+    <hr />
+    <!-- PART THREE SECTION -->
+    <div id="partThree" class="main-low-margin col-md-offset-1">
+        <h1>Part Three</h1>
+        <p>
+            <h4>Describe CAP(Consistency, Availability, Partition-tolerance)/BASE(Basically Available, Soft-state, Eventually consistent)/ACID</h4>
+        </p>
+            <h3>CAP</h3>
+        <p>
+            The CAP Theorem is composed of three main guaranties Consistency, Availability and Partition-Tolerance. Each one of them is possible to archive but the computer scientist Eric Brewer stated that it is impossible to provide a computer system with each three of these guarantees. The max possible inside a system is two out of three.<br />
+            Consistency ensure that every read receives the most recent write or an error.<br />
+            Availability require to have a full time functional system that give a response for each request.<br />
+            Partition-Tolerance explain that even if there is a subnet failure, this system is still usable.<br />
+        </p>
+            <h3>BASE</h3>
+        <p>
+            BASE is a label to classify consistent services to contrast with a more traditional ACID. In fact, this label promote availability over consistency. Data operations run with less efficiency without user's notice.
+        </p>
+            <h3>ACID</h3>
+        <p>
+            This is a set of elemental transactions made inside the database : Atomicity, Consistency, Isolation, Durability. Each one describe the fundamentals features of a DBMS.<br />
+            Atomicity require that transactions should be accomplished, and in the case there is something wrong in the procedure, the entire transaction is aborted.<br />
+            Consistency is when one transaction is accomplished the database is still functional.<br />
+            Isolation explain that each transaction should not have any interference with an other transaction even if there is another undergoing transaction.<br />
+            Durability ensure that when a transaction is accomplished successfully even a power loss cannot erase it.<br />
+        </p>
+    </div>
+    <!-- END PART THREE SECTION -->
+    <!--FOOTER SECTION -->
+    <div id="footer">
+        <div class="container">
+            <div class="">
+                &copy; 2017 tom.moulard.org | All Right Reserved | http://tom.moulard.org/assignment/dbms/assignement1.html
+            </div>
+            
+        </div>
+       
+    </div>  
+    <!--END FOOTER SECTION --> 
+</body>
+</html>
+    
