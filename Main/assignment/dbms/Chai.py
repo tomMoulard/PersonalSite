@@ -40,7 +40,6 @@ def getLineCode(responce, pos):
             pos += 11
             while pos < ll and "</div>" != responce[pos:pos+6]:
                 if "<span" == responce[pos:pos+5]:
-                    print(responce[pos:pos+80])
                     while pos < ll and responce[pos] != ">":
                         pos += 1
                     pos += 1
@@ -50,15 +49,15 @@ def getLineCode(responce, pos):
                         line += responce[pos]
                         pos  += 1
                     line += " "
-                    print(responce[pos:pos+8])
                     if "</span><" != responce[pos:pos+8]:
                         pos  += 7
                         while pos < ll and responce[pos] != "<":
                             line += responce[pos]
                             pos  += 1
                         line += " "
-                    print(line)
                 pos += 1
+            if "</div>" == responce[pos:pos+6]:
+                pos += 6
         if "</div>" == responce[pos:pos+6]:
             break
         pos += 1
@@ -76,6 +75,7 @@ def getCodeFromUrl(url):
     ll = len(responce)
     while pos < ll:
         if "crayon-code" == responce[pos:pos+11]:
+            print("crayon-code")
             pos += 11
             line, pos = getLineCode(responce, pos)
             code.append(line)
@@ -83,6 +83,7 @@ def getCodeFromUrl(url):
     return code
 
 def main():
+        print("Getting Main Responce")
         responce = str(opener.open(URL).read())
         #print(responce)
         print("Main Responce get")
@@ -123,7 +124,6 @@ def main():
         db = MySQLdb.connect(SERVER, USER, PASSWORD, DB)
         print("Connected to server", SERVER, "with credential for :", USER)
         cursor = db.cursor()
-        cursor.connection.autocommit(True) #notice 
         #cursor.execute("SELECT * FROM cities")
         #lauch code with random interval (5 - 20s between)
         for x in code:
