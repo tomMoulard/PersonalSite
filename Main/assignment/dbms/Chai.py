@@ -20,6 +20,7 @@ opener = urllib.request.FancyURLopener({})
 #Random
 import random
 import time
+import sys
 
 #mysql
 #Please install python-mysqldb or python3-mysqldb before executing the script
@@ -83,7 +84,8 @@ def getCodeFromUrl(url):
             pos += 11
             line, pos = getLineCode(responce, pos)
             #print(len(code), ":", line)
-            code.append(line)
+            if "USE" != line[:3]:
+                code.append(line)
         pos += 1
     return code
 
@@ -91,7 +93,7 @@ def mainUrl(url):
     """
     Return any good urls on the page
     """
-    responce = str(opener.open(URL).read())
+    responce = str(opener.open(url).read())
     urls = []
     pos  = 0
     ll   = len(responce)
@@ -122,39 +124,29 @@ def main()  :
     print("Welcome \nThis is made by Tom MOULARD\nhttp://tom.moulard.org/")
     print("Just Configure your credentials inside the file if not aready did")
     print("Getting Links", end=" ")
+    urls = []
     for lru in URLS:
         tmp = mainUrl(lru)
         for x in tmp:
             urls.append(x)
-    print("OK")
+    print("OK (" + str(len(urls)) + ")")
     #Iterate thru all urls to get all code
     code = ["SHOW databases;"]
+    db = MySQLdb.connect(SERVER, USER, PASSWORD, DB)
+    print("Connected to server", SERVER, "with credential for :", USER)
+    cursor = db.cursor()
     for x in range(len(urls)):
         print("getting code for", urls[x], "(", x, ")")
         tmp = getCodeFromUrl(urls[x])
         for y in tmp:
+            bulk = random.randint(5, 20) * len(y)/200
             code.append(y)
-    #connect to server
-    db = MySQLdb.connect(SERVER, USER, PASSWORD, DB)
-    print("Connected to server", SERVER, "with credential for :", USER)
-    cursor = db.cursor()
-    #cursor.execute("SELECT * FROM cities")
-    print("sending DOS .... Code in 5", end=" ")
-    time.sleep(1)
-    print("4", end=" ")
-    time.sleep(1)
-    print("3", end=" ")
-    time.sleep(1)
-    print("2", end=" ")
-    time.sleep(1)
-    print("1")
-    time.sleep(1)
-    #lauch code with random interval (5 - 20s between)
-    for x in code:
-        cursor.execute(x)
-        block = random.randint(5, 25)
-        print(USER + "@" + SERVER + "(" + str(block) + ")" + "> " + x)
-        time.sleep(block)
+            print(USER + "@" + SERVER + "> " + y)
+            try:
+                cursor.execute(y)
+            except:
+                print(sys.exc_info()[0])
+            time.sleep(bulk)
     #close the db
     db.close()
 
