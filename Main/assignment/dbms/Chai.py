@@ -1,9 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Mar 14 23:07:26 2017
+Created on Tue Mar 26 10:00:00 2017
 
 @author: tm
 """
+
+#credentials
+#mysql -u 16920041 -h 172.31.34.145 -p
+SN       = "16920041"
+USER     = SN
+SERVER   = "172.31.34.145"
+PASSWORD = SN
+DB       = "db" + SN
 
 #to get the http responce for files
 import urllib.request
@@ -11,6 +19,11 @@ opener = urllib.request.FancyURLopener({})
 
 #Random
 import random
+import time
+
+#mysql
+#Please install python-mysqldb or python3-mysqldb before executing the script
+import MySQLdb
 
 URL = "http://www.mysqltutorial.org/basic-mysql-tutorial.aspx"
 
@@ -27,17 +40,28 @@ def getLineCode(responce, pos):
             pos += 11
             while pos < ll and "</div>" != responce[pos:pos+6]:
                 if "<span" == responce[pos:pos+5]:
+                    print(responce[pos:pos+80])
                     while pos < ll and responce[pos] != ">":
                         pos += 1
                     pos += 1
                     while pos < ll and responce[pos] != "<":
+                        if "&nbsp;" == responce[pos:pos+6]:
+                            pos += 5
                         line += responce[pos]
                         pos  += 1
+                    line += " "
+                    print(responce[pos:pos+8])
+                    if "</span><" != responce[pos:pos+8]:
+                        pos  += 7
+                        while pos < ll and responce[pos] != "<":
+                            line += responce[pos]
+                            pos  += 1
+                        line += " "
+                    print(line)
                 pos += 1
         if "</div>" == responce[pos:pos+6]:
             break
         pos += 1
-    print(pos)
     return line, pos
 
 
@@ -52,7 +76,6 @@ def getCodeFromUrl(url):
     ll = len(responce)
     while pos < ll:
         if "crayon-code" == responce[pos:pos+11]:
-            print("crayon-code")
             pos += 11
             line, pos = getLineCode(responce, pos)
             code.append(line)
@@ -93,13 +116,22 @@ def main():
         for x in range(len(urls)):
             print("getting code for", urls[x], "(", x, ")")
             tmp = getCodeFromUrl(urls[x])
-            print("code get :", tmp)
             for y in tmp:
-                code.append(y)
                 print(y)
+                code.append(y)
         #connect to server
+        db = MySQLdb.connect(SERVER, USER, PASSWORD, DB)
+        print("Connected to server", SERVER, "with credential for :", USER)
+        cursor = db.cursor()
+        cursor.connection.autocommit(True) #notice 
+        #cursor.execute("SELECT * FROM cities")
         #lauch code with random interval (5 - 20s between)
-
+        for x in code:
+            cursor.execute(x)
+            print(USER + "@" + SERVER +"> " + x)
+            time.sleep(random.randint(5, 25))
+        #close the db
+        db.close()
 
 if __name__ == '__main__':
     main()
