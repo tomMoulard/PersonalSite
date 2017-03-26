@@ -25,7 +25,13 @@ import time
 #Please install python-mysqldb or python3-mysqldb before executing the script
 import MySQLdb
 
-URL = "http://www.mysqltutorial.org/basic-mysql-tutorial.aspx"
+URLS = [
+"http://www.mysqltutorial.org/basic-mysql-tutorial.aspx",
+"http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx",
+"http://www.mysqltutorial.org/mysql-triggers.aspx",
+"http://www.mysqltutorial.org/mysql-views-tutorial.aspx",
+"http://www.mysqltutorial.org/mysql-functions.aspx"
+]
 
 def getLineCode(responce, pos):
     """
@@ -76,7 +82,7 @@ def getCodeFromUrl(url):
         if "crayon-code" == responce[pos:pos+11]:
             pos += 11
             line, pos = getLineCode(responce, pos)
-            print(len(code), ":", line)
+            #print(len(code), ":", line)
             code.append(line)
         pos += 1
     return code
@@ -112,19 +118,21 @@ def mainUrl(url):
     return urls
 
 
-def main():
+def main()  :
     print("Welcome \nThis is made by Tom MOULARD\nhttp://tom.moulard.org/")
     print("Just Configure your credentials inside the file if not aready did")
-    print("Links", end=" ")
-    urls = mainUrl(URL)
+    print("Getting Links", end=" ")
+    for lru in URLS:
+        tmp = mainUrl(lru)
+        for x in tmp:
+            urls.append(x)
     print("OK")
     #Iterate thru all urls to get all code
-    code = ["SHOW databases"]
+    code = ["SHOW databases;"]
     for x in range(len(urls)):
         print("getting code for", urls[x], "(", x, ")")
         tmp = getCodeFromUrl(urls[x])
         for y in tmp:
-            #print(y)
             code.append(y)
     #connect to server
     db = MySQLdb.connect(SERVER, USER, PASSWORD, DB)
