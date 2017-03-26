@@ -141,7 +141,7 @@ def main()  :
         for y in tmp:
             bulk = random.randint(5, 20) * len(y)/200
             code.append(y)
-            print(USER + "@" + SERVER + "> " + y)
+            print(USER + "@" + SERVER + "(" + str(bulk) + ")" + "> " + y)
             try:
                 cursor.execute(y)
             except:
