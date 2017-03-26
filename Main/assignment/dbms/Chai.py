@@ -53,6 +53,10 @@ def getLineCode(responce, pos):
                     while pos < ll and responce[pos] != "<":
                         if "&nbsp;" == responce[pos:pos+6]:
                             pos += 6
+                        elif "  " == responce[pos:pos+2]:
+                            pos += 3
+                        elif "\\" == responce[pos]:
+                            pos += 2
                         else:
                             line += responce[pos]
                             pos  += 1
@@ -60,15 +64,21 @@ def getLineCode(responce, pos):
                     if "</span><span" != responce[pos:pos+12]:
                         pos  += 7
                         while pos < ll and responce[pos] != "<":
-                            line += responce[pos]
-                            pos  += 1
+                            if "&nbsp;" == responce[pos:pos+6]:
+                                pos += 6
+                            elif "\\" == responce[pos]:
+                                pos += 2
+                            elif "  " == responce[pos:pos+2]:
+                                pos += 3
+                            else:
+                                line += responce[pos]
+                                pos  += 1
                         line += " "
                 pos += 1
         if "</div></div>" == responce[pos:pos+12]:
             break
         pos += 1
     return line, pos
-
 
 def getCodeFromUrl(url):
     """
@@ -86,6 +96,10 @@ def getCodeFromUrl(url):
             #print(len(code), ":", line)
             if "USE" != line[:3]:
                 code.append(line)
+            if not ";" in line[len(line) - 10:]:
+                line += ";"
+            if ("|" in line) or ("]" in line) or ("..." in line):
+                line = "" 
         pos += 1
     return code
 
@@ -139,7 +153,8 @@ def main()  :
         print("getting code for", urls[x], "(", x, ")")
         tmp = getCodeFromUrl(urls[x])
         for y in tmp:
-            bulk = random.randint(5, 20) * len(y)/200
+            bulk = random.randint(5, 20) * len(y) / 200
+            #bulk = len(y) * random.random() / 1.5
             code.append(y)
             print(USER + "@" + SERVER + "(" + str(bulk) + ")" + "> " + y)
             try:
