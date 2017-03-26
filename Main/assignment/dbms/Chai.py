@@ -20,17 +20,24 @@ def getLineCode(responce, pos):
     The pos must be set just after the "crayon-code" (aka the begining of the box)
     return (line, newPos) as newPos an updated position is the responce
     """
-    line = []
-    lines = []
+    line = ""
     ll = len(responce)
     while pos < ll: 
         if "crayon-line" == responce[pos:pos+11]:
             pos += 11
-            if "<span" == response[pos:pos+5]:
-                while pos < ll and responce[pos] != ">":
+            while pos < ll and "</div>" != responce[pos:pos+6]:
+                if "<span" == responce[pos:pos+5]:
+                    while pos < ll and responce[pos] != ">":
+                        pos += 1
                     pos += 1
-                
+                    while pos < ll and responce[pos] != "<":
+                        line += responce[pos]
+                        pos  += 1
+                pos += 1
+        if "</div>" == responce[pos:pos+6]:
+            break
         pos += 1
+    print(pos)
     return line, pos
 
 
@@ -39,12 +46,13 @@ def getCodeFromUrl(url):
     Get the whole code from the page
     return an array of all the code on dat page
     """
-    responce = str(opener.open(URL).read())
+    responce = str(opener.open(url).read())
     code = []
     pos = 0
-    ll = len(response)
+    ll = len(responce)
     while pos < ll:
         if "crayon-code" == responce[pos:pos+11]:
+            print("crayon-code")
             pos += 11
             line, pos = getLineCode(responce, pos)
             code.append(line)
@@ -82,11 +90,13 @@ def main():
         urls = urls[3:len(urls) - 9]
         #Iterate thru all urls to get all code
         code = []
-        for x in range(len(urls));
+        for x in range(len(urls)):
             print("getting code for", urls[x], "(", x, ")")
             tmp = getCodeFromUrl(urls[x])
+            print("code get :", tmp)
             for y in tmp:
                 code.append(y)
+                print(y)
         #connect to server
         #lauch code with random interval (5 - 20s between)
 
