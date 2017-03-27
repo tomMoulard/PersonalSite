@@ -2,10 +2,10 @@ Practice the following sections according to http://www.mysqltutorial.org/
 All the SQL statements must be excuted on your own DB.
 
 Basic MySQL Tutorial Section 10 to Section 16，  http://www.mysqltutorial.org/basic-mysql-tutorial.aspx
-MySQL Stored Procedure，	http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx
-MySQL Triggers，	http://www.mysqltutorial.org/mysql-triggers.aspx
-MySQL Views，		http://www.mysqltutorial.org/mysql-views-tutorial.aspx
-MySQL Functions，	http://www.mysqltutorial.org/mysql-functions.aspx
+MySQL Stored Procedure，                         http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx
+MySQL Triggers，                                 http://www.mysqltutorial.org/mysql-triggers.aspx
+MySQL Views，                                    http://www.mysqltutorial.org/mysql-views-tutorial.aspx
+MySQL Functions，                                http://www.mysqltutorial.org/mysql-functions.aspx
 
 server address: 172.31.34.145    [ port：3306 ]
 username：your SN
