@@ -48,7 +48,7 @@ def shuffleList(l):
     """
     ll = len(l)
     for x in range(ll):
-        swappInList(l, x, random.randint(0, ll))
+        swappInList(l, x, random.randint(0, ll - 1  ))
 
 
 def parseCode(code):
