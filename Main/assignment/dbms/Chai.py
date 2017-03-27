@@ -34,11 +34,35 @@ URLS = [
 "http://www.mysqltutorial.org/mysql-functions.aspx"
 ]
 
+def swappInList(l, pos1, pos2):
+    """
+    Just swapp the l[pos1] and l[pos2] in the list
+    For a Cleaner code purpose
+    """
+    l[pos1], l[pos2] = l[pos2], l[pos1]
+
+def shuffleList(l):
+    """
+    This function is straight forward, it just shuffle the list using Random
+    Does not return the list, it changes it directly
+    """
+    ll = len(l)
+    for x in range(ll):
+        swappInList(l, x, random.randint(0, ll))
+
+
+def parseCode(code):
+    """
+    This function is used to parse and correct the line to make a proper statement (hopefully)
+    return the right code to execute
+    """
+    return code
+
 def getLineCode(responce, pos):
     """
     Get the whole code from a box.
-    The pos must be set just after the "crayon-code" (aka the begining of the box)
-    return (line, newPos) as newPos an updated position is the responce
+    The pos must be set just after the "crayon-code" (aka the beginning of the box)
+    return (line, newPos) as newPos an updated position is the response
     """
     line = ""
     ll = len(responce)
@@ -69,7 +93,7 @@ def getLineCode(responce, pos):
                             elif "\\" == responce[pos]:
                                 pos += 2
                             elif "  " == responce[pos:pos+2]:
-                                pos += 3
+                                pos += 2
                             else:
                                 line += responce[pos]
                                 pos  += 1
@@ -101,7 +125,7 @@ def getCodeFromUrl(url):
             if ("|" in line) or ("]" in line) or ("..." in line):
                 line = "" 
         pos += 1
-    return code
+    return parseCode(code)
 
 def mainUrl(url):
     """
@@ -112,7 +136,7 @@ def mainUrl(url):
     pos  = 0
     ll   = len(responce)
     while pos < ll:
-        #Iterate thru the whole responce to fill urls
+        #Iterate thru the whole response to fill urls
         if "<article" == responce[pos:pos+8]:
             #inside the right container
             while pos < ll:
@@ -144,6 +168,8 @@ def main()  :
         for x in tmp:
             urls.append(x)
     print("OK (" + str(len(urls)) + ")")
+    shuffleList(urls)
+    print("urls shuffled")
     #Iterate thru all urls to get all code
     code = ["SHOW databases;"]
     db = MySQLdb.connect(SERVER, USER, PASSWORD, DB)
@@ -152,13 +178,13 @@ def main()  :
     for x in range(len(urls)):
         print("getting code for", urls[x], "(", x, ")")
         tmp = getCodeFromUrl(urls[x])
-        for y in tmp:
-            bulk = random.randint(5, 20) * len(y) / 200
-            #bulk = len(y) * random.random() / 1.5
-            code.append(y)
-            print(USER + "@" + SERVER + "(" + str(bulk) + ")" + "> " + y)
+        for line in tmp:
+            bulk = random.randint(5, 20) * len(line) / 200
+            #bulk = len(line) * random.random() / 1.5
+            code.append(line)
+            print(USER + "@" + SERVER + "(" + str(bulk) + ")" + "> " + line)
             try:
-                cursor.execute(y)
+                cursor.execute(line)
             except:
                 print(sys.exc_info()[0])
             time.sleep(bulk)
