@@ -27,6 +27,7 @@ import sys
 import MySQLdb
 
 URLS = [
+"http://www.mysqltutorial.org/mysql-administration.aspx",
 "http://www.mysqltutorial.org/basic-mysql-tutorial.aspx",
 "http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx",
 "http://www.mysqltutorial.org/mysql-triggers.aspx",
@@ -168,8 +169,6 @@ def main()  :
         for x in tmp:
             urls.append(x)
     print("OK (" + str(len(urls)) + ")")
-    shuffleList(urls)
-    print("urls shuffled")
     #Iterate thru all urls to get all code
     code = ["SHOW databases;"]
     db = MySQLdb.connect(SERVER, USER, PASSWORD, DB)
@@ -178,6 +177,7 @@ def main()  :
     for x in range(len(urls)):
         print("getting code for", urls[x], "(", x, ")")
         tmp = getCodeFromUrl(urls[x])
+        shuffleList(tmp) #to shuffle code lines : less catch "hopfully"
         for line in tmp:
             bulk = random.randint(5, 20) * len(line) / 200
             #bulk = len(line) * random.random() / 1.5
