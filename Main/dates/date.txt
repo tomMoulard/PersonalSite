@@ -1,37 +1,39 @@
-Tue 28 Feb 00:00:03 CET 2017
-Wed  1 Mar 00:00:03 CET 2017
-Thu  2 Mar 00:00:03 CET 2017
-Fri  3 Mar 00:00:04 CET 2017
-Sat  4 Mar 00:00:04 CET 2017
-Sun  5 Mar 00:00:04 CET 2017
-Mon  6 Mar 00:00:03 CET 2017
-Tue  7 Mar 00:00:03 CET 2017
-Wed  8 Mar 00:00:04 CET 2017
-Thu  9 Mar 00:00:03 CET 2017
-Fri 10 Mar 00:00:03 CET 2017
-Sat 11 Mar 00:00:02 CET 2017
-Sun 12 Mar 00:00:02 CET 2017
-Mon 13 Mar 00:00:02 CET 2017
-Tue 14 Mar 00:00:02 CET 2017
-Wed 15 Mar 00:00:03 CET 2017
-Thu 16 Mar 00:00:03 CET 2017
-Fri 17 Mar 00:01:41 CET 2017
-Sat 18 Mar 00:00:03 CET 2017
-Sun 19 Mar 00:00:02 CET 2017
-Mon 20 Mar 00:00:03 CET 2017
-Tue 21 Mar 00:00:03 CET 2017
-Wed 22 Mar 00:00:03 CET 2017
-Thu 23 Mar 00:00:03 CET 2017
-Fri 24 Mar 00:00:05 CET 2017
-Sat 25 Mar 00:00:03 CET 2017
-Sun 26 Mar 00:00:03 CET 2017
-Mon 27 Mar 00:00:03 CEST 2017
-Tue 28 Mar 00:00:14 CEST 2017
-Wed 29 Mar 00:00:18 CEST 2017
-Thu 30 Mar 00:00:37 CEST 2017
-Fri 31 Mar 00:00:04 CEST 2017
-Sat  1 Apr 00:00:08 CEST 2017
-Sun  2 Apr 00:00:03 CEST 2017
-Mon  3 Apr 00:00:03 CEST 2017
-Tue  4 Apr 00:00:02 CEST 2017
-Wed  5 Apr 00:00:05 CEST 2017
+?([
+[Date.UTC(2017, 2, 28), 03],
+[Date.UTC(2017, 3,  1), 03],
+[Date.UTC(2017, 3,  2), 03],
+[Date.UTC(2017, 3,  3), 04],
+[Date.UTC(2017, 3,  4), 04],
+[Date.UTC(2017, 3,  5), 04],
+[Date.UTC(2017, 3,  6), 03],
+[Date.UTC(2017, 3,  7), 03],
+[Date.UTC(2017, 3,  8), 04],
+[Date.UTC(2017, 3,  9), 03],
+[Date.UTC(2017, 3, 10), 03],
+[Date.UTC(2017, 3, 11), 02],
+[Date.UTC(2017, 3, 12), 02],
+[Date.UTC(2017, 3, 13), 02],
+[Date.UTC(2017, 3, 14), 02],
+[Date.UTC(2017, 3, 15), 03],
+[Date.UTC(2017, 3, 16), 03],
+[Date.UTC(2017, 3, 17), 41],
+[Date.UTC(2017, 3, 18), 03],
+[Date.UTC(2017, 3, 19), 02],
+[Date.UTC(2017, 3, 20), 03],
+[Date.UTC(2017, 3, 21), 03],
+[Date.UTC(2017, 3, 22), 03],
+[Date.UTC(2017, 3, 23), 03],
+[Date.UTC(2017, 3, 24), 05],
+[Date.UTC(2017, 3, 25), 03],
+[Date.UTC(2017, 3, 26), 03],
+[Date.UTC(2017, 3, 27), 03],
+[Date.UTC(2017, 3, 28), 14],
+[Date.UTC(2017, 3, 29), 18],
+[Date.UTC(2017, 3, 30), 37],
+[Date.UTC(2017, 3, 31), 04],
+[Date.UTC(2017, 4,  1), 08],
+[Date.UTC(2017, 4,  2), 03],
+[Date.UTC(2017, 4,  3), 03],
+[Date.UTC(2017, 4,  4), 02],
+[Date.UTC(2017, 4,  5), 05],
+]);
