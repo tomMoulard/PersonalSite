@@ -6,11 +6,10 @@ function setup() {
     w = windowWidth;
     //to get informations
     urlOfFile = "http://tom.moulard.org/dates/date.txt";
-    console.log(file);
 
     //to set the graph
-    //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
-    $.getJSON(urlOfFile, function (data) {
+    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+    //$.getJSON(urlOfFile, function (data) {
         Highcharts.chart('container', {
             chart: {
                 zoomType: 'x'
