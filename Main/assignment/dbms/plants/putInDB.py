@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Mar 26 10:00:00 2017
+Created on Tue Apr 6 13:00:00 2017
 
 @author: tm
+The goal is to lookup all pdfs and store the information they contain in
+The DataBase with the credentials stored on the CONFIG file
 """
 
 #credentials
@@ -12,7 +14,9 @@ USER     = SN
 SERVER   = "172.31.34.145"
 PASSWORD = SN
 DB       = "db" + SN
-
+CURSOR   = None;
+CONFIG   = "./CONFIG"
+PDFS     = "/tmp/plant_pdfs" 
 
 #to get the http responce for files
 import urllib.request
@@ -29,5 +33,57 @@ import MySQLdb
 
 #PDF
 #Please install PyPDF before executing the script
-import PyPdf
+import PyPDF2
 
+#password
+import getpass
+
+def prettyPrintForList(l):
+    """
+    This is a pretty print fo any list 
+    """
+    for x in range(len(l)):
+        print(x, l[x])
+
+def gettingCredsForDB():
+    """
+    Just used to gather configs
+    return USER, SERVER, PASSWORD, DB, PDFS
+    """
+    print("Getting credentials")
+    config   = open(CONFIG, "r")
+    configs  = config.readlines()
+    #prettyPrintForList(configs)
+    USER     = configs[0][:len(configs[0]) - 1]
+    SERVER   = configs[3][:len(configs[3]) - 1]
+    PASSWORD = configs[6][:len(configs[6]) - 1]
+    DB       = configs[9][:len(configs[9]) - 1]
+    PDFS     = configs[12][:len(configs[12]) - 1]
+    if(PASSWORD == "None"):
+        PASSWORD = getpass.getpass()
+    if(DB == "None"):
+        t = time.localtime()
+        DB = str(t[0]) + "-" + str(t[1]) + "-" + str(t[2]) + "_" + str(t[3]) + ":" + str(t[4]) + ":" + str(t[5]) + "_" + "plants"
+    #printnt("USER:", USER, "SERVER:", SERVER, "PASSWORD:", PASSWORD, "DB:", DB, "PDFS:", PDFS)
+    return USER, SERVER, PASSWORD, DB, PDFS
+
+def exe(code):
+    """
+    This is only used to send a "code" to mysql
+    """
+    print(USER + "@" + SERVER + "> " + code)
+    try:
+        CURSOR.execute(code)
+    except:
+        print(sys.exc_info())
+
+#To get the Credentials
+USER, SERVER, PASSWORD, DB, PDFS = gettingCredsForDB()
+db = MySQLdb.connect(SERVER, USER, PASSWORD)
+CURSOR = db.cursor()
+
+def main():
+    print("Opening pdfs parse them and store datas in the db")
+    print("Connected to server", SERVER, "with credential for :", USER)
+    exe("SHOW databases;")
+    print("closing DB")
