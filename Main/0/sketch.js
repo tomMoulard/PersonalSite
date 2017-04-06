@@ -8,8 +8,8 @@ function setup() {
     urlOfFile = "http://tom.moulard.org/dates/date.txt";
 
     //to set the graph
-    //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
-    $.getJSON(urlOfFile, function (data) {
+    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+    //$.getJSON(urlOfFile, function (data) {
         Highcharts.chart('container', {
             chart: {
                 zoomType: 'x'
