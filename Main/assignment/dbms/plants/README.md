@@ -13,7 +13,7 @@ Just run the getPDF.py
 ## Put the content in the DataBase
 Just run the putInDB.py
 
-##USE IT ALL
+## USE IT ALL
 python3 main.py
 
 # config:
