@@ -38,6 +38,9 @@ import PyPDF2
 #password
 import getpass
 
+#list files 
+import glob
+
 def prettyPrintForList(l):
     """
     This is a pretty print fo any list 
@@ -82,8 +85,35 @@ USER, SERVER, PASSWORD, DB, PDFS = gettingCredsForDB()
 db = MySQLdb.connect(SERVER, USER, PASSWORD)
 CURSOR = db.cursor()
 
-def main():
-    print("Opening pdfs parse them and store datas in the db")
-    print("Connected to server", SERVER, "with credential for :", USER)
+def getDataFromPDF(file):
+    res = []
+    raw = PyPDF2.PdfFileReader(file)
+    rawer = ""
+    #concatenate all the pages of the pdf in one string
+    for pageNumber in range(raw.pages.lengthFunction()):
+        rawer += raw.getPage(pageNumber).extractText() + "\n"
+    raw.close()
+    #let the parsing begin :3
+    pos = 0
+    ll = lent(rawer)
+    while pos < ll:
+
+        pos += 1
+    return res
+
+def sendDataToDB(data):
+    """
+    This is used so select which data and who to send the to the db
+    the table should be ready to accept data
+    """
     exe("SHOW databases;")
+
+def main():
+    print("Connected to server", SERVER, "with credential for :", USER)
+    print("Opening pdfs parse them and store datas in the db")
+    files = glob.glob(PDFS + "*.pdf")
+    for file in files:
+        data = getDataFromPDF(file)
+        sendDataToDB(data)
     print("closing DB")
+    db.close()
