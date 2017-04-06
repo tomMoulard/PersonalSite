@@ -1,0 +1,10 @@
+root
+#this is the USER to use
+localhost
+#this is the SERVER IP
+None
+#this is the PASSWORD (if None is written it will prompt it)
+None
+#this is the DATABASE to use (if None is written it will create one)
+./pdfs/
+#This is the location to save pdfs
