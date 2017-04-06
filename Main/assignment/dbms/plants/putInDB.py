@@ -28,7 +28,8 @@ import time
 import sys
 
 #mysql
-#Please install python-mysqldb or python3-mysqldb before executing the script
+#Please install python-mysqldb 
+#or python3-mysqldb before executing the script
 import MySQLdb
 
 #PDF
@@ -66,8 +67,13 @@ def gettingCredsForDB():
         PASSWORD = getpass.getpass()
     if(DB == "None"):
         t = time.localtime()
-        DB = str(t[0]) + "-" + str(t[1]) + "-" + str(t[2]) + "_" + str(t[3]) + ":" + str(t[4]) + ":" + str(t[5]) + "_" + "plants"
-    #printnt("USER:", USER, "SERVER:", SERVER, "PASSWORD:", PASSWORD, "DB:", DB, "PDFS:", PDFS)
+        DB = str(t[0]) + "-"\
+            + str(t[1]) + "-"\
+            + str(t[2]) + "_"\
+            + str(t[3]) + ":"\
+            + str(t[4]) + ":"\
+            + str(t[5]) + "_"\
+            + "plants"
     return USER, SERVER, PASSWORD, DB, PDFS
 
 def exe(code):
@@ -113,6 +119,7 @@ def main():
     print("Opening pdfs parse them and store datas in the db")
     files = glob.glob(PDFS + "*.pdf")
     for file in files:
+        print("geting data from", file)
         data = getDataFromPDF(file)
         sendDataToDB(data)
     print("closing DB")

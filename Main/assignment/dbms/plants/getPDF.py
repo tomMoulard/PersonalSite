@@ -64,10 +64,10 @@ def getTreeName(responce, pos):
         pos += 1
     pos += 5
     #get the scientific name
-    while pos < ll and responce[pos:pos+5] != "</tm>":
+    while pos < ll and responce[pos:pos+5] != "</td>":
         while pos < ll and responce[pos] != "<":
             scientificName += responce[pos]
-            po += 1
+            pos += 1
         while pos < ll and responce[pos] != ">":
             pos += 1
         pos += 1
@@ -79,7 +79,7 @@ def getTreeName(responce, pos):
     while pos < ll and responce[pos] != "<":
         commonName += responce[pos]
         pos += 1
-    res = symbol + "_" + scientificName + "_" + commonName.pdf
+    res = symbol + "_" + scientificName + "_" + commonName + ".pdf"
     return res, pos + 2
 
 def getTreeFactsSheetLink(responce, pos):
@@ -163,8 +163,9 @@ def getPDFUrls(responce):
             elif len(treeFactsSheetLink) != 0 and len(treePlantGuideLink) != 0:
                 #both links
                 ID = 3
-            res.append(treeName, [treeFactsSheetLink, treePlantGuideLink], ID)
+            res.append((treeName, [treeFactsSheetLink, treePlantGuideLink], ID))
         pos += 1
+    print(res)
     return res
 
 def _download(nameOfTheFile, url):
@@ -175,7 +176,8 @@ def _download(nameOfTheFile, url):
     try: 
         urllib.request.urlretrieve(url, nameOfTheFile)
     except:
-        print("The file", nameOfTheFile, "(", url, ")", "was not able to be downloaded")
+        print("The file", nameOfTheFile, "(", url, ")",\
+                "was not able to be downloaded")
 
 def download(nameOfTheFile, urls, ID):
     """
@@ -211,19 +213,20 @@ def download(nameOfTheFile, urls, ID):
 
 def main():
     print("Getting PDFS")
-    print("(All pdfs are stored just after being downloaded to reduce the RAM usage)")
+    print(
+        "(All pdfs are stored after being downloaded to reduce the RAM usage)")
     files = glob.glob(PDFS + "*.pdf")
     try:
         os.mkdir(PDFS)
     except:
-        #print(sys.exc_info())
-        print("The folder is already there")
+        #There is already a folder here
+        pass
     #get the main responce
     responce      = str(opener.open(URL).read())
-    print(responce)
+    #print(responce)
     #parse the main responce to fill URLS
     urls2Download = getPDFUrls(responce)
     #download pdfs
     for x in urls2Download:
-        print("downloading : ", x[0])
+        print("downloading: ", x[0]  +"(to: "+ PDFS + x[0] +")")
         download(PDFS + x[0], x[1], x[2])
