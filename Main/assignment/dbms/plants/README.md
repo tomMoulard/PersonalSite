@@ -1,7 +1,5 @@
 # This is a design for a crawler
 
-===
-
 ### Site : https://plants.usda.gov/java/factSheet
 
 The goal is to imput all the content of this site and put it in a database
@@ -25,5 +23,6 @@ python3 main.py
 you need to change the CONFIG file to update the credentials of the Database
 
 This was written by [TomMoulard](http://tom.moulard.org)
-You can find it [here]() also
+
+You can find it [here](http://tom.moulard.org/assignment/dbms/plants/) also
 6 april 2017
