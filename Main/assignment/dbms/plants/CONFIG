@@ -1,14 +1,17 @@
-root
-#this is the USER to use
+16920041
+#this is the USER to use (can use root)
 
-localhost
-#this is the SERVER IP
+172.31.34.145
+#this is the SERVER IP (can use localjost)
 
-None
+16920041
 #this is the PASSWORD (if None is written it will prompt it)
 
-None
+db16920041
 #this is the DATABASE to use (if None is written it will create one)
 
 /tmp/plant_pdfs/
 #This is the location to save pdfs
+
+/tmp/plant_pdfs/data.link
+#this is used to save usefull datas

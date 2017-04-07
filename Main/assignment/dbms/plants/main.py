@@ -8,7 +8,7 @@ To use the main program once
 
 print("Made by Tom Moulard")    
 
-import getPDF
+import getPDF2
 import putInDB
 import shutil
     
@@ -27,11 +27,11 @@ def gettingCredsForDB():
 PDFS = gettingCredsForDB()
 
 def main():
-    getPDF.main()
+    gata = getPDF2.main()
     putInDB.main()
     print("Do you want to erase the pdf folder ? [y/N] ", end="")
     if (input() == "y"):
-        print("erasing")
+        print("Ereasing ...")
         shutil.rmtree(PDFS[:len(PDFS) - 1])
     print("Finished \nSee you later\nMade but Tom Moulard")
 
