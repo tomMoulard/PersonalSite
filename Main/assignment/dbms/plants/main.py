@@ -27,9 +27,12 @@ def gettingCredsForDB():
 PDFS = gettingCredsForDB()
 
 def main():
-    data = []
-    data = getPDF3.main()
-    putInDB.main(data=data)
+    print("Do you want to clean the pdf folder ? [y/N] ", end="")
+    if (input() == "y"):
+        print("Erasing ...")
+        shutil.rmtree(PDFS[:len(PDFS) - 1])
+    getPDF3.main()
+    putInDB.main()
     print("Do you want to erase the pdf folder ? [y/N] ", end="")
     if (input() == "y"):
         print("Erasing ...")

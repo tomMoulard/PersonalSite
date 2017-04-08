@@ -18,6 +18,7 @@ DB       = "db" + SN
 CURSOR   = None;
 CONFIG   = "./CONFIG"
 PDFS     = "/tmp/plant_pdfs" 
+TABLE    = "plant"
 
 #to get the http response for files
 import urllib.request
@@ -43,6 +44,10 @@ import getpass
 #list files 
 import glob
 
+#to touch a file
+#do : Path("<pathOfTheFileToTouch>").touch()
+from pathlib import Path
+
 def prettyPrintForList(l):
     """
     This is a pretty print fo any list 
@@ -66,8 +71,8 @@ def gettingCredsForDB():
     PDFS     = configs[12][:len(configs[12]) - 1]
     if(PASSWORD == "None"):
         PASSWORD = getpass.getpass()
+    t = time.localtime()
     if(DB == "None"):
-        t = time.localtime()
         DB = str(t[0]) + "-"\
             + str(t[1]) + "-"\
             + str(t[2]) + "_"\
@@ -75,10 +80,17 @@ def gettingCredsForDB():
             + str(t[4]) + ":"\
             + str(t[5]) + "_"\
             + "plants"
-    return USER, SERVER, PASSWORD, DB, PDFS
+    TABLE = str(t[0]) + "-"\
+        + str(t[1]) + "-"\
+        + str(t[2]) + "_"\
+        + str(t[3]) + ":"\
+        + str(t[4]) + ":"\
+        + str(t[5]) + "_"\
+        + "plants"
+    return USER, SERVER, PASSWORD, DB, PDFS, TABLE
 
 #To get the Credentials
-USER, SERVER, PASSWORD, DB, PDFS = gettingCredsForDB()
+USER, SERVER, PASSWORD, DB, PDFS, TABLE = gettingCredsForDB()
 db = MySQLdb.connect(SERVER, USER, PASSWORD)
 CURSOR = db.cursor()
 
@@ -100,17 +112,13 @@ def getDataFromPDF(file):
          0 : Symbol
          1 : Scientific Name
          2 : Common Name
-         3 : Synonym Symbol
-         4 : 
-         5 : 
-         6 : fs_Alternative_Name
-         7 : fs_Uses
-         8 : pg_Alternative_Common_Name
-         9 : pg_Uses
-         10: pg_Uses
+         3 : fs_Alternative_Name
+         4 : fs_Uses
+         5 : pg_Alternative_Common_Name
+         6 : pg_Uses
     This return this array
     """
-    res = [""] * 11
+    res = [""] * 7
     #print(res)
     try:
         raw = PyPDF2.PdfFileReader(file)
@@ -123,17 +131,36 @@ def getDataFromPDF(file):
     except:
         print("ousp:", file)
         print(sys.exc_info())
+        Path(PDFS + "/debug.tmp").touch()
+        f = open(PDFS + "/debug.tmp", "r+")
+        f.write(file + " has failed")
+        f.close()
     return res
 
-def sendDataToDB(data):
+def sendDataToDB(data, ):
     """
     This is used so select which data and who to send the to the db
     the table should be ready to accept data
     """
     exe("SHOW databases;")
 
-def main(data=None):
+def main():
     print("Connected to server", SERVER, "with credential for :", USER)
+
+    TABLE = """
+        DROP TABLE IF EXISTS plants;
+        CREATE TABLE plants (
+            Symbol                      VARCHAR(10) PRIMARY KEY NOT NULL,
+            Scientific_Name             VARCHAR(60) NOT NULL,
+            Common_Name                 VARCHAR(42) NOT NULL,
+            fs_Alternative_Name         VARCHAR(4096),
+            fs_Uses                     VARCHAR(4096),
+            pg_Alternative_Common_Name  VARCHAR(4096),
+            pg_Uses                     VARCHAR(4096)
+        ) ENGINE=InnoDB;
+    """
+    exe(TABLE)
+    print("Table", DB, "Created")
     print("Opening pdfs parse them and store data in the db")
     files = glob.glob(PDFS + "*.pdf")
     for file in range(len(files)):
