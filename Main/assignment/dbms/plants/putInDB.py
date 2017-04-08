@@ -112,14 +112,14 @@ def getDataFromPDF(file, data=None):
     you need to give the right Plan object <data> to take less computation)
     """
     res = [""] * 11
-    print(res)
+    #print(res)
     try:
         raw = PyPDF2.PdfFileReader(file)
         rawer = ""
         #concatenate all the pages of the pdf in one string
         for pageNumber in range(raw.pages.lengthFunction()):
             rawer += raw.getPage(pageNumber).extractText() + "\n"
-        print([rawer.split("\n")])
+        #print([rawer.split("\n")])
         #let the parsing begin
         if data == None:
             #Symbol 

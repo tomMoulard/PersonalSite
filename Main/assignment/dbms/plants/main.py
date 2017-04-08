@@ -8,7 +8,7 @@ To use the main program once
 
 print("Made by Tom Moulard")    
 
-import getPDF2
+import getPDF3
 import putInDB
 import shutil
     
@@ -28,7 +28,7 @@ PDFS = gettingCredsForDB()
 
 def main():
     data = []
-    data = getPDF2.main()
+    data = getPDF3.main()
     putInDB.main(data=data)
     print("Do you want to erase the pdf folder ? [y/N] ", end="")
     if (input() == "y"):
