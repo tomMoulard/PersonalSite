@@ -32,7 +32,7 @@ def main():
     putInDB.main(data=data)
     print("Do you want to erase the pdf folder ? [y/N] ", end="")
     if (input() == "y"):
-        print("Ereasing ...")
+        print("Erasing ...")
         shutil.rmtree(PDFS[:len(PDFS) - 1])
     print("Finished \nSee you later\nMade but Tom Moulard")
 

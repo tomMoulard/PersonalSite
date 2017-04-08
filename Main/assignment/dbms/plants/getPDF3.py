@@ -11,7 +11,7 @@ VERSION: using this :
 https://plants.usda.gov/java/downloadData?fileName=plnt17240.txt
 """
 
-#to get the http responce for files and download some 
+#to get the http response for files and download some 
 import urllib.request
 opener = urllib.request.FancyURLopener({})
 
@@ -88,12 +88,13 @@ def main():
         #There is already a folder here
         pass
     #open the main page to get a valid token to access the main file
-    mainResponce = str(opener.open(MAINURL).read())
-    print("Got responce, splitting it")
-    links = mainResponce.split(".pdf")
-    print("Responce splited, Downloading pdfs")
+    mainresponse = str(opener.open(MAINURL).read())
+    print("Got response, splitting it")
+    links = mainresponse.split(".pdf")
+    print("Response spliced, Downloading pdfs")
     pdfs = []
     pos = 0
+    print("got:", len(links), "to download")
     for pdf in links:
         tmp = ""
         tmpLinks = pdf.split("\"")

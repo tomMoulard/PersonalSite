@@ -5,6 +5,7 @@ Created on Tue Apr 6 13:00:00 2017
 @author: tm
 The goal is to lookup all pdfs and store the information they contain in
 The DataBase with the credentials stored on the CONFIG file
+V2
 """
 
 #credentials
@@ -18,7 +19,7 @@ CURSOR   = None;
 CONFIG   = "./CONFIG"
 PDFS     = "/tmp/plant_pdfs" 
 
-#to get the http responce for files
+#to get the http response for files
 import urllib.request
 opener = urllib.request.FancyURLopener({})
 
@@ -76,6 +77,11 @@ def gettingCredsForDB():
             + "plants"
     return USER, SERVER, PASSWORD, DB, PDFS
 
+#To get the Credentials
+USER, SERVER, PASSWORD, DB, PDFS = gettingCredsForDB()
+db = MySQLdb.connect(SERVER, USER, PASSWORD)
+CURSOR = db.cursor()
+
 def exe(code):
     """
     This is only used to send a "code" to mysql
@@ -86,12 +92,7 @@ def exe(code):
     except:
         print(sys.exc_info())
 
-#To get the Credentials
-USER, SERVER, PASSWORD, DB, PDFS = gettingCredsForDB()
-db = MySQLdb.connect(SERVER, USER, PASSWORD)
-CURSOR = db.cursor()
-
-def getDataFromPDF(file, data=None):
+def getDataFromPDF(file):
     """
     This function parse the pdf file to get data
     return an array of data to be sent:
@@ -108,8 +109,6 @@ def getDataFromPDF(file, data=None):
          9 : pg_Uses
          10: pg_Uses
     This return this array
-    (To simplifies a little if you gathered the Plan data from getPDF
-    you need to give the right Plan object <data> to take less computation)
     """
     res = [""] * 11
     #print(res)
@@ -121,34 +120,6 @@ def getDataFromPDF(file, data=None):
             rawer += raw.getPage(pageNumber).extractText() + "\n"
         #print([rawer.split("\n")])
         #let the parsing begin
-        if data == None:
-            #Symbol 
-            tmp = file.split("\\")
-            tmp2 = tmp[-1]
-            for x in tmp2:
-                if x == "-":
-                    break
-                else:
-                    res[0] += x
-
-            #Scientific name
-            pos = 0
-            ll = len(rawer)
-            while pos < ll:
-
-                pos += 1
-        else: # there is data
-            res[0] = data.symbol
-            res[1] = data.scientific_name
-            res[2] = data.common_name
-            res[3] = data.synonym_symbol
-        #ether way we need to get the data from the file
-        #but it splits again between the Fact Sheet and the Plan Guide
-        if file[-8:-4] == "Fact": # then this is a FS
-            pass
-        else: # this is a PG
-            pass
-
     except:
         print("ousp:", file)
         print(sys.exc_info())
@@ -163,13 +134,11 @@ def sendDataToDB(data):
 
 def main(data=None):
     print("Connected to server", SERVER, "with credential for :", USER)
-    print("Opening pdfs parse them and store datas in the db")
-    #files = glob.glob(PDFS + "*.pdf")
-    #for file in range(len(files)):
-    #    print("geting data from", file[file])
-    #    d = getDataFromPDF(files[file], data=data[file])
-    #    sendDataToDB(d)
-    d = getDataFromPDF(PDFS + "ACAN11-Fac.pdf")
-    sendDataToDB(d)
+    print("Opening pdfs parse them and store data in the db")
+    files = glob.glob(PDFS + "*.pdf")
+    for file in range(len(files)):
+        print("getting data from", file[file])
+        d = getDataFromPDF(files[file])
+        sendDataToDB(d)
     print("closing DB")
     db.close()

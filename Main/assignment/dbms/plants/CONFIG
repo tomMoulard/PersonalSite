@@ -2,7 +2,7 @@
 #this is the USER to use (can use root)
 
 172.31.34.145
-#this is the SERVER IP (can use localjost)
+#this is the SERVER IP (can use localhost)
 
 16920041
 #this is the PASSWORD (if None is written it will prompt it)
@@ -14,4 +14,4 @@ db16920041
 #This is the location to save pdfs
 
 /tmp/plant_pdfs/data.link
-#this is used to save usefull datas
+#this is used to save useful data
