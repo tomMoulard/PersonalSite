@@ -27,8 +27,9 @@ def gettingCredsForDB():
 PDFS = gettingCredsForDB()
 
 def main():
-    gata = getPDF2.main()
-    putInDB.main()
+    data = []
+    data = getPDF2.main()
+    putInDB.main(data=data)
     print("Do you want to erase the pdf folder ? [y/N] ", end="")
     if (input() == "y"):
         print("Ereasing ...")

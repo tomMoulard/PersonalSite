@@ -91,20 +91,67 @@ USER, SERVER, PASSWORD, DB, PDFS = gettingCredsForDB()
 db = MySQLdb.connect(SERVER, USER, PASSWORD)
 CURSOR = db.cursor()
 
-def getDataFromPDF(file):
-    res = []
-    raw = PyPDF2.PdfFileReader(file)
-    rawer = ""
-    #concatenate all the pages of the pdf in one string
-    for pageNumber in range(raw.pages.lengthFunction()):
-        rawer += raw.getPage(pageNumber).extractText() + "\n"
-    raw.close()
-    #let the parsing begin :3
-    pos = 0
-    ll = lent(rawer)
-    while pos < ll:
+def getDataFromPDF(file, data=None):
+    """
+    This function parse the pdf file to get data
+    return an array of data to be sent:
+        The list resulting should contain:
+         0 : Symbol
+         1 : Scientific Name
+         2 : Common Name
+         3 : Synonym Symbol
+         4 : 
+         5 : 
+         6 : fs_Alternative_Name
+         7 : fs_Uses
+         8 : pg_Alternative_Common_Name
+         9 : pg_Uses
+         10: pg_Uses
+    This return this array
+    (To simplifies a little if you gathered the Plan data from getPDF
+    you need to give the right Plan object <data> to take less computation)
+    """
+    res = [""] * 11
+    print(res)
+    try:
+        raw = PyPDF2.PdfFileReader(file)
+        rawer = ""
+        #concatenate all the pages of the pdf in one string
+        for pageNumber in range(raw.pages.lengthFunction()):
+            rawer += raw.getPage(pageNumber).extractText() + "\n"
+        print([rawer.split("\n")])
+        #let the parsing begin
+        if data == None:
+            #Symbol 
+            tmp = file.split("\\")
+            tmp2 = tmp[-1]
+            for x in tmp2:
+                if x == "-":
+                    break
+                else:
+                    res[0] += x
 
-        pos += 1
+            #Scientific name
+            pos = 0
+            ll = len(rawer)
+            while pos < ll:
+
+                pos += 1
+        else: # there is data
+            res[0] = data.symbol
+            res[1] = data.scientific_name
+            res[2] = data.common_name
+            res[3] = data.synonym_symbol
+        #ether way we need to get the data from the file
+        #but it splits again between the Fact Sheet and the Plan Guide
+        if file[-8:-4] == "Fact": # then this is a FS
+            pass
+        else: # this is a PG
+            pass
+
+    except:
+        print("ousp:", file)
+        print(sys.exc_info())
     return res
 
 def sendDataToDB(data):
@@ -114,13 +161,15 @@ def sendDataToDB(data):
     """
     exe("SHOW databases;")
 
-def main():
+def main(data=None):
     print("Connected to server", SERVER, "with credential for :", USER)
     print("Opening pdfs parse them and store datas in the db")
-    files = glob.glob(PDFS + "*.pdf")
-    for file in files:
-        print("geting data from", file)
-        data = getDataFromPDF(file)
-        sendDataToDB(data)
+    #files = glob.glob(PDFS + "*.pdf")
+    #for file in range(len(files)):
+    #    print("geting data from", file[file])
+    #    d = getDataFromPDF(files[file], data=data[file])
+    #    sendDataToDB(d)
+    d = getDataFromPDF(PDFS + "ACAN11-Fac.pdf")
+    sendDataToDB(d)
     print("closing DB")
     db.close()

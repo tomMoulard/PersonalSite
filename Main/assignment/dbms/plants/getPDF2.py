@@ -23,11 +23,14 @@ import PyPDF2
 #do : Path("<pathOfTheFileToTouch>").touch()
 from pathlib import Path
 
+import os
+
 URL     = "https://plants.usda.gov/java/downloadData?fileName=plnt17240.txt"
 CONFIG  = "./CONFIG"
 PDFS    = "/tmp/plant_pdfs/"
 SAVE    = "/tmp/plant_pdfs/data.link"
 MAINURL = "https://plants.usda.gov/java/factSheet"
+PREFIX  = "https://plants.usda.gov"
 
 def gettingCredsForDB():
     """
@@ -54,7 +57,7 @@ def prettyPrintForPlan(l):
     This is a pretty print for a Plan list 
     """
     for x in range(len(l)):
-        print(x, l[x].getAllInfo())
+        l[x]
 
 class Plan():
     """
@@ -78,7 +81,7 @@ class Plan():
         self.pdf_fact_sheet  = pdf_fact_sheet
         self.doc_plant_guide = doc_plant_guide
         self.pdf_plant_guide = pdf_plant_guide
-        self.pdfs            = pdfs
+        self.pdfs            = pdfs #prefix of pdf file
 
     def __str__(self):
         return self.symbol + "-" + self.scientific_name
@@ -101,13 +104,13 @@ class Plan():
         """
         return the full name of the Guide sheet 
         """
-        return self.pdfs + self.symbol + "-Guide.pdf"
+        return self.pdfs + self.symbol + "-Guid.pdf"
 
-    def getAllInfo(self):
+    def printMe(self):
         """
         supposed to be called to print this Plan :)
         """
-        return self.common_name + "(" + self.pdf_fact_sheet + "," + self.pdf_plant_guide +")"
+        print(self.common_name,  "(",  self.pdf_fact_sheet,  ",",  self.pdf_plant_guide, ")")
         
 def getToken(responce):
     """
@@ -123,7 +126,7 @@ def getToken(responce):
     while pos < ll and responce[pos] != ".":
         token += responce[pos]
         pos   += 1
-    print(token)
+    #print("token:", token)
     return "https://plants.usda.gov/java/downloadData?fileName=plnt"+token+".txt"
 
 def download(nameOfTheFile, url, debug=""):
@@ -146,8 +149,37 @@ def parseFile(responce):
     return the list of all Plan object found
     """
     data = []
-    lines = responce.split('\"n')
-    prettyPrintForList(lines)
+    lines = responce.split("\\n")
+    for line in range(1, len(lines) - 3):
+        data            = lines[line].split(",")
+        symbol          = data[0][1:-1]
+        synonym_symbol  = data[1][1:-1]
+        scientific_name = data[2][1:-1]
+        common_name     = data[3][1:-1]
+        doc_fact_sheet  = data[4][1:-1]
+        pdf_fact_sheet  = data[5][1:-1]
+        doc_plant_guide = data[6][1:-1]
+        pdf_plant_guide = data[7][1:-1]
+        if pdf_plant_guide == "/factsheet/pdf/":
+            pdf_plant_guide = PREFIX + "plantguide/pdf/pg_" + symbol + ".pdf"
+        if pdf_fact_sheet == "/factsheet/pdf/":
+            pdf_fact_sheet = PREFIX + "plantguide/pdf/fs_" + symbol + ".pdf"
+        p = Plan(symbol,\
+            synonym_symbol,\
+            scientific_name,\
+            common_name,\
+            doc_fact_sheet,\
+            pdf_fact_sheet,\
+            doc_plant_guide,\
+            pdf_plant_guide,
+            PDFS)
+        p.printMe()
+        data.append(p)
+        #download files
+        if p.pdf_plant_guide != "":
+            download(p.getName4PDFGuide(), PREFIX + p.doc_fact_sheet)
+        if p.pdf_fact_sheet != "":
+            download(p.getName4PDFFact(), PREFIX + p.doc_fact_sheet)
     return data
 
 def main():
@@ -155,7 +187,8 @@ def main():
     print(
         "(All pdfs are stored after being downloaded to reduce the RAM usage)")
     try:
-        os.mkdir(PDFS)
+        os.mkdir(PDFS)  
+        
     except:
         #There is already a folder here
         pass
@@ -168,6 +201,6 @@ def main():
     print("Got main responce, parsing it")
     #parse the responce to fill a Plant array and download them
     data = parseFile(responce)
-    #prettyPrintForPlan(data)
+    prettyPrintForPlan(data)
     print("Got", len(data), "records")
     return data
