@@ -130,6 +130,45 @@ def getDataFromPDF(file):
         for pageNumber in range(raw.pages.lengthFunction()):
             rawer += raw.getPage(pageNumber).extractText() + "\n"
         #let the parsing begin
+        pos = 0
+        ll = len(rawer)
+        while pos < ll and rawer[pos:pos+5] != "Plant":
+            pos += 1
+        pos += 6 # the next char should be a F or a G:
+        if rawer[pos] == "F": # FactSheet
+            t = "F"
+        else: #Plan Guide
+            t = "G"
+        #SYMBOL
+        #Can be get from the file name : /tmp/plant_pdfs/pg_brca5.pdf
+        #AKA <PDFS>/<type>_<symbol>.pdfs
+        #But there is some mistakes in the source pdf names
+        #-> Need to parse the pdf
+        while pos < ll and rawer[pos:pos+9] != "symbol = ":
+            pos += 1
+        pos += 9 #until the next \\, this should be the symbol
+        while pos < ll and rawer[pos] != "\\"
+            res[0] += rawer[pos]
+            pos += 1
+        #SCIENTIFIC NAME & COMMON NAME
+        pos = 0
+        while pos < ll and rawer[pos:pos+8] != ".gov> \n ":
+            pos += 1
+        pos += 8
+        while pos < ll and rawer[pos] != "\\"
+            tmp += rawer[pos]
+            pos += 1
+        phrase = tmp.split(" ")
+        for word in phrase:
+            if word[1:].islower(): #COMMON NAME is written in upper cases
+                res[1] += word.capitalize() + " " #SCIENTIFIC NAME
+            else:
+                res[2] += word.capitalize() + " " #COMMON NAME
+        if t == "F": #This is a Fact Sheet
+            #FS_USES
+        else: # this is a Plan Guide
+            pass
+        
     except:
         print("ousp:", file)
         print(sys.exc_info())
