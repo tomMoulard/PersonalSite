@@ -55,6 +55,7 @@ def prettyPrintForList(l):
     for x in range(len(l)):
         print(x, l[x])
 
+
 def gettingCredsForDB():
     """
     Just used to gather configs
@@ -72,20 +73,22 @@ def gettingCredsForDB():
     if(PASSWORD == "None"):
         PASSWORD = getpass.getpass()
     t = time.localtime()
+    #USE DATABASE
+    #if NO database create one :)
     if(DB == "None"):
-        DB = str(t[0]) + "-"\
-            + str(t[1]) + "-"\
+        DB = str(t[0])  + "_"\
+            + str(t[1]) + "_"\
             + str(t[2]) + "_"\
-            + str(t[3]) + ":"\
-            + str(t[4]) + ":"\
-            + str(t[5]) + "_"\
+            + str(t[3]) + "h"\
+            + str(t[4]) + "m"\
+            + str(t[5]) + "s_"\
             + "plants"
-    TABLE = str(t[0]) + "-"\
-        + str(t[1]) + "-"\
+    TABLE = str(t[0]) + "_"\
+        + str(t[1]) + "_"\
         + str(t[2]) + "_"\
-        + str(t[3]) + ":"\
-        + str(t[4]) + ":"\
-        + str(t[5]) + "_"\
+        + str(t[3]) + "h"\
+        + str(t[4]) + "m"\
+        + str(t[5]) + "s_"\
         + "plants"
     return USER, SERVER, PASSWORD, DB, PDFS, TABLE
 
@@ -126,7 +129,6 @@ def getDataFromPDF(file):
         #concatenate all the pages of the pdf in one string
         for pageNumber in range(raw.pages.lengthFunction()):
             rawer += raw.getPage(pageNumber).extractText() + "\n"
-        #print([rawer.split("\n")])
         #let the parsing begin
     except:
         print("ousp:", file)
@@ -137,19 +139,44 @@ def getDataFromPDF(file):
         f.close()
     return res
 
-def sendDataToDB(data, ):
+def sendDataToDB(data):
     """
     This is used so select which data and who to send the to the db
     the table should be ready to accept data
+    INSERT + 
     """
-    exe("SHOW databases;")
+    
+    INS = "INSERT INTO " + TABLE +\
+        "( Symbol, Scientific_Name, Common_Name, fs_Alternative_Name, fs_Uses, pg_Alternative_Common_Name, pg_Uses)"
+    VAL = "VALUES (" + data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + ");"
+    try:
+        exe(INS + VAL)
+    except:
+        #The line is already there
+        if data[3] != "": #AKA data come from a Fact sheet
+            exe("UPDATE " + TABLE + " WHERE Symbol = " + data[0] +\
+                " SET fs_Alternative_Name = " + data[3] + ", "\
+                "fs_Uses = " + data[4] + ";")
+        else:#AKA data come from a Plan Guide
+            exe("UPDATE " + TABLE + " WHERE Symbol = " + data[0] +\
+                " SET pg_Alternative_Common_Name = " + data[5] + ", "\
+                "pg_Uses = " + data[6] + ";")
+        
+
 
 def main():
     print("Connected to server", SERVER, "with credential for :", USER)
-
-    TABLE = """
-        DROP TABLE IF EXISTS plants;
-        CREATE TABLE plants (
+    try :
+        exe("CREATE DATABASE IF NOT EXISTS " + DB + ";")
+    except:
+        print("Database is existent")
+    try:
+        exe("USE " + DB +";")
+    except:
+        print("already using database ?")
+    CREATETABLE = """
+        DROP TABLE IF EXISTS """ + TABLE + """;
+        CREATE TABLE """ + TABLE + """ (
             Symbol                      VARCHAR(10) PRIMARY KEY NOT NULL,
             Scientific_Name             VARCHAR(60) NOT NULL,
             Common_Name                 VARCHAR(42) NOT NULL,
@@ -157,10 +184,10 @@ def main():
             fs_Uses                     VARCHAR(4096),
             pg_Alternative_Common_Name  VARCHAR(4096),
             pg_Uses                     VARCHAR(4096)
-        ) ENGINE=InnoDB;
+        ) ENGINE=InnoDB
     """
-    exe(TABLE)
-    print("Table", DB, "Created")
+    exe(CREATETABLE)
+    print("Table", TABLE, "Created")
     print("Opening pdfs parse them and store data in the db")
     files = glob.glob(PDFS + "*.pdf")
     for file in range(len(files)):

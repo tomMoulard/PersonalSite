@@ -25,6 +25,7 @@ from pathlib import Path
 
 import os
 import time
+import sys
 
 URL     = "https://plants.usda.gov/java/downloadData?fileName=plnt17240.txt"
 CONFIG  = "./CONFIG"
@@ -32,6 +33,8 @@ PDFS    = "/tmp/plant_pdfs/"
 SAVE    = "/tmp/plant_pdfs/data.link"
 MAINURL = "https://plants.usda.gov/java/factSheet"
 PREFIX  = "https://plants.usda.gov"
+
+FAILED = []
 
 def gettingCredsForDB():
     """
@@ -61,11 +64,12 @@ def download(nameOfTheFile, url, debug=""):
     <debug> is optionnal and will be printed before the line
     """
     try: 
-        print(debug, "downloading: ", nameOfTheFile  +"(from: "+ url +")")
+        print(debug, "Downloading: ", nameOfTheFile  +"(from: "+ url +")")
         urllib.request.urlretrieve(url, nameOfTheFile)
     except:
         print("The file", nameOfTheFile, "(", url, ")",\
                 "was not able to be downloaded")
+        FAILED.append(url)
 
 def getName(link):
     """
@@ -88,7 +92,11 @@ def main():
         #There is already a folder here
         pass
     #open the main page to get a valid token to access the main file
-    mainresponse = str(opener.open(MAINURL).read())
+    try:
+        mainresponse = str(opener.open(MAINURL).read())
+    except:
+        print(sys.exc_info(), "\nCould not get the Main responce, retrying")
+        main()
     print("Got response, splitting it")
     links = mainresponse.split(".pdf")
     print("Response spliced, Downloading pdfs")
@@ -101,5 +109,11 @@ def main():
         tmp = PREFIX + tmpLinks[-1] + ".pdf"
         pdfs.append(tmp)
         download(getName(tmp), tmp, debug=pos)
+        pos += 1
+        time.sleep(1)
+    pso = 0
+    print("retrying failed:", len(FAILED))
+    for fail in FAILED:
+        download(getName(fail), fail, debug=pos)
         pos += 1
         time.sleep(1)

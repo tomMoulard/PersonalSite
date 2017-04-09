@@ -11,6 +11,7 @@ print("Made by Tom Moulard")
 import getPDF3
 import putInDB
 import shutil
+import sys
     
 CONFIG   = "./CONFIG"
 
@@ -27,14 +28,19 @@ def gettingCredsForDB():
 PDFS = gettingCredsForDB()
 
 def main():
-    print("Do you want to clean the pdf folder ? [y/N] ", end="")
-    if (input() == "y"):
-        print("Erasing ...")
-        shutil.rmtree(PDFS[:len(PDFS) - 1])
-    getPDF3.main()
+    print("Do you want to Download pdfs ? [Y/n] ", end="")
+    if input() == "n":
+        pass
+    else:
+        try:
+            shutil.rmtree(PDFS[:len(PDFS) - 1])
+        except:
+            #asked to erase but nothig to erase :/
+            pass
+        getPDF3.main()
     putInDB.main()
     print("Do you want to erase the pdf folder ? [y/N] ", end="")
-    if (input() == "y"):
+    if input() == "y":
         print("Erasing ...")
         shutil.rmtree(PDFS[:len(PDFS) - 1])
     print("Finished \nSee you later\nMade but Tom Moulard")
