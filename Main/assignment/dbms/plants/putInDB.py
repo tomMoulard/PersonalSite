@@ -18,7 +18,14 @@ DB       = "db" + SN
 CURSOR   = None;
 CONFIG   = "./CONFIG"
 PDFS     = "/tmp/plant_pdfs" 
-TABLE    = "plant"
+TABLE    = "usdaplant"
+MORETOK  = "https://plants.usda.gov/core/profile?symbol="
+COLS     = [
+    "fs_Alternative_Name",\
+    "fs_Uses",\
+    "pg_Alternative_Common_Name",\
+    "pg_Uses"] # these are LONGTEXT cols of the TABLE
+
 
 #to get the http response for files
 import urllib.request
@@ -107,6 +114,17 @@ def exe(code):
     except:
         print(sys.exc_info())
 
+def getMoreData(res):
+    """
+    This function get more data from the MORETOK + Symbol web page
+    and add it to the end of res
+    no actual return because of lists
+    """
+    #Open the web page and get the response
+    #parse it to get more data
+    #add it to res
+    res.append("")
+
 def getDataFromPDF(file):
     """
     This function parse the pdf file to get data
@@ -147,15 +165,16 @@ def getDataFromPDF(file):
         while pos < ll and rawer[pos:pos+9] != "symbol = ":
             pos += 1
         pos += 9 #until the next \\, this should be the symbol
-        while pos < ll and rawer[pos] != "\\"
+        while pos < ll and rawer[pos] != "\\":
             res[0] += rawer[pos]
             pos += 1
+        getMoreData(res)
         #SCIENTIFIC NAME & COMMON NAME
         pos = 0
         while pos < ll and rawer[pos:pos+8] != ".gov> \n ":
             pos += 1
         pos += 8
-        while pos < ll and rawer[pos] != "\\"
+        while pos < ll and rawer[pos] != "\\":
             tmp += rawer[pos]
             pos += 1
         phrase = tmp.split(" ")
@@ -166,6 +185,7 @@ def getDataFromPDF(file):
                 res[2] += word.capitalize() + " " #COMMON NAME
         if t == "F": #This is a Fact Sheet
             #FS_USES
+            pass
         else: # this is a Plan Guide
             pass
         
@@ -184,10 +204,15 @@ def sendDataToDB(data):
     the table should be ready to accept data
     INSERT + 
     """
+    INS = "INSERT INTO " + TABLE + " (Symbol, Scientific_Name, Common_Name"
+    for col in COLS:
+        INS += ", " + col
+    INS += ")"
+    VAL = "VALUES (" + data[0] + ", " + data[1] + ", " + data[2]
+    for index in range(len(COLS)):
+        VAL += ", " + data[index]
+    VAL+= ");"
     
-    INS = "INSERT INTO " + TABLE +\
-        "( Symbol, Scientific_Name, Common_Name, fs_Alternative_Name, fs_Uses, pg_Alternative_Common_Name, pg_Uses)"
-    VAL = "VALUES (" + data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + ");"
     try:
         exe(INS + VAL)
     except:
@@ -201,7 +226,14 @@ def sendDataToDB(data):
                 " SET pg_Alternative_Common_Name = " + data[5] + ", "\
                 "pg_Uses = " + data[6] + ";")
         
-
+def addCol(colName):
+    """
+    This symply add a new colone to the TABLE
+    Called colName
+    and update COLS
+    """
+    COLS.append(colName)
+    exe("ALTER TABLE " + TABLE + " ADD COLUMN " + colName + " LONGTEXT;")
 
 def main():
     print("Connected to server", SERVER, "with credential for :", USER)
@@ -215,16 +247,11 @@ def main():
         print("already using database ?")
     CREATETABLE = """
         DROP TABLE IF EXISTS """ + TABLE + """;
-        CREATE TABLE """ + TABLE + """ (
+        CREATE TABLE """ + TABLE + """(
             Symbol                      VARCHAR(10) PRIMARY KEY NOT NULL,
             Scientific_Name             VARCHAR(60) NOT NULL,
-            Common_Name                 VARCHAR(42) NOT NULL,
-            fs_Alternative_Name         VARCHAR(4096),
-            fs_Uses                     VARCHAR(4096),
-            pg_Alternative_Common_Name  VARCHAR(4096),
-            pg_Uses                     VARCHAR(4096)
-        ) ENGINE=InnoDB
-    """
+            Common_Name                 VARCHAR(42) NOT NULL"""
+    CREATETABLE += ") ENGINE=InnoDB"
     exe(CREATETABLE)
     print("Table", TABLE, "Created")
     print("Opening pdfs parse them and store data in the db")

@@ -33,6 +33,7 @@ PDFS    = "/tmp/plant_pdfs/"
 SAVE    = "/tmp/plant_pdfs/data.link"
 MAINURL = "https://plants.usda.gov/java/factSheet"
 PREFIX  = "https://plants.usda.gov"
+MORETOK = "https://plants.usda.gov/core/profile?symbol="
 
 FAILED = []
 
@@ -103,12 +104,13 @@ def main():
     pdfs = []
     pos = 0
     print("got:", len(links), "to download")
+    print("pos:failed/goal")
     for pdf in links:
         tmp = ""
         tmpLinks = pdf.split("\"")
         tmp = PREFIX + tmpLinks[-1] + ".pdf"
         pdfs.append(tmp)
-        download(getName(tmp), tmp, debug=pos)
+        download(getName(tmp), tmp, debug=str(pos) + ":" + str(len(FAILED)) + "/" + str(len(links)))
         pos += 1
         time.sleep(1)
     pso = 0
