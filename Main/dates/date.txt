@@ -1,4 +1,4 @@
-<TEXT>([
+callback([
 [date.UTC(2017,2,28),03],
 [date.UTC(2017,3,1),03],
 [date.UTC(2017,3,2),03],
