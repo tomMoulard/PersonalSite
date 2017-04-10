@@ -11,7 +11,7 @@ The goal is to save in the date.txt file the current date like:
 import time
 import os
 
-FILE = "./date.txt"
+FILE = "/home/pi/www/PersonalSite/Main/dates/date.txt"
 
 def mergeList(l):
     """
