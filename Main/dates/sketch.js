@@ -9,8 +9,8 @@ function setup() {
     postFix   = "./date.php?filename=usdeur.json&callback=?"
 
     //to set the graph
-    //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
-    $.getJSON(postFix, function (data) {
+    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+    //$.getJSON(postFix, function (data) {
     //$.getJSON(urlOfFile, function (data) {
         Highcharts.chart('container', {
             chart: {
