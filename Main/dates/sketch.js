@@ -6,9 +6,11 @@ function setup() {
     w = windowWidth;
     //to get informations
     urlOfFile = "http://tom.moulard.org/dates/date.txt";
+    postFix   = "./date.txt"
 
     //to set the graph
-    $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+    //$.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=usdeur.json&callback=?', function (data) {
+    $.getJSON(postFix, function (data) {
     //$.getJSON(urlOfFile, function (data) {
         Highcharts.chart('container', {
             chart: {
