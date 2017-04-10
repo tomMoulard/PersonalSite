@@ -8,25 +8,6 @@ The DataBase with the credentials stored on the CONFIG file
 V2
 """
 
-#credentials
-#mysql -u 16920041 -h 172.31.34.145 -p
-SN       = "16920041"
-USER     = SN
-SERVER   = "172.31.34.145"
-PASSWORD = SN
-DB       = "db" + SN
-CURSOR   = None;
-CONFIG   = "./CONFIG"
-PDFS     = "/tmp/plant_pdfs" 
-TABLE    = "usdaplant"
-MORETOK  = "https://plants.usda.gov/core/profile?symbol="
-COLS     = [
-    "fs_Alternative_Name",\
-    "fs_Uses",\
-    "pg_Alternative_Common_Name",\
-    "pg_Uses"] # these are LONGTEXT cols of the TABLE
-
-
 #to get the http response for files
 import urllib.request
 opener = urllib.request.FancyURLopener({})
@@ -55,13 +36,34 @@ import glob
 #do : Path("<pathOfTheFileToTouch>").touch()
 from pathlib import Path
 
+#REGULAR EXPRESSIONS
+import re
+
+#credentials
+#mysql -u 16920041 -h 172.31.34.145 -p
+SN       = "16920041"
+USER     = SN
+SERVER   = "172.31.34.145"
+PASSWORD = SN
+DB       = "db" + SN
+CURSOR   = None;
+CONFIG   = "./CONFIG"
+PDFS     = "/tmp/plant_pdfs" 
+TABLE    = "usdaplant"
+MORETOK  = "https://plants.usda.gov/core/profile?symbol="
+COLS     = ["fs_Alternative_Name",\
+            "fs_Uses",\
+            "pg_Alternative_Common_Name",\
+            "pg_Uses"] # these are TABLE's COLS name
+TYPECOLS = ["VARCHAR"] * len(COLS) # theses are CLOs TYPE
+LENCOLS  = ["10"]      * len(COLS) # theses are COLs lenght
+
 def prettyPrintForList(l):
     """
     This is a pretty print fo any list 
     """
     for x in range(len(l)):
         print(x, l[x])
-
 
 def gettingCredsForDB():
     """
@@ -104,11 +106,12 @@ USER, SERVER, PASSWORD, DB, PDFS, TABLE = gettingCredsForDB()
 db = MySQLdb.connect(SERVER, USER, PASSWORD)
 CURSOR = db.cursor()
 
-def exe(code):
+def exe(code, optionnalOutput=""):
     """
     This is only used to send a "code" to mysql
+    and print optionnalOutput after this :)
     """
-    print(USER + "@" + SERVER + "> " + code)
+    print(USER + "@" + SERVER + "> " + code, optionnalOutput)
     try:
         CURSOR.execute(code)
     except:
@@ -121,6 +124,7 @@ def getMoreData(res):
     no actual return because of lists
     """
     #Open the web page and get the response
+    #actual Symbol is res[0]
     #parse it to get more data
     #add it to res
     res.append("")
@@ -128,15 +132,7 @@ def getMoreData(res):
 def getDataFromPDF(file):
     """
     This function parse the pdf file to get data
-    return an array of data to be sent:
-        The list resulting should contain:
-         0 : Symbol
-         1 : Scientific Name
-         2 : Common Name
-         3 : fs_Alternative_Name
-         4 : fs_Uses
-         5 : pg_Alternative_Common_Name
-         6 : pg_Uses
+    return an array of data to be sent
     This return this array
     """
     res = [""] * 7
@@ -147,6 +143,7 @@ def getDataFromPDF(file):
         #concatenate all the pages of the pdf in one string
         for pageNumber in range(raw.pages.lengthFunction()):
             rawer += raw.getPage(pageNumber).extractText() + "\n"
+        rawer = re.sub(" +", " ", rawer.replace("\n", ""))
         #let the parsing begin
         pos = 0
         ll = len(rawer)
@@ -184,19 +181,55 @@ def getDataFromPDF(file):
             else:
                 res[2] += word.capitalize() + " " #COMMON NAME
         if t == "F": #This is a Fact Sheet
-            #FS_USES
-            pass
+            paragraphs = rawer.split('Alternate Names',1)
+            if(len(paragraphs) == 1):
+                tmpRes = paragraphs[0]
+            else:
+                tmpRes = paragraphs[1]
+            tmpUse = tmpRes.split('Uses', 1)
+            if(len(tmpUse) == 1):
+                tmpUse = tmpRes.split('Description', 1)
+            if(len(paragraphs) > 1):
+                res[3] = tmpUse[0]
+            paragraphs = tmpUse[1].split('Status', 1)
+            if(len(paragraphs) > 1):
+                res[4] = paragraphs[0]
+            else:
+                res[4] = tmpUse[1].split('Description', 1)[0]
         else: # this is a Plan Guide
-            pass
-        
+            paragraphs = re.split('(Alternate common names|Alternate Names)',\
+                                    rawer,1)
+            if(len(paragraphs) == 1):
+                tmpRes = paragraphs[0]
+            else:
+                tmpRes = paragraphs[2]
+            tmpUse = tmpRes.split('Uses', 1)
+            if(len(tmpUse) == 1):
+                tmpUse = tmpRes.split('Description', 1)
+            if(len(paragraphs) > 1):
+                res[5] = tmpUse[0]
+            paragraphs = tmpUse[1].split('Status', 1)
+            if(len(paragraphs) > 1):
+                res[6] = paragraphs[0]
+            else:
+                res[6] = tmpUse[1].split('Description', 1)[0]
     except:
         print("ousp:", file)
         print(sys.exc_info())
         Path(PDFS + "/debug.tmp").touch()
         f = open(PDFS + "/debug.tmp", "r+")
-        f.write(file + " has failed")
+        f.write(file + " has failed because of:" + str(sys.exc_info()))
         f.close()
     return res
+
+def changeColSize(colPos, newSize):
+    """
+    This function change the colName size
+    """
+    val = "ALTER TABLE " + TABLE + " MODIFY " + colPos + " " +\
+        TYPECOLS[colPos] + "(" + newSize + ");"
+    LENCOLS[colPos] = max(newSize, LENCOLS[colPos])
+    exe(val)
 
 def sendDataToDB(data):
     """
@@ -212,28 +245,45 @@ def sendDataToDB(data):
     for index in range(len(COLS)):
         VAL += ", " + data[index]
     VAL+= ");"
-    
     try:
         exe(INS + VAL)
     except:
         #The line is already there
         if data[3] != "": #AKA data come from a Fact sheet
-            exe("UPDATE " + TABLE + " WHERE Symbol = " + data[0] +\
+            if len(data[3]) > LENCOLS[3]:
+                changeColSize(3, len(data[3]))
+            if len(data[4]) > LENCOLS[4]:
+                changeColSize(4, len(data[4]))
+            val = "UPDATE " + TABLE + " WHERE Symbol = " + data[0] +\
                 " SET fs_Alternative_Name = " + data[3] + ", "\
-                "fs_Uses = " + data[4] + ";")
+                "fs_Uses = " + data[4]
+            for x in rang(7, len(data)):
+                #if not data[x] in COLS: # data is not in the cols
+                #    addCol(data[x][:6], size=str(len(data[x])))
+                if len(data[x]) > LENCOLS[x]:
+                    changeColSize(x, len(data[x]))
+                var += ", " + COLS[x] + " = " + data[x]
+            exe(var + ";")
         else:#AKA data come from a Plan Guide
-            exe("UPDATE " + TABLE + " WHERE Symbol = " + data[0] +\
-                " SET pg_Alternative_Common_Name = " + data[5] + ", "\
-                "pg_Uses = " + data[6] + ";")
+            var = "UPDATE " + TABLE + " WHERE Symbol = " + data[0]
+            for x in rang(5, len(data)):
+                #if not data[x] in COLS: # data is not in the cols
+                #    addCol(data[x][:6], size=str(len(data[x])))
+                if len(data[x]) > LENCOLS[x]:
+                    changeColSize(x, len(data[x]))
+                var += ", " + COLS[x] + " = " + data[x]
+            exe(var + ";")
         
-def addCol(colName):
+def addCol(colName, typeCols="VARCHAR", size="64"):
     """
     This symply add a new colone to the TABLE
     Called colName
     and update COLS
     """
     COLS.append(colName)
-    exe("ALTER TABLE " + TABLE + " ADD COLUMN " + colName + " LONGTEXT;")
+    LENCOLS.append(size)
+    TYPECOLS.append(typeCols)
+    exe("ALTER TABLE "+TABLE+" ADD COLUMN "+colName+" "+typeCols+"("+size+");")
 
 def main():
     print("Connected to server", SERVER, "with credential for :", USER)
@@ -248,9 +298,11 @@ def main():
     CREATETABLE = """
         DROP TABLE IF EXISTS """ + TABLE + """;
         CREATE TABLE """ + TABLE + """(
-            Symbol                      VARCHAR(10) PRIMARY KEY NOT NULL,
-            Scientific_Name             VARCHAR(60) NOT NULL,
-            Common_Name                 VARCHAR(42) NOT NULL"""
+            Symbol          VARCHAR(10) PRIMARY KEY NOT NULL,
+            Scientific_Name VARCHAR(60) NOT NULL,
+            Common_Name     VARCHAR(42) NOT NULL"""
+    for x in rang(len(data)):
+        var += ", " + COLS[x] + " = " + data[x]
     CREATETABLE += ") ENGINE=InnoDB"
     exe(CREATETABLE)
     print("Table", TABLE, "Created")
