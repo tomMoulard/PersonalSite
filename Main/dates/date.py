@@ -41,6 +41,7 @@ def main():
     splitedData     = data.split("\n")
     splitedData[-1] = message
     splitedData[-2] = splitedData[-2] + ", "
+    print(splitedData)
     for line in range(len(splitedData)):
         splitedData[line] += "\n"
     splitedData.append("]);")

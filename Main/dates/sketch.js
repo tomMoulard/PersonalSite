@@ -28,7 +28,7 @@ function setup() {
             },
             yAxis: {
                 title: {
-                    text: 'Hour of the day'
+                    text: 'Seconds'
                 }
             },
             legend: {
@@ -60,10 +60,9 @@ function setup() {
                     threshold: null
                 }
             },
-
             series: [{
                 type: 'area',
-                name: 'hour',
+                name: 'Seconds',
                 data: data
             }]
         });
