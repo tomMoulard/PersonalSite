@@ -17,6 +17,9 @@ DB       = "db" + SN
 import urllib.request
 opener = urllib.request.FancyURLopener({})
 
+#parse web pages
+import bs4 as bs
+
 #Random
 import random
 import time
@@ -26,8 +29,9 @@ import sys
 #Please install python-mysqldb or python3-mysqldb before executing the script
 import MySQLdb
 
+PREFIX = "http://www.mysqltutorial.org"
 URLS = [
-"http://www.mysqltutorial.org/mysql-administration.aspx",
+#"http://www.mysqltutorial.org/mysql-administration.aspx",
 "http://www.mysqltutorial.org/basic-mysql-tutorial.aspx",
 "http://www.mysqltutorial.org/mysql-stored-procedure-tutorial.aspx",
 "http://www.mysqltutorial.org/mysql-triggers.aspx",
@@ -50,7 +54,6 @@ def shuffleList(l):
     ll = len(l)
     for x in range(ll):
         swappInList(l, x, random.randint(0, ll - 1  ))
-
 
 def parseCode(code):
     """
@@ -128,6 +131,28 @@ def getCodeFromUrl(url):
         pos += 1
     return parseCode(code)
 
+def getCodeFromUrl2(url):
+    """
+    Get The whole code from the url but using BS
+    return the array of code to execute
+    """
+    res = []
+    responce = str(opener.open(url).read())
+    soup = bs.BeautifulSoup(responce, "lxml")
+    for codes in soup.find_all("td", class_="crayon-code"):
+        tmp = ""
+        for lines in codes.find_all("div", class_="crayon-line"):
+            thisText = lines.text
+            if "USE" in thisText:
+                tmp = "-- " + thisText
+            else:
+                tmp += thisText + "\n"
+        if "..." in tmp:
+            pass
+        else:
+            res.append(tmp)
+    return res
+
 def mainUrl(url):
     """
     Return any good urls on the page
@@ -158,7 +183,6 @@ def mainUrl(url):
     urls = urls[:len(urls) - 9]
     return urls
 
-
 def main()  :
     print("Welcome \nThis is made by Tom MOULARD\nhttp://tom.moulard.org/")
     print("Just Configure your credentials inside the file if not aready did")
@@ -176,7 +200,7 @@ def main()  :
     cursor = db.cursor()
     for x in range(len(urls)):
         print("getting code for", urls[x], "(", x, ")")
-        tmp = getCodeFromUrl(urls[x])
+        tmp = getCodeFromUrl2(urls[x])
         shuffleList(tmp) #to shuffle code lines : less catch "hopfully"
         for line in tmp:
             bulk = random.randint(5, 20) * len(line) / 200
@@ -186,7 +210,7 @@ def main()  :
             try:
                 cursor.execute(line)
             except:
-                print(sys.exc_info()[0])
+                print(sys.exc_info())
             time.sleep(bulk)
     #close the db
     db.close()
