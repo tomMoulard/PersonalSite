@@ -3,14 +3,12 @@
 Created on Tue Apr 6 13:00:00 2017
 
 @author: tm
-The goal is to lookup all pdfs and store the information they contain in
+The goal is to send data to a db
+data should be an array of tupple : ("<Name Of Column>","<Content To send>")
 The DataBase with the credentials stored on the CONFIG file
 V2
 """
 
-#to get the http response for files
-import urllib.request
-opener = urllib.request.FancyURLopener({})
 
 #Usefull stuff
 import random
@@ -21,10 +19,6 @@ import sys
 #Please install python-mysqldb 
 #or python3-mysqldb before executing the script
 import MySQLdb
-
-#PDF
-#Please install PyPDF before executing the script
-import PyPDF2
 
 #password
 import getpass
@@ -50,13 +44,6 @@ CURSOR   = None;
 CONFIG   = "./CONFIG"
 PDFS     = "/tmp/plant_pdfs" 
 TABLE    = "usdaplant"
-MORETOK  = "https://plants.usda.gov/core/profile?symbol="
-COLS     = ["fs_Alternative_Name",\
-            "fs_Uses",\
-            "pg_Alternative_Common_Name",\
-            "pg_Uses"] # these are TABLE's COLS name
-TYPECOLS = ["VARCHAR"] * len(COLS) # theses are CLOs TYPE
-LENCOLS  = ["10"]      * len(COLS) # theses are COLs lenght
 
 def prettyPrintForList(l):
     """
@@ -73,6 +60,7 @@ def gettingCredsForDB():
     print("Getting credentials")
     config   = open(CONFIG, "r")
     configs  = config.readlines()
+    config.close()
     #prettyPrintForList(configs)
     USER     = configs[0][:len(configs[0]) - 1]
     SERVER   = configs[3][:len(configs[3]) - 1]
@@ -105,6 +93,7 @@ def gettingCredsForDB():
 USER, SERVER, PASSWORD, DB, PDFS, TABLE = gettingCredsForDB()
 db = MySQLdb.connect(SERVER, USER, PASSWORD)
 CURSOR = db.cursor()
+print("Connected to server", SERVER, "with credential for :", USER)
 
 def exe(code, optionnalOutput=""):
     """
@@ -116,111 +105,6 @@ def exe(code, optionnalOutput=""):
         CURSOR.execute(code)
     except:
         print(sys.exc_info())
-
-def getMoreData(res):
-    """
-    This function get more data from the MORETOK + Symbol web page
-    and add it to the end of res
-    no actual return because of lists
-    """
-    #Open the web page and get the response
-    #actual Symbol is res[0]
-    #parse it to get more data
-    #add it to res
-    res.append("")
-
-def getDataFromPDF(file):
-    """
-    This function parse the pdf file to get data
-    return an array of data to be sent
-    This return this array
-    """
-    res = [""] * 7
-    #print(res)
-    try:
-        raw = PyPDF2.PdfFileReader(file)
-        rawer = ""
-        #concatenate all the pages of the pdf in one string
-        for pageNumber in range(raw.pages.lengthFunction()):
-            rawer += raw.getPage(pageNumber).extractText() + "\n"
-        rawer = re.sub(" +", " ", rawer.replace("\n", ""))
-        #let the parsing begin
-        pos = 0
-        ll = len(rawer)
-        while pos < ll and rawer[pos:pos+5] != "Plant":
-            pos += 1
-        pos += 6 # the next char should be a F or a G:
-        if rawer[pos] == "F": # FactSheet
-            t = "F"
-        else: #Plan Guide
-            t = "G"
-        #SYMBOL
-        #Can be get from the file name : /tmp/plant_pdfs/pg_brca5.pdf
-        #AKA <PDFS>/<type>_<symbol>.pdfs
-        #But there is some mistakes in the source pdf names
-        #-> Need to parse the pdf
-        while pos < ll and rawer[pos:pos+9] != "symbol = ":
-            pos += 1
-        pos += 9 #until the next \\, this should be the symbol
-        while pos < ll and rawer[pos] != "\\":
-            res[0] += rawer[pos]
-            pos += 1
-        getMoreData(res)
-        #SCIENTIFIC NAME & COMMON NAME
-        pos = 0
-        while pos < ll and rawer[pos:pos+8] != ".gov> \n ":
-            pos += 1
-        pos += 8
-        while pos < ll and rawer[pos] != "\\":
-            tmp += rawer[pos]
-            pos += 1
-        phrase = tmp.split(" ")
-        for word in phrase:
-            if word[1:].islower(): #COMMON NAME is written in upper cases
-                res[1] += word.capitalize() + " " #SCIENTIFIC NAME
-            else:
-                res[2] += word.capitalize() + " " #COMMON NAME
-        if t == "F": #This is a Fact Sheet
-            paragraphs = rawer.split('Alternate Names',1)
-            if(len(paragraphs) == 1):
-                tmpRes = paragraphs[0]
-            else:
-                tmpRes = paragraphs[1]
-            tmpUse = tmpRes.split('Uses', 1)
-            if(len(tmpUse) == 1):
-                tmpUse = tmpRes.split('Description', 1)
-            if(len(paragraphs) > 1):
-                res[3] = tmpUse[0]
-            paragraphs = tmpUse[1].split('Status', 1)
-            if(len(paragraphs) > 1):
-                res[4] = paragraphs[0]
-            else:
-                res[4] = tmpUse[1].split('Description', 1)[0]
-        else: # this is a Plan Guide
-            paragraphs = re.split('(Alternate common names|Alternate Names)',\
-                                    rawer,1)
-            if(len(paragraphs) == 1):
-                tmpRes = paragraphs[0]
-            else:
-                tmpRes = paragraphs[2]
-            tmpUse = tmpRes.split('Uses', 1)
-            if(len(tmpUse) == 1):
-                tmpUse = tmpRes.split('Description', 1)
-            if(len(paragraphs) > 1):
-                res[5] = tmpUse[0]
-            paragraphs = tmpUse[1].split('Status', 1)
-            if(len(paragraphs) > 1):
-                res[6] = paragraphs[0]
-            else:
-                res[6] = tmpUse[1].split('Description', 1)[0]
-    except:
-        print("ousp:", file)
-        print(sys.exc_info())
-        Path(PDFS + "/debug.tmp").touch()
-        f = open(PDFS + "/debug.tmp", "r+")
-        f.write(file + " has failed because of:" + str(sys.exc_info()))
-        f.close()
-    return res
 
 def changeColSize(colPos, newSize):
     """
@@ -235,7 +119,7 @@ def sendDataToDB(data):
     """
     This is used so select which data and who to send the to the db
     the table should be ready to accept data
-    INSERT + 
+    NEED TO BE REDONE :/
     """
     INS = "INSERT INTO " + TABLE + " (Symbol, Scientific_Name, Common_Name"
     for col in COLS:
@@ -285,8 +169,11 @@ def addCol(colName, typeCols="VARCHAR", size="64"):
     TYPECOLS.append(typeCols)
     exe("ALTER TABLE "+TABLE+" ADD COLUMN "+colName+" "+typeCols+"("+size+");")
 
-def main():
-    print("Connected to server", SERVER, "with credential for :", USER)
+def goToDB():
+    """
+    This is used to CREATE or USE the DB
+    a login phase like
+    """
     try :
         exe("CREATE DATABASE IF NOT EXISTS " + DB + ";")
     except:
@@ -295,16 +182,29 @@ def main():
         exe("USE " + DB +";")
     except:
         print("already using database ?")
+
+def goToTable(tableMeta):
+    """
+    This startup the table to correct from the begining
+    Use the tableMeta form
+    Should be an array and each col of this array represent a col
+    in the DB and the first is the PRIMARY KEY and is NOT NULL
+    Each cell should be like: ("<Col Name>", "<Col Type>", "<Col Size>")
+    like [("Symbol", "VARCHAR", "10")]
+    """
     CREATETABLE = """
         DROP TABLE IF EXISTS """ + TABLE + """;
-        CREATE TABLE """ + TABLE + """(
-            Symbol          VARCHAR(10) PRIMARY KEY NOT NULL,
-            Scientific_Name VARCHAR(60) NOT NULL,
-            Common_Name     VARCHAR(42) NOT NULL"""
-    for x in rang(len(data)):
-        var += ", " + COLS[x] + " = " + data[x]
+        CREATE TABLE """ + TABLE + "( "
+    #Adding the primary key
+    CREATETABLE += tableMeta[0][0] + " " + tableMeta[0][1] +\
+            "(" + tableMeta[0][2] + ") PRIMARY KEY NOT NULL"
+    #adding all knowned columns
+    for x in range(1, len(data)):
+        CREATETABLE += ", " + tableMeta[x] + " = " + tableMeta[x]
     CREATETABLE += ") ENGINE=InnoDB"
-    exe(CREATETABLE)
+    exe(CREATETABLE)    
+
+def main():
     print("Table", TABLE, "Created")
     print("Opening pdfs parse them and store data in the db")
     files = glob.glob(PDFS + "*.pdf")

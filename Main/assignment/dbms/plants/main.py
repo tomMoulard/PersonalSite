@@ -9,7 +9,9 @@ To use the main program once
 print("Made by Tom Moulard")    
 
 import getPDF3
-import putInDB
+import collectData
+
+
 import shutil
 import sys
     

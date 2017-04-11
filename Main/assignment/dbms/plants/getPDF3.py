@@ -44,6 +44,7 @@ def gettingCredsForDB():
     """
     config   = open(CONFIG, "r")
     configs  = config.readlines()
+    config.close()
     PDFS     = configs[12][:len(configs[12]) - 1]
     SAVE     = configs[15][:len(configs[15]) - 1]
     return PDFS
@@ -110,7 +111,9 @@ def main():
         tmpLinks = pdf.split("\"")
         tmp = PREFIX + tmpLinks[-1] + ".pdf"
         pdfs.append(tmp)
-        download(getName(tmp), tmp, debug=str(pos) + ":" + str(len(FAILED)) + "/" + str(len(links)))
+        download(getName(tmp),\
+            tmp,\
+            debug=str(pos) + ":" + str(len(FAILED)) + "/" + str(len(links)))
         pos += 1
         time.sleep(1)
     pso = 0
