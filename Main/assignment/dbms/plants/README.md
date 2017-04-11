@@ -21,7 +21,16 @@ Just run the putInDB.py
 python3 main.py
 
 # config:
+
 you need to change the CONFIG file to update the credentials of the Database.
+
+# Requirements:
+
+You need to install [Beautifull Soup](https://www.crummy.com/software/BeautifulSoup/), [PyPDF2](https://github.com/mstamy2/PyPDF2) and [MySQLdb](https://pypi.python.org/pypi/MySQL-python/1.2.4)
+
+Also, i used [urllib.request](https://docs.python.org/3.0/library/urllib.request.html), [glob](https://docs.python.org/2/library/glob.html), [getpass](https://docs.python.org/2/library/getpass.html)
+
+# Author
 
 This was written by [TomMoulard](http://tom.moulard.org).
 
