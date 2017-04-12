@@ -14,6 +14,9 @@ import putInDB
 import urllib.request
 opener = urllib.request.FancyURLopener({})
 
+#Parsing lib
+import bs4 as bs
+
 #PDF
 #Please install PyPDF before executing the script
 import PyPDF2
@@ -29,6 +32,7 @@ from pathlib import Path
 import re
 
 PDFS     = ""
+CONFIG   = "./CONFIG"
 MORETOK  = "https://plants.usda.gov/core/profile?symbol="
 COLSMETA = [
     ("Symbol", "VARCHAR", "20"),
@@ -53,7 +57,7 @@ def gettingCredsForPDF():
     return PDFS
 
 #To get the Credentials
-USER, SERVER, PASSWORD, DB, PDFS, TABLE = gettingCredsForDB()
+PDFS = gettingCredsForPDF()
 
 
 def getMoreDataFromSite(res):
@@ -65,10 +69,14 @@ def getMoreDataFromSite(res):
     #Open the web page and get the response
     #actual Symbol is res[0][1]
     #parse it to get more data
-    #add it to res
-    res.append("")
+    #add it to resres = []
+    mainresponse = str(opener.open(MORETOK + res[0][1]).read())
+    if "No Data Found" in mainresponse:
+        print("No Data Found for: ", res[0][1])
+    else:
+        soup = bs.BeautifulSoup(mainresponse, "lxml")
 
-def getDataFromPDF(file, alreadyThere):
+def getDataFromPDF(file):
     """
     This function parse the pdf file to get data
     return an array of data to be sent
@@ -168,8 +176,7 @@ def main():
     for file in range(len(files)):
         print("getting data from", file[file])
         d = getDataFromPDF(files[file])
-        alreadyThere = d[0][1] in DATAS
-        if not alreadyThere:
+        if not d[0][1] in DATAS:
             DATAS.append(d[0][1])
             d += getMoreDataFromSite(d)
-        putInDB.sendDataToDB(d, alreadyThere)
+        putInDB.sendDataToDB(d)
