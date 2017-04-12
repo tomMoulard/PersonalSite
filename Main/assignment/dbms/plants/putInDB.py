@@ -106,6 +106,20 @@ def exe(code, optionnalOutput=""):
     except:
         print(sys.exc_info())
 
+def printResponce():
+    """
+    This is supposed to print the responce of the db
+    """
+    try:
+        for line in CURSOR.fetchall():
+            for words in line[-1]:
+                print(words, end=" -> ")
+            print(line[-1])
+    except:
+        print("Failed to print DB response")
+        print(sys.exc_info())
+
+
 def changeColSize(colPos, newSize):
     """
     This function change the colName size
@@ -212,5 +226,7 @@ def main():
         print("getting data from", file[file])
         d = getDataFromPDF(files[file])
         sendDataToDB(d)
+    exe("SHOW TABLES;")
+    printResponce()
     print("closing DB")
     db.close()
