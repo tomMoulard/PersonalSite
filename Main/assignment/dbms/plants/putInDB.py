@@ -7,6 +7,21 @@ The goal is to send data to a db
 data should be an array of tupple : ("<Name Of Column>","<Content To send>")
 The DataBase with the credentials stored on the CONFIG file
 V2
+
+To use this:
+import putInDB as pidb
+
+#to use the db
+pidb.goToDB()
+
+#to use the table
+pidb.goToTable(tableMeta)
+
+#to send data
+pidb.sendDataToDB2(data, tableMeta)
+
+#to close th connection
+pidb.closeDB()
 """
 
 
@@ -115,6 +130,7 @@ def printTable(tableMeta):
             for words in line[:-1]:
                 print(words, end=" -> ")
             print(line[-1])
+        print("There is", lent(response), "lines here")
     except:
         print("Failed to print DB response")
         print(sys.exc_info())
@@ -283,6 +299,12 @@ def goToDB():
         exe("USE " + DB +";")
     except:
         print("already using database ?")
+
+def closeDB():
+    """
+    This is called to close the bd connexcion
+    """
+    db.close()
 
 def goToTable(tableMeta):
     """
