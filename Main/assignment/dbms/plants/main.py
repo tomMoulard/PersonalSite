@@ -36,11 +36,11 @@ def main():
     else:
         try:
             shutil.rmtree(PDFS[:len(PDFS) - 1])
+            getPDF3.main()
         except:
             #asked to erase but nothig to erase :/
             pass
-        getPDF3.main()
-    putInDB.main()
+    collectData.main()
     print("Do you want to erase the pdf folder ? [y/N] ", end="")
     if input() == "y":
         print("Erasing ...")

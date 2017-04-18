@@ -55,6 +55,20 @@ def shuffleList(l):
     for x in range(ll):
         swappInList(l, x, random.randint(0, ll - 1  ))
 
+def replace(l, c1, c2):
+    """
+    This replace all c1 in l by c2
+    return the string modified
+    """
+    pos = 0
+    tmp = ""
+    splited = l.split(c1)
+    for x in splited[:-1]:
+        tmp +=  x + c2
+    tmp += splited[-1]
+    return l
+
+
 def parseCode(code):
     """
     This function is used to parse and correct the line to make a proper statement (hopefully)
@@ -142,7 +156,7 @@ def getCodeFromUrl2(url):
     for codes in soup.find_all("td", class_="crayon-code"):
         tmp = ""
         for lines in codes.find_all("div", class_="crayon-line"):
-            thisText = lines.text
+            thisText = replace(lines.text, "\\\'", "\'")
             if "USE" in thisText:
                 tmp = "-- " + thisText
             else:

@@ -1,13 +1,13 @@
-root
+16920041
 #this is the USER to use (can use root or 16920041) 
 
-localhost
+172.31.34.145
 #this is the SERVER IP (can use localhost or 172.31.34.145)
 
-None
+16920041
 #this is the PASSWORD (if None is written it will prompt it)
 
-None
+db16920041
 #this is the DATABASE to use (if None is written it will create one)
 
 /tmp/plant_pdfs/

@@ -18,7 +18,7 @@ pidb.goToDB()
 pidb.goToTable(tableMeta)
 
 #to send data
-pidb.sendDataToDB2(data, tableMeta)
+pidb.sendDataToDB(data, tableMeta)
 
 #to close th connection
 pidb.closeDB()
@@ -120,7 +120,7 @@ def printTable(tableMeta):
     """
     This is supposed to print the response of the db
     """
-    exe("SELECT * FROM " + TABLE)
+    exe("SELECT * FROM " + TABLE + ";")
     for col in tableMeta[:-1]:
         print(col[0], end=" -> ")
     print(tableMeta[-1][0])
@@ -130,7 +130,7 @@ def printTable(tableMeta):
             for words in line[:-1]:
                 print(words, end=" -> ")
             print(line[-1])
-        print("There is", lent(response), "lines here")
+        print("There is", len(response), "lines here")
     except:
         print("Failed to print DB response")
         print(sys.exc_info())
@@ -140,7 +140,7 @@ def changeColSize(colName, newSize, tableMeta):
     """
     This function change the colName size to newSize
     and update tableMeta
-    """
+    """ 
     #get the pos in the tableMeta
     pos = 0
     for cols in range(len(tableMeta)):
@@ -155,49 +155,6 @@ def changeColSize(colName, newSize, tableMeta):
         tableMeta[pos][1] + "(" + str(tableMeta[pos][2]) + ");"
     exe(val)
 
-def sendDataToDB(data):
-    """
-    This is used so select which data and who to send the to the db
-    the table should be ready to accept data
-    NEED TO BE REDONE :/
-    """
-    INS = "INSERT INTO " + TABLE + " (Symbol, Scientific_Name, Common_Name"
-    for col in COLS:
-        INS += ", " + col
-    INS += ")"
-    VAL = "VALUES (" + data[0] + ", " + data[1] + ", " + data[2]
-    for index in range(len(COLS)):
-        VAL += ", " + data[index]
-    VAL+= ");"
-    try:
-        exe(INS + VAL)
-    except:
-        #The line is already there
-        if data[3] != "": #AKA data come from a Fact sheet
-            if len(data[3]) > LENCOLS[3]:
-                changeColSize(3, len(data[3]))
-            if len(data[4]) > LENCOLS[4]:
-                changeColSize(4, len(data[4]))
-            val = "UPDATE " + TABLE + " WHERE Symbol = " + data[0] +\
-                " SET fs_Alternative_Name = " + data[3] + ", "\
-                "fs_Uses = " + data[4]
-            for x in rang(7, len(data)):
-                #if not data[x] in COLS: # data is not in the cols
-                #    addCol(data[x][:6], size=str(len(data[x])))
-                if len(data[x]) > LENCOLS[x]:
-                    changeColSize(x, len(data[x]))
-                var += ", " + COLS[x] + " = " + data[x]
-            exe(var + ";")
-        else:#AKA data come from a Plan Guide
-            var = "UPDATE " + TABLE + " WHERE Symbol = " + data[0]
-            for x in rang(5, len(data)):
-                #if not data[x] in COLS: # data is not in the cols
-                #    addCol(data[x][:6], size=str(len(data[x])))
-                if len(data[x]) > LENCOLS[x]:
-                    changeColSize(x, len(data[x]))
-                var += ", " + COLS[x] + " = " + data[x]
-            exe(var + ";")
-
 def isAlreadyThere(primaryKey):
     """
     This check the db to know if the key is already there
@@ -206,9 +163,9 @@ def isAlreadyThere(primaryKey):
 
 def checkSizeAndModify(colName, size, tableMeta):
     """
-    This is supposed to check if the column is bit enought
+    This is supposed to check if the column is big enought
     if not, just take nore space
-    #By the way, to col should be in the table
+    #By the way, the col should be in the table
     No return
     """
     #find colname in tableMeta and get this size
@@ -224,8 +181,7 @@ def checkSizeAndModify(colName, size, tableMeta):
         #and update the tableMeta
         changeColSize(colName, int(tableMeta[pos][2]), tableMeta)
 
-
-def sendDataToDB2(data, tableMeta):
+def sendDataToDB(data, tableMeta):
     """
     This is used so select which data and who to send the to the db
     the table should be ready to accept data
@@ -250,7 +206,7 @@ def sendDataToDB2(data, tableMeta):
     if isAlreadyThere(data[0][1]):
         #USE DICT YOU DICK .....
         #Find "fs_Alternative_Name" and check his value
-        if data[3][1] == "": #insert just 5/6
+        if data[3][1] == "fs_Alternative_Name": #insert just 5/6
             checkSizeAndModify(data[5][0], len(data[d][1]), tableMeta)
             checkSizeAndModify(data[6][0], len(data[d][1]), tableMeta)
             INS = data[5][0]  + " " + data[6][0] +\
@@ -274,8 +230,7 @@ def sendDataToDB2(data, tableMeta):
         exe(INS + VAL)
         #instert key in the PRIMARYKEYS array
         PRIMARYKEYS.append(data[0][1])
-        #sendDataToDB2(generateFakeData(), COLSMETA)
-
+        #sendDataToDB(generateFakeData(), COLSMETA)
 
 def addCol(colName, tableMeta, typeCols="VARCHAR", size="64"):
     """

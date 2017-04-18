@@ -31,6 +31,14 @@ from pathlib import Path
 #REGULAR EXPRESSIONS
 import re
 
+#used to generate false data
+import random
+
+#to get better error messages
+import sys
+
+
+
 PDFS     = ""
 CONFIG   = "./CONFIG"
 MORETOK  = "https://plants.usda.gov/core/profile?symbol="
@@ -38,10 +46,22 @@ COLSMETA = [
     ("Symbol", "VARCHAR", "20"),
     ("Scientific_Name", "VARCHAR", "20"),
     ("Common_Name", "VARCHAR", "20"),
-    ("fs_Alternative_Name", "VARCHAR", "20"),
-    ("fs_Uses", "VARCHAR", "20"),
-    ("pg_Alternative_Common_Name", "VARCHAR", "20"),
-    ("pg_Uses", "VARCHAR", "20")] # these are the meta data for the cols
+    ("fs_Alternative_Name", "VARCHAR", "200"),
+    ("fs_Uses", "VARCHAR", "200"),
+    ("pg_Alternative_Common_Name", "VARCHAR", "200"),
+    ("pg_Uses", "VARCHAR", "200")] # these are the meta data for the cols
+
+FAKEDATA = [
+    ("Symbol", "TEST"),
+    ("Scientific_Name", "THIS IS A TEST"),
+    ("Common_Name", "TESTTEST"),
+    ("fs_Alternative_Name", "Why not test it"),
+    ("fs_Uses", "TESTING"),
+    ("pg_Alternative_Common_Name", "TEST SOUNDS GOOD"),
+    ("pg_Uses", " test"),
+    ("test_test", "Well if this works .. <3")
+]
+
 
 # this is the array containing all the data PrimaryKey already added to the db 
 DATAS = []
@@ -59,6 +79,33 @@ def gettingCredsForPDF():
 #To get the Credentials
 PDFS = gettingCredsForPDF()
 
+def generateString(l):
+    """
+    Just give a number and
+    return a random string 
+    """
+    res = ""
+    for x in range(l):
+        res += chr(random.randint(97, 122)) 
+    return res
+
+def generateFakeData():
+    """
+    This is just for testing purpose
+    generate a false data set, quite messy to use :/
+    """
+    res =  [
+    ("Symbol", generateString(random.randint(1, 15))),
+    ("Scientific_Name", generateString(random.randint(5, 20))),
+    ("Common_Name", generateString(random.randint(10, 25))),
+    ("fs_Alternative_Name", generateString(random.randint(0, 122))),
+    ("fs_Uses", generateString(random.randint(50, 200))),
+    ("pg_Alternative_Common_Name", generateString(random.randint(25, 250))),
+    ("pg_Uses", generateString(random.randint(10, 30)))]
+    nb = random.randint(1, 10)
+    for x in range(nb):
+        res.append((str(x) + generateString(5), generateString(random.randint(1, 20))))
+    return res
 
 def getMoreDataFromSite(res):
     """
@@ -82,7 +129,7 @@ def getDataFromPDF(file):
     return an array of data to be sent
     This return this array
     """
-    res = [""] * 7
+    res = []
     #print(res)
     try:
         raw = PyPDF2.PdfFileReader(file)
@@ -106,77 +153,87 @@ def getDataFromPDF(file):
         #AKA <PDFS>/<type>_<symbol>.pdfs
         #But there is some mistakes in the source pdf names
         #-> Need to parse the pdf
-        while pos < ll and rawer[pos:pos+9] != "symbol = ":
+        name = ""
+        fileContent = rawer.split("Symbol = ",1)
+        pos = 0
+        ll = len(fileContent[1])
+        while pos < ll and fileContent[1][pos] != " ":
+            name += fileContent[1][pos]
             pos += 1
-        pos += 9 #until the next \\, this should be the symbol
-        while pos < ll and rawer[pos] != "\\":
-            res[0] += rawer[pos]
-            pos += 1
+        res.append(("Symbol", name))
         #SCIENTIFIC NAME & COMMON NAME
         pos = 0
         while pos < ll and rawer[pos:pos+8] != ".gov> \n ":
             pos += 1
         pos += 8
+        tmp = ""
         while pos < ll and rawer[pos] != "\\":
             tmp += rawer[pos]
             pos += 1
         phrase = tmp.split(" ")
+        tmp1, tmp2 = "", ""
         for word in phrase:
             if word[1:].islower(): #COMMON NAME is written in upper cases
-                res[1] += word.capitalize() + " " #SCIENTIFIC NAME
+                tmp1 += word.capitalize() + " " #SCIENTIFIC NAME
             else:
-                res[2] += word.capitalize() + " " #COMMON NAME
+                tmp2 += word.capitalize() + " " #COMMON NAME
+        res.append(("Scientific_Name", tmp1))
+        res.append(("Common_Name", tmp2))
         if t == "F": #This is a Fact Sheet
-            paragraphs = rawer.split('Alternate Names',1)
+            #thanks Mathis <3
+            paragraphs = rawer.split("Alternate Names",1)
             if(len(paragraphs) == 1):
                 tmpRes = paragraphs[0]
             else:
                 tmpRes = paragraphs[1]
-            tmpUse = tmpRes.split('Uses', 1)
+            tmpUse = tmpRes.split("Uses", 1)
             if(len(tmpUse) == 1):
-                tmpUse = tmpRes.split('Description', 1)
+                tmpUse = tmpRes.split("Description", 1)
+            res.append(("fs_Alternative_Name", tmpUse[0]))
+            paragraphs = tmpUse[1].split("Status", 1)
             if(len(paragraphs) > 1):
-                res[3] = tmpUse[0]
-            paragraphs = tmpUse[1].split('Status', 1)
-            if(len(paragraphs) > 1):
-                res[4] = paragraphs[0]
+                res.append(("fs_Uses", paragraphs[0]))
             else:
-                res[4] = tmpUse[1].split('Description', 1)[0]
+                res.append(("fs_Uses", tmpUse[1].split("Description", 1)[0]))
         else: # this is a Plan Guide
-            paragraphs = re.split('(Alternate common names|Alternate Names)',\
+            paragraphs = re.split("(Alternate common names|Alternate Names)",\
                                     rawer,1)
             if(len(paragraphs) == 1):
                 tmpRes = paragraphs[0]
             else:
                 tmpRes = paragraphs[2]
-            tmpUse = tmpRes.split('Uses', 1)
+            tmpUse = tmpRes.split("Uses", 1)
             if(len(tmpUse) == 1):
-                tmpUse = tmpRes.split('Description', 1)
+                tmpUse = tmpRes.split("Description", 1)
+            res.append(("pg_Alternative_Common_Name", tmpUse[0]))
+            paragraphs = tmpUse[1].split("Status", 1)
             if(len(paragraphs) > 1):
-                res[5] = tmpUse[0]
-            paragraphs = tmpUse[1].split('Status', 1)
-            if(len(paragraphs) > 1):
-                res[6] = paragraphs[0]
+                res.append(("pg_Uses", paragraphs[0]))
             else:
-                res[6] = tmpUse[1].split('Description', 1)[0]
+                res.append(("pg_Uses", tmpUse[1].split("Description", 1)[0]))
     except:
         print("ousp:", file)
         print(sys.exc_info())
         Path(PDFS + "/debug.tmp").touch()
         f = open(PDFS + "/debug.tmp", "r+")
-        f.write(file + " has failed because of:" + str(sys.exc_info()))
+        last = f.read()
+        f.write(last + "\n" + file + " has failed because of:" + str(sys.exc_info()) + "\n"\
+            + "Data: " + str(res)
+            )
         f.close()
     return res
 
 
 def main():
     putInDB.goToDB()
-    putInDB.goToTable(tableMeta)
+    putInDB.goToTable(COLSMETA)
     files = glob.glob(PDFS + "*.pdf")
     for file in range(len(files)):
-        print("getting data from", file[file])
+        print("getting data from", files[file])
         d = getDataFromPDF(files[file])
-        if not d[0][1] in DATAS:
-            DATAS.append(d[0][1])
-            d += getMoreDataFromSite(d)
-        putInDB.sendDataToDB(d)
+        #if not putInDB.isAlreadyThere(d[0][1])
+        #    d += getMoreDataFromSite(d)
+        if d:
+            putInDB.sendDataToDB(d, COLSMETA)
+    putInDB.printTable(COLSMETA)
+    putInDB.closeDB()
