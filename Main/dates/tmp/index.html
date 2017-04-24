@@ -7,28 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script type="text/javascript">
-        
-$.get('data.csv', function(csv) {
-    $('#container').highcharts({
-        chart: {
-            type: 'column'
-        },
-        data: {
-            csv: csv
-        },
-        title: {
-            text: 'Fruit Consumption'
-        },
-        yAxis: {
-            title: {
-                text: 'Units'
-            }
-        }
-    });
-});
-
-    </script>
+    <script language="javascript" type="text/javascript" src="script.js"></script>
 </head>
 
 <body bgcolor="#000000">
