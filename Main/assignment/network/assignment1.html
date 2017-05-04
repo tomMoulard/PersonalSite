@@ -56,31 +56,31 @@ body {
                 Suppose users share a 2 Mbps link. Also suppose each user transmits continuously at 1 Mbps when transmitting, but each user transmits only 20 percent of the time. (See the discussion of statistical multiplexing in Section 1.3.)
             </p>
             <p>
-            <table>
-                <tr>
-                    <td>a.</td>
-                    <td>When circuit switching is used, how many users can be supported?</td>
-                </tr>
-                <tr>
-                    <td>b.</td>
-                    <td>For the remainder of this problem, suppose packet switching is used. Why will there be essentially no queuing delay before the link if two or fewer users transmit at the same time? Why will there be a queuing delay if three users transmit at the same time?</td>
-                </tr>
-                <tr>
-                    <td>c.</td>
-                    <td>Find the probability that a given user is transmitting.</td>
-                </tr>
-                <tr>
-                    <td>d.</td>
-                    <td>Suppose now there are three users. Find the probability that at any given time, all three users are transmitting simultaneously. Find the fraction of time during which the queue grows.</td>
-                </tr>
-            </table>
+                <table>
+                    <tr>
+                        <td>a.</td>
+                        <td>When circuit switching is used, how many users can be supported?</td>
+                    </tr>
+                    <tr>
+                        <td>b.</td>
+                        <td>For the remainder of this problem, suppose packet switching is used. Why will there be essentially no queuing delay before the link if two or fewer users transmit at the same time? Why will there be a queuing delay if three users transmit at the same time?</td>
+                    </tr>
+                    <tr>
+                        <td>c.</td>
+                        <td>Find the probability that a given user is transmitting.</td>
+                    </tr>
+                    <tr>
+                        <td>d.</td>
+                        <td>Suppose now there are three users. Find the probability that at any given time, all three users are transmitting simultaneously. Find the fraction of time during which the queue grows.</td>
+                    </tr>
+                </table>
             </p>
         </div>
         <div id="Q2">
             <H3>Question R18</H3>
             <p>
                 How long does it take a packet of length 1,000 bytes to propagate over a link of distance 2,500 km, propagation speed 2.5 · 10 8 m/s, and transmission rate 2 Mbps? More generally, how long does it take a packet of length L to propagate over a link of distance d, propagation speed s, and transmission rate Rbps? Does this delay depend on packet length? Does this delay depend on transmission rate?
-            </p>
+            </p>co
         </div>
         <div id="Q3">
             <H3>Question R23</H3>
@@ -106,36 +106,47 @@ body {
                 Suppose users share a 3 Mbps link. Also suppose each user requires 150 kbps when transmitting, but each user transmits only 10 percent of the time. (See the discussion of packet switching versus circuit switching in Section 1.3.)
             </p>
             <p>
-            <table>
-                <tr>
-                    <td>a.</td>
-                    <td>When circuit switching is used, how many users can be supported?</td>
-                </tr>
-                <tr>
-                    <td>b.</td>
-                    <td>For the remainder of this problem, suppose packet switching is used. Find the probability that a given user is transmitting.</td>
-                </tr>
-                <tr>
-                    <td>c.</td>
-                    <td>Suppose there are 120 users. Find the probability that at any given time, exactly n users are transmitting simultaneously. (Hint: Use the binomial distribution.)</td>
-                </tr>
-                <tr>
-                    <td>d.</td>
-                    <td>Find the probability that there are 21 or more users transmitting simultaneously.</td>
-                </tr>
-            </table>
+                <table>
+                    <tr>
+                        <td>a.</td>
+                        <td>When circuit switching is used, how many users can be supported?</td>
+                    </tr>
+                    <tr>
+                        <td>b.</td>
+                        <td>For the remainder of this problem, suppose packet switching is used. Find the probability that a given user is transmitting.</td>
+                    </tr>
+                    <tr>
+                        <td>c.</td>
+                        <td>Suppose there are 120 users. Find the probability that at any given time, exactly n users are transmitting simultaneously. (Hint: Use the binomial distribution.)</td>
+                    </tr>
+                    <tr>
+                        <td>d.</td>
+                        <td>Find the probability that there are 21 or more users transmitting simultaneously.</td>
+                    </tr>
+                </table>
             </p>
         </div>
         <div id="Q6">
             <H3>Question P10</H3>
             <p>
-                Consider a packet of length L which begins at end system A and travels over three links to a destination end system. These three links are connected by two packet switches. Let d<SUB>i</SUB>, s<SUB>i</SUB>, and R<SUB>i</SUB> denote the length, propagation speed, and the transmission rate of link i, for i = 1, 2, 3. The packet switch delays each packet by d<SUB>proc</SUB> . Assuming no queuing delays, in terms of d<SUB>i</SUB>, s<SUB>i</SUB>, R<SUB>i</SUB>, (i = 1,2,3), and L, what is the total end-to-end delay for the packet? Suppose now the packet is 1,500 bytes, the propagation speed on all three links is 2.5 · 10 8 m/s, the transmission rates of all three links are 2 Mbps, the packet switch processing delay is 3 msec, the length of the first link is 5,000 km, the length of the second link is 4,000 km, and the length of the last link is 1,000 km. For these values, what is the end-to-end delay?
+                Consider a packet of length L which begins at end system A and travels over three links to a destination end system. These three links are connected by two packet switches. Let d
+                <SUB>i</SUB>, s
+                <SUB>i</SUB>, and R
+                <SUB>i</SUB> denote the length, propagation speed, and the transmission rate of link i, for i = 1, 2, 3. The packet switch delays each packet by d
+                <SUB>proc</SUB> . Assuming no queuing delays, in terms of d
+                <SUB>i</SUB>, s
+                <SUB>i</SUB>, R
+                <SUB>i</SUB>, (i = 1,2,3), and L, what is the total end-to-end delay for the packet? Suppose now the packet is 1,500 bytes, the propagation speed on all three links is 2.5 · 10 8 m/s, the transmission rates of all three links are 2 Mbps, the packet switch processing delay is 3 msec, the length of the first link is 5,000 km, the length of the second link is 4,000 km, and the length of the last link is 1,000 km. For these values, what is the end-to-end delay?
             </p>
         </div>
         <div id="Q7">
             <H3>Question P11</H3>
             <p>
-                In the above problem, suppose R<SUB>1</SUB> = R<SUB>2</SUB> = R<SUB>3</SUB> = R and d<SUB>proc</SUB> = 0. Further suppose the packet switch does not store-and-forward packets but instead immediately transmits each bit it receives before waiting for the entire packet to arrive. What is the end-to-end delay?
+                In the above problem, suppose R
+                <SUB>1</SUB> = R
+                <SUB>2</SUB> = R
+                <SUB>3</SUB> = R and d
+                <SUB>proc</SUB> = 0. Further suppose the packet switch does not store-and-forward packets but instead immediately transmits each bit it receives before waiting for the entire packet to arrive. What is the end-to-end delay?
             </p>
         </div>
     </div>
