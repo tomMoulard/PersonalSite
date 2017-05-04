@@ -1,0 +1,7 @@
+(1)Introduction paper: explain this project.
+
+(2)OX Folder: contains resources which can help users to understand and arrange stage tasks.
+
+
+(3)Document
+Project process files,such as SRS, SD.
