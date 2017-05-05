@@ -75,23 +75,131 @@ body {
                     </tr>
                 </table>
             </p>
+            <H4>Response R13</H4>
+            <p>
+                <table>
+                    <tr>
+                        <td>a.</td>
+                        <td>If each user uses 1 Mbps when it is active, only two user can use the connection simultaneously since they share a 2 Mbps link.</td>
+                    </tr>
+                    <tr>
+                        <td>b.</td>
+                        <td>If there is only two or fewer user using the connection at the same time, there will be no waiting time ether way. But by using packet switching, the connection (2 Mbps) will be spliced into users (1Mbps each) and this way, the queue won't be used.</td>
+                    </tr>
+                    <tr>
+                        <td>c.</td>
+                        <td>The probability of a packet from a specified user is going threw the link is simply by dividing one by the number of current user.</td>
+                    </tr>
+                    <tr>
+                        <td>d.</td>
+                        <td>he probability is 0.11 or 11%.</td>
+                    </tr>
+                </table>
+            </p>
         </div>
         <div id="Q2">
             <H3>Question R18</H3>
             <p>
-                How long does it take a packet of length 1,000 bytes to propagate over a link of distance 2,500 km, propagation speed 2.5 · 10 8 m/s, and transmission rate 2 Mbps? More generally, how long does it take a packet of length L to propagate over a link of distance d, propagation speed s, and transmission rate Rbps? Does this delay depend on packet length? Does this delay depend on transmission rate?
-            </p>co
+                How long does it take a packet of length 1,000 bytes to propagate over a link of distance 2,500 km, propagation speed 2.5 · 10 8 m/s, and transmission rate 2 Mbps? More generally, how long does it take a packet of length L to propagate over a link of distance d, propagation speed s, and transmission rate R bps? Does this delay depend on packet length? Does this delay depend on transmission rate?
+            </p>
+            <H4>Response R18</H4>
+            <p>
+                The time T for a file to go threw this link if : T = L / R. So for this file it will take 1/2.10**-7 if we consider that 2 Mbps is equal to 2.10**10 bps.
+            </p>
         </div>
         <div id="Q3">
             <H3>Question R23</H3>
             <p>
                 What are the five layers in the Internet protocol stack? What are the principal responsibilities of each of these layers?
             </p>
+            <H4>Response R23</H4>
+            <p>
+                Theses are the different layers of the Internet Protocol Stack :
+                <table>
+                    <tr>
+                        <td>
+                            The Application Layer&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            This layer create the message or use it.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            The Transport Layer
+                        </td>
+                        <td>
+                            This layer decide which protocol to use for the next layer. UPD is faster but less secure and TCP is slower but far more secure.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            The Network Layer
+                        </td>
+                        <td>
+                            This layer transform the message into packet using different protocols like UDP and TCP.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            The Link layer
+                        </td>
+                        <td>
+                            This layer add the last header that specifies the route to take to deliver the message.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            The Physical Layer
+                        </td>
+                        <td>
+                            This one is the layer that takes care of transmitting the message to the correct receiver thanks to headers added by previous layers.
+                        </td>
+                    </tr>
+                </table>
+            </p>
         </div>
         <div id="Q4">
             <H3>Question R24</H3>
             <p>
                 What is an application-layer message? A transport-layer segment? A network-layer datagram? A link-layer frame?
+            </p>
+            <H4>Response R24</H4>
+            <p>
+                <table>
+                    <tr>
+                        <td>
+                            Application-Layer Message    
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Transport-Layer Segment
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Network-Layer Datagram
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Link-Layer Frame
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                </table>
             </p>
         </div>
     </div>
