@@ -92,7 +92,7 @@ body {
                     </tr>
                     <tr>
                         <td>d.</td>
-                        <td>he probability is 0.11 or 11%.</td>
+                        <td>The probability is 0.11 or 11%.</td>
                     </tr>
                 </table>
             </p>
@@ -104,7 +104,7 @@ body {
             </p>
             <H4>Response R18</H4>
             <p>
-                The time T for a file to go threw this link if : T = L / R. So for this file it will take 1/2.10**-7 if we consider that 2 Mbps is equal to 2.10**10 bps.
+                The time T for a file to go threw this link if : T = L / R. So for this file it will take 1/2.10**-7s if we consider that 2 Mbps is equal to 2.10**10 bps.
             </p>
         </div>
         <div id="Q3">
@@ -118,7 +118,7 @@ body {
                 <table>
                     <tr>
                         <td>
-                            The Application Layer&nbsp;&nbsp;
+                            The Application Layer&nbsp;
                         </td>
                         <td>
                             This layer create the message or use it.
@@ -169,10 +169,10 @@ body {
                 <table>
                     <tr>
                         <td>
-                            Application-Layer Message    
+                            Application-Layer Message&nbsp;
                         </td>
                         <td>
-                            
+                            This is a message that is conform to an Application-Layer Protocol. These protocols describe how the message will be carried and understood by the other application. Theses application can be every noe inside the computer, like FTP, NTP ...
                         </td>
                     </tr>
                     <tr>
@@ -180,7 +180,7 @@ body {
                             Transport-Layer Segment
                         </td>
                         <td>
-                            
+                            This is a segment where computer read the message and encapsulate it with a header that can help the computer who will receive the message to convey the message to the correct application.
                         </td>
                     </tr>
                     <tr>
@@ -188,7 +188,7 @@ body {
                             Network-Layer Datagram
                         </td>
                         <td>
-                            
+                            This Datagram is created when the message is carried threw the Network Layer, and it tell the reader the sender and receiver address  
                         </td>
                     </tr>
                     <tr>
@@ -196,7 +196,7 @@ body {
                             Link-Layer Frame
                         </td>
                         <td>
-                            
+                            Then when the datagram is inside the Link Layer, the Layer add the last header which indicate the route to take for the message to be carried from the sender to the receiver.
                         </td>
                     </tr>
                 </table>
@@ -217,19 +217,56 @@ body {
                 <table>
                     <tr>
                         <td>a.</td>
-                        <td>When circuit switching is used, how many users can be supported?</td>
+                        <td>
+                            When circuit switching is used, how many users can be supported?
+                        </td>
                     </tr>
                     <tr>
                         <td>b.</td>
-                        <td>For the remainder of this problem, suppose packet switching is used. Find the probability that a given user is transmitting.</td>
+                        <td>
+                            For the remainder of this problem, suppose packet switching is used. Find the probability that a given user is transmitting.
+                        </td>
                     </tr>
                     <tr>
                         <td>c.</td>
-                        <td>Suppose there are 120 users. Find the probability that at any given time, exactly n users are transmitting simultaneously. (Hint: Use the binomial distribution.)</td>
+                        <td>
+                            Suppose there are 120 users. Find the probability that at any given time, exactly n users are transmitting simultaneously. (Hint: Use the binomial distribution.)
+                        </td>
                     </tr>
                     <tr>
                         <td>d.</td>
-                        <td>Find the probability that there are 21 or more users transmitting simultaneously.</td>
+                        <td>
+                            Find the probability that there are 21 or more users transmitting simultaneously.
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <H4>Response P8</H4>
+            <p>
+                <table>
+                    <tr>
+                        <td>a.</td>
+                        <td>
+                            Since users have to share a 3Mbps connection and each user need a 150Kbps of connection, there can be only 20 max simultaneous users.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>b.</td>
+                        <td>
+                            The probability of a packet from a specified user is going threw the link is simply by dividing one by the number of current user.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>c.</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>d.</td>
+                        <td>
+                        The probability is less than 0.0004.
+                        </td>
                     </tr>
                 </table>
             </p>
@@ -239,11 +276,19 @@ body {
             <p>
                 Consider a packet of length L which begins at end system A and travels over three links to a destination end system. These three links are connected by two packet switches. Let d<SUB>i</SUB>, s<SUB>i</SUB>, and R<SUB>i</SUB> denote the length, propagation speed, and the transmission rate of link i, for i = 1, 2, 3. The packet switch delays each packet by d<SUB>proc</SUB> . Assuming no queuing delays, in terms of d<SUB>i</SUB>, s<SUB>i</SUB>, R<SUB>i</SUB>, (i = 1,2,3), and L, what is the total end-to-end delay for the packet? Suppose now the packet is 1,500 bytes, the propagation speed on all three links is 2.5 · 10 8 m/s, the transmission rates of all three links are 2 Mbps, the packet switch processing delay is 3 msec, the length of the first link is 5,000 km, the length of the second link is 4,000 km, and the length of the last link is 1,000 km. For these values, what is the end-to-end delay?
             </p>
+            <H4>Response P10</H4>
+            <p>
+
+            </p>
         </div>
         <div id="Q7">
             <H3>Question P11</H3>
             <p>
                 In the above problem, suppose R<SUB>1</SUB> = R<SUB>2</SUB> = R<SUB>3</SUB> = R and d<SUB>proc</SUB> = 0. Further suppose the packet switch does not store-and-forward packets but instead immediately transmits each bit it receives before waiting for the entire packet to arrive. What is the end-to-end delay?
+            </p>
+            <H4>Response P11</H4>
+            <p>
+            
             </p>
         </div>
     </div>
