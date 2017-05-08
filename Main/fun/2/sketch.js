@@ -21,7 +21,6 @@ function draw() {
         walkers[i].move();
     }
     for (var j = 0; j < points.length; j++) {
-        //print(points[j].x);
         point(points[j].x, points[j].y);
     }
 }
@@ -39,7 +38,7 @@ function mouseDragged() {
 }
 
 function add(x, y) {
-    var newwalker = new Walker(x, y, checkSym4.checked());
+    var newwalker = new Walker(x, y, checkSym4.checked(), strokeW.value());
     append(walkers, newwalker);
 }
 
