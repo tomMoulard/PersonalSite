@@ -53,7 +53,7 @@ body {
         <div id="Q1">
             <H3>Question R5</H3>
             <p>
-
+                Is HFC transmission rate dedicated or shared among users? Are collisions possible in a downstream HFC channel? Why or why not?
             </p>
             <H4>Response R5</H4>
             <p>
@@ -63,7 +63,7 @@ body {
         <div id="Q2">
             <H3>Question R10</H3>
             <p>
-
+                Describe the most popular wireless Internet access technologies today. Compare and contrast them.
             </p>
             <H4>Response R10</H4>
             <p>
@@ -73,7 +73,7 @@ body {
         <div id="Q3">
             <H3>Question R15</H3>
             <p>
-
+                Some content providers have created their own networks. Describe Google’s network. What motivates content providers to create these networks?
             </p>
             <H4>Response R15</H4>
             <p>
@@ -89,7 +89,7 @@ body {
         <div id="Q4">
             <H3>Question P1</H3>
             <p>
-
+                Design and describe an application-level protocol to be used between an automatic teller machine and a bank’s centralized computer. Your protocol should allow a user’s card and password to be verified, the account balance (which is maintained at the centralized computer) to be queried, and an account withdrawal to be made (that is, money disbursed to the user). Your protocol entities should be able to handle the all-too-common case in which there is not enough money in the account to cover the withdrawal. Specify your protocol by listing the messages exchanged and the action taken by the automatic teller machine or the bank’s centralized computer on transmission and receipt of messages. Sketch the operation of your protocol for the case of a simple withdrawal with no errors, using a diagram similar to that in Figure 1.2. Explicitly state the assumptions made by your protocol about the underlying end-to-end transport service.
             </p>
             <H4>Response P1</H4>
             <p>
@@ -99,7 +99,33 @@ body {
         <div id="Q5">
             <H3>Question P4</H3>
             <p>
-
+                Consider the circuit-switched network in Figure 1.13. Recall that there are 4 circuits on each link. Label the four switches A, B, C and D, going in the clockwise direction.
+                <table>
+                    <tr>
+                        <td>
+                            a.&nbsp;
+                        </td>
+                        <td>
+                            What is the maximum number of simultaneous connections that can be in progress at any one time in this network?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            Suppose that all connections are between switches A and C. What is the maximum number of simultaneous connections that can be in progress?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            c.
+                        </td>
+                        <td>
+                            Suppose we want to make four connections between switches A and C, and another four connections between switches B and D. Can we route these calls through the four links to accommodate all eight connections?
+                        </td>
+                    </tr>
+                </table>
             </p>
             <H4>Response P4</H4>
             <p>
@@ -109,7 +135,25 @@ body {
         <div id="Q6">
             <H3>Question P9</H3>
             <p>
-
+                Consider the discussion in Section 1.3 of packet switching versus circuit switching in which an example is provided with a 1 Mbps link. Users are generating data at a rate of 100 kbps when busy, but are busy generating data only with probability p = 0.1. Suppose that the 1 Mbps link is replaced by a 1 Gbps link.
+                <table>
+                    <tr>
+                        <td>
+                            a.&nbsp;
+                        </td>
+                        <td>
+                            What is N, the maximum number of users that can be supported simultaneously under circuit switching?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            Now consider packet switching and a user population of M users. Give a formula (in terms of p, M, N) for the probability that more than N users are sending data.
+                        </td>
+                    </tr>
+                </table>
             </p>
             <H4>Response P9</H4>
             <p>
@@ -119,7 +163,7 @@ body {
         <div id="Q7">
             <H3>Question P10</H3>
             <p>
-
+                Consider a packet of length L which begins at end system A and travels over three links to a destination end system. These three links are connected by two packet switches. Let d<SUB>i</SUB>, s<SUB>i</SUB>, and R<SUB>i</SUB> denote the length, propagation speed, and the transmission rate of link i, for i = 1, 2, 3. The packet switch delays each packet by d<SUB>proc</SUB>. Assuming no queuing delays, in terms of d<SUB>i</SUB>, s<SUB>i</SUB>, R<SUB>i</SUB>, (i = 1,2,3), and L, what is the total end-to-end delay for the packet? Suppose now the packet is 1,500 bytes, the propagation speed on all three links is 2.5 · 10<SUP>8</SUP>m/s, the transmission rates of all three links are 2 Mbps, the packet switch processing delay is 3 msec, the length of the first link is 5,000 km, the length of the second link is 4,000 km, and the length of the last link is 1,000 km. For these values, what is the end-to-end delay?
             </p>
             <H4>Response P10</H4>
             <p>
@@ -129,7 +173,7 @@ body {
         <div id="Q8">
             <H3>Question P11</H3>
             <p>
-
+                In the above problem, suppose R<SUB>1</SUB> = R<SUB>2</SUB> = R<SUB>3</SUB> = R and d<SUB>proc</SUB> = 0. Further suppose the packet switch does not store-and-forward packets but instead immediately transmits each bit it receives before waiting for the entire packet to arrive. What is the end-to-end delay?
             </p>
             <H4>Response P11</H4>
             <p>
