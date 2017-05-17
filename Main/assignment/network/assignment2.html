@@ -48,7 +48,7 @@ body {
     </div>
     <!-- INTRODUCTION SECTION -->
     <!-- QUESTION SECTION -->
-    <div id="Questions" class="main-low-margin col-md-1">
+    <div id="Questions" class="main-low-margin col-offset-md-1">
         <h1>Questions</h1>
         <div id="Q1">
             <H3>Question R5</H3>
@@ -57,7 +57,7 @@ body {
             </p>
             <H4>Response R5</H4>
             <p>
-                Not answered yet.
+                To know if the process is running on the other host, this process have to know the address.
             </p>
         </div>
         <div id="Q2">
@@ -67,7 +67,8 @@ body {
             </p>
             <H4>Response R10</H4>
             <p>
-                Not answered yet.
+                It's means that all two computers agrees to have a proper discussion together without anyone in the middle knowing what they are talking about.
+                This is generally used a three way handshake to be sure about a secured connection.
             </p>
         </div>
         <div id="Q3">
@@ -77,14 +78,14 @@ body {
             </p>
             <H4>Response R15</H4>
             <p>
-                Not answered yet.
+                In this way it allow the FTP process to identify himself in a secured TCP way and allow him then to send and receive packet in UDP: more security and more speed. It is "out-of-band" because FTP uses a special port to establish the connection (in TCP) and another to transmit and receive data.
             </p>
         </div>
     </div>
     <!-- END QUESTION SECTION -->
     <hr />
     <!-- QUESTION OPTIONAL SECTION -->
-    <div id="OptionalQuestions" class="main-low-margin col-md-1">
+    <div id="OptionalQuestions" class="main-low-margin col-offset-md-1">
         <h1>Optional Questions</h1>
         <div id="Q4">
             <H3>Question P1</H3>
@@ -112,7 +113,7 @@ body {
                             c.
                         </td>
                         <td>
-                            With nonpersistent connections between browser and origin server, it is possible for a single TCP segment to carry two distinct HTTP request messages.
+                            With non-persistent connections between browser and origin server, it is possible for a single TCP segment to carry two distinct HTTP request messages.
                         </td>
                     </tr>
                     <tr>
@@ -141,7 +142,7 @@ body {
                             a.&nbsp;
                         </td>
                         <td>
-                            True - False
+                            True
                         </td>
                     </tr>
                     <tr>
@@ -149,7 +150,7 @@ body {
                             b.
                         </td>
                         <td>
-                            True - False
+                            False
                         </td>
                     </tr>
                     <tr>
@@ -157,7 +158,7 @@ body {
                             c.
                         </td>
                         <td>
-                            True - False
+                            True
                         </td>
                     </tr>
                     <tr>
@@ -165,14 +166,15 @@ body {
                             d.
                         </td>
                         <td>
-                            True - False
+                            False
                         </td>
                     </tr>
                     <tr>
                         <td>
                             e.
                         </td>
-                            True - False
+                        <td>
+                            False
                         </td>
                     </tr>
                 </table>
@@ -181,17 +183,18 @@ body {
         <div id="Q5">
             <H3>Question P4</H3>
             <p>
-                Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET message). The characters &lt;cr&gt;&lt;lf&gt; are carriage return and line-feed characters (that is, the italized character string &lt;cr&gt; in the text below represents the single carriage-return character that was contained at that point in the HTTP header). Answer the following questions, indicating where in the HTTP GET message below you find the answer.<br /><br />
-
-                GET /cs453/index.html HTTP/1.1&lt;cr&gt;&lt;lf&gt;<br />
-                Host: gai a.cs.umass.edu&lt;cr&gt;&lt;lf&gt;<br />
-                User-Agent: Mozilla/5.0 ( Windows;U; Windows NT 5.1; en-US; rv:1.7.2) Gec ko/20040804 Netscape/7.2 (ax) &lt;cr&gt;&lt;lf&gt;<br />
-                Accept:ex t/xml, application/xml, application/xhtml+xml, text /html;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5 &lt;cr&gt;&lt;lf&gt;<br />
-                Accept-Language: en-us,en;q=0.5&lt;cr&gt;&lt;lf&gt;<br />
-                AcceptEncoding: zip,deflate&lt;cr&gt;&lt;lf&gt;<br />
-                Accept-Charset: ISO -8859-1,utf-8;q=0.7,*;q=0.7&lt;cr&gt;&lt;lf&gt;<br />
-                Keep-Alive: 300&lt;cr&gt;&lt;lf&gt;<br />
-                Connection:keep-alive&lt;cr&gt;&lt;lf&gt;&lt;cr&gt;&lt;lf&gt; <br />
+                Consider the following string of ASCII characters that were captured by Wireshark when the browser sent an HTTP GET message (i.e., this is the actual content of an HTTP GET message). The characters &lt;cr&gt;&lt;lf&gt; are carriage return and line-feed characters (that is, the italized character string &lt;cr&gt; in the text below represents the single carriage-return character that was contained at that point in the HTTP header). Answer the following questions, indicating where in the HTTP GET message below you find the answer.
+                <br />
+                <br /> GET /cs453/index.html HTTP/1.1&lt;cr&gt;&lt;lf&gt;
+                <br /> Host: gai a.cs.umass.edu&lt;cr&gt;&lt;lf&gt;
+                <br /> User-Agent: Mozilla/5.0 ( Windows;U; Windows NT 5.1; en-US; rv:1.7.2) Gec ko/20040804 Netscape/7.2 (ax) &lt;cr&gt;&lt;lf&gt;
+                <br /> Accept:ex t/xml, application/xml, application/xhtml+xml, text /html;q=0.9, text/plain;q=0.8,image/png,*/*;q=0.5 &lt;cr&gt;&lt;lf&gt;
+                <br /> Accept-Language: en-us,en;q=0.5&lt;cr&gt;&lt;lf&gt;
+                <br /> AcceptEncoding: zip,deflate&lt;cr&gt;&lt;lf&gt;
+                <br /> Accept-Charset: ISO -8859-1,utf-8;q=0.7,*;q=0.7&lt;cr&gt;&lt;lf&gt;
+                <br /> Keep-Alive: 300&lt;cr&gt;&lt;lf&gt;
+                <br /> Connection:keep-alive&lt;cr&gt;&lt;lf&gt;&lt;cr&gt;&lt;lf&gt;
+                <br />
                 <table>
                     <tr>
                         <td>
@@ -236,13 +239,14 @@ body {
                 </table>
             </p>
             <H4>Response P4</H4>
-            <p><table>
+            <p>
+                <table>
                     <tr>
                         <td>
                             a.&nbsp;
                         </td>
                         <td>
-                            Not answered yet.
+                            The user want to access the web page http://a.cs.umass.edu/cs453/index.html/
                         </td>
                     </tr>
                     <tr>
@@ -250,7 +254,7 @@ body {
                             b.
                         </td>
                         <td>
-                            Not answered yet.
+                            This browser uses HTTP 1.1
                         </td>
                     </tr>
                     <tr>
@@ -258,7 +262,7 @@ body {
                             c.
                         </td>
                         <td>
-                            Not answered yet.
+                            The browser ask for a connection with a keep-alive of 300 ms.
                         </td>
                     </tr>
                     <tr>
@@ -266,7 +270,7 @@ body {
                             d.
                         </td>
                         <td>
-                            Not answered yet.
+                            The IP address is 128.119.8.148
                         </td>
                     </tr>
                     <tr>
@@ -274,7 +278,7 @@ body {
                             e.
                         </td>
                         <td>
-                            Not answered yet.
+                            The browser is actually a Mozilla for windows. It is important to know this fact because not all browser support all technologies, so this way the server will know which file to send if the browser does not support all the content.
                         </td>
                     </tr>
                 </table>
@@ -345,7 +349,7 @@ body {
                             a.&nbsp;
                         </td>
                         <td>
-                             Do Bob’s parallel connections help him get Web pages more quickly? Why or why not?
+                            Do Bob’s parallel connections help him get Web pages more quickly? Why or why not?
                         </td>
                     </tr>
                     <tr>
