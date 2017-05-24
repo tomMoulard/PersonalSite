@@ -258,8 +258,24 @@ body {
             <H3>Question P26</H3>
             <p>
                 Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes.
-                a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.
-                b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.
+            <table>
+                <tr>
+                    <td>
+                        a.
+                    </td>
+                    <td>
+                        What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        b.
+                    </td>
+                    <td>
+                        For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.
+                    </td>
+                </tr>
+            </table>
             </p>
             <h4>Response P26</h4>
             <p>
@@ -271,21 +287,102 @@ body {
             </p>
             <h4>Response P40</h4>
             <p>
-                Consider Figure 3.58. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. In all cases, you should provide a short discussion justifying your answer.
-                a. Identify the intervals of time when TCP slow start is operating.
-                b. Identify the intervals of time when TCP congestion avoidance is operating.
-                c. After the 16th transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
-                d. After the 22nd transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
-                e. What is the initial value of ssthresh at the first transmission round?
-                f. What is the value of ssthresh at the 18th transmission round?
-                g. What is the value of ssthresh at the 24th transmission round?
-                h. During what transmission round is the 70th segment sent?
-                i. Assuming a packet loss is detected after the 26th round by the receipt of a triple duplicate ACK, what will be the values of the congestion window size and of ssthresh?
-
-                <img src="http://tom.moulard.org/assignment/network/p40.png" alt="">
-
-                j. Suppose TCP Tahoe is used (instead of TCP Reno), and assume that triple duplicate ACKs are received at the 16th round. What are the ssthresh and the congestion window size at the 19th round?
-                k. Again suppose TCP Tahoe is used, and there is a timeout event at 22nd round. How many packets have been sent out from 17th round till 22nd round, inclusive?
+            Consider Figure 3.58. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. In all cases, you should provide a short discussion justifying your answer.
+            <table>
+                <tr>
+                    <td>
+                        a.
+                    </td>
+                    <td>   
+                        Identify the intervals of time when TCP slow start is operating.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        b.
+                    </td>
+                    <td>
+                        Identify the intervals of time when TCP congestion avoidance is operating.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        c.
+                    </td>
+                    <td>
+                        After the 16th transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        d.
+                    </td>
+                    <td>
+                        After the 22nd transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        e.
+                    </td>
+                    <td>
+                        What is the initial value of ssthresh at the first transmission round?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        f.
+                    </td>
+                    <td>
+                        What is the value of ssthresh at the 18th transmission round?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        g.
+                    </td>
+                    <td>
+                        What is the value of ssthresh at the 24th transmission round?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        h.
+                    </td>
+                    <td>
+                        During what transmission round is the 70th segment sent?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        i.
+                    </td>
+                    <td>
+                        Assuming a packet loss is detected after the 26th round by the receipt of a triple duplicate ACK, what will be the values of the congestion window size and of ssthresh?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        j.
+                    </td>
+                    <td>
+                        Suppose TCP Tahoe is used (instead of TCP Reno), and assume that triple duplicate ACKs are received at the 16th round. What are the ssthresh and the congestion window size at the 19th round?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        k.
+                    </td>
+                    <td>
+                        Again suppose TCP Tahoe is used, and there is a timeout event at 22nd round. How many packets have been sent out from 17th round till 22nd round, inclusive?
+                    </td>
+                </tr>
+            </table>
+            
+            <!-- <img src="http://tom.moulard.org/assignment/network/P40.png" alt=""> -->
+            <div id="picture" class="container" align="center" >
+                <img id="picture" src="http://tom.moulard.org/assignment/network/P40.png" alt="P40.png" title="P40.png" width="20%" height="20%">
+            </div>
             </p>
         </div>
         <div id="Q7">
