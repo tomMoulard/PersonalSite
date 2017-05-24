@@ -27,6 +27,12 @@ body {
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+    img {
+        width: 33%;
+        height: auto;
+    }
+    </style>
 </head>
 <!--END HEAD SECTION -->
 
@@ -57,10 +63,10 @@ body {
                 <table>
                     <tr>
                         <td>
-                            a.
+                            a.&nbsp;
                         </td>
                         <td>
-                            Host A is sending Host B a large file over a TCP connection. Assume Host B has no data to send Host A. Host B will not send acknowledgments to Host A because Host B cannot piggyback the acknowledgments on data.
+                            Host A is sending Host B a large file over a TCP connection. Assume Host B has no data to send Host A. Host B will not send acknowledgments to Host A because Host B cannot piggyback the acknowledgments on dat a.&nbsp;
                         </td>
                     </tr>
                     <tr>
@@ -118,10 +124,10 @@ body {
                 <table>
                     <tr>
                         <td>
-                            a.
+                            a.&nbsp;
                         </td>
                         <td>
-                            True or False
+                            False
                         </td>
                     </tr>
                     <tr>
@@ -129,7 +135,7 @@ body {
                             b.
                         </td>
                         <td>
-                            True or False
+                            False
                         </td>
                     </tr>
                     <tr>
@@ -137,7 +143,7 @@ body {
                             c.
                         </td>
                         <td>
-                            True or False
+                            True
                         </td>
                     </tr>
                     <tr>
@@ -145,7 +151,7 @@ body {
                             d.
                         </td>
                         <td>
-                            True or False
+                            False
                         </td>
                     </tr>
                     <tr>
@@ -153,7 +159,7 @@ body {
                             e.
                         </td>
                         <td>
-                            True or False
+                            True
                         </td>
                     </tr>
                     <tr>
@@ -161,7 +167,7 @@ body {
                             f.
                         </td>
                         <td>
-                            True or False
+                            False
                         </td>
                     </tr>
                     <tr>
@@ -169,7 +175,7 @@ body {
                             g.
                         </td>
                         <td>
-                            True or False
+                            True
                         </td>
                     </tr>
                 </table>
@@ -182,7 +188,7 @@ body {
                 <table>
                     <tr>
                         <td>
-                            a.
+                            a.&nbsp;
                         </td>
                         <td>
                             How much data is in the first segment?
@@ -208,7 +214,7 @@ body {
                 <table>
                     <tr>
                         <td>
-                            a.
+                            a.&nbsp;
                         </td>
                         <td>
                             Suppose you have the following 2 bytes: 01011100 and 01100101. What is the 1s complement of the sum of these 2 bytes?
@@ -239,10 +245,7 @@ body {
         <div id="Q4">
             <H3>Question P31</H3>
             <p>
-                Suppose that the five measured SampleRTT values (see Section 3.5.3) are 106 ms, 120 ms, 140 ms, 90 ms, and 115 ms.
-                Compute the EstimatedRTT after each of these SampleRTT values is obtained, using a value of α = 0.125 and assuming that the value of EstimatedRTT was 100 ms just before the first of these five samples were obtained.
-                Compute also the DevRTT after each sample is obtained, assuming a value of β = 0.25 and assuming the value of DevRTT was 5 ms just before the first of these five samples was obtained.
-                Last, compute the TCP TimeoutInterval after each of these samples is obtained.
+                Suppose that the five measured SampleRTT values (see Section 3.5.3) are 106 ms, 120 ms, 140 ms, 90 ms, and 115 ms. Compute the EstimatedRTT after each of these SampleRTT values is obtained, using a value of α = 0.125 and assuming that the value of EstimatedRTT was 100 ms just before the first of these five samples were obtained. Compute also the DevRTT after each sample is obtained, assuming a value of β = 0.25 and assuming the value of DevRTT was 5 ms just before the first of these five samples was obtained. Last, compute the TCP TimeoutInterval after each of these samples is obtained.
             </p>
             <h4>Response P31</h4>
             <p>
@@ -258,24 +261,24 @@ body {
             <H3>Question P26</H3>
             <p>
                 Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes.
-            <table>
-                <tr>
-                    <td>
-                        a.
-                    </td>
-                    <td>
-                        What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        b.
-                    </td>
-                    <td>
-                        For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.
-                    </td>
-                </tr>
-            </table>
+                <table>
+                    <tr>
+                        <td>
+                            a.&nbsp;
+                        </td>
+                        <td>
+                            What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.
+                        </td>
+                    </tr>
+                </table>
             </p>
             <h4>Response P26</h4>
             <p>
@@ -287,102 +290,101 @@ body {
             </p>
             <h4>Response P40</h4>
             <p>
-            Consider Figure 3.58. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. In all cases, you should provide a short discussion justifying your answer.
-            <table>
-                <tr>
-                    <td>
-                        a.
-                    </td>
-                    <td>   
-                        Identify the intervals of time when TCP slow start is operating.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        b.
-                    </td>
-                    <td>
-                        Identify the intervals of time when TCP congestion avoidance is operating.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        c.
-                    </td>
-                    <td>
-                        After the 16th transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        d.
-                    </td>
-                    <td>
-                        After the 22nd transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        e.
-                    </td>
-                    <td>
-                        What is the initial value of ssthresh at the first transmission round?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        f.
-                    </td>
-                    <td>
-                        What is the value of ssthresh at the 18th transmission round?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        g.
-                    </td>
-                    <td>
-                        What is the value of ssthresh at the 24th transmission round?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        h.
-                    </td>
-                    <td>
-                        During what transmission round is the 70th segment sent?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        i.
-                    </td>
-                    <td>
-                        Assuming a packet loss is detected after the 26th round by the receipt of a triple duplicate ACK, what will be the values of the congestion window size and of ssthresh?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        j.
-                    </td>
-                    <td>
-                        Suppose TCP Tahoe is used (instead of TCP Reno), and assume that triple duplicate ACKs are received at the 16th round. What are the ssthresh and the congestion window size at the 19th round?
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        k.
-                    </td>
-                    <td>
-                        Again suppose TCP Tahoe is used, and there is a timeout event at 22nd round. How many packets have been sent out from 17th round till 22nd round, inclusive?
-                    </td>
-                </tr>
-            </table>
-            
-            <!-- <img src="http://tom.moulard.org/assignment/network/P40.png" alt=""> -->
-            <div id="picture" class="container" align="center" >
+                Consider Figure 3.58. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. In all cases, you should provide a short discussion justifying your answer.
+                <table>
+                    <tr>
+                        <td>
+                            a.&nbsp;
+                        </td>
+                        <td>
+                            Identify the intervals of time when TCP slow start is operating.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            Identify the intervals of time when TCP congestion avoidance is operating.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            c.
+                        </td>
+                        <td>
+                            After the 16th transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            d.
+                        </td>
+                        <td>
+                            After the 22nd transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            e.
+                        </td>
+                        <td>
+                            What is the initial value of ssthresh at the first transmission round?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            f.
+                        </td>
+                        <td>
+                            What is the value of ssthresh at the 18th transmission round?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            g.
+                        </td>
+                        <td>
+                            What is the value of ssthresh at the 24th transmission round?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            h.
+                        </td>
+                        <td>
+                            During what transmission round is the 70th segment sent?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            i.
+                        </td>
+                        <td>
+                            Assuming a packet loss is detected after the 26th round by the receipt of a triple duplicate ACK, what will be the values of the congestion window size and of ssthresh?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            j.
+                        </td>
+                        <td>
+                            Suppose TCP Tahoe is used (instead of TCP Reno), and assume that triple duplicate ACKs are received at the 16th round. What are the ssthresh and the congestion window size at the 19th round?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            k.
+                        </td>
+                        <td>
+                            Again suppose TCP Tahoe is used, and there is a timeout event at 22nd round. How many packets have been sent out from 17th round till 22nd round, inclusive?
+                        </td>
+                    </tr>
+                </table>
+                <img src="http://tom.moulard.org/assignment/network/P40.png" alt="">
+                <!--             <div id="picture" class="container" align="center" >
                 <img id="picture" src="http://tom.moulard.org/assignment/network/P40.png" alt="P40.png" title="P40.png" width="20%" height="20%">
-            </div>
+            </div> -->
             </p>
         </div>
         <div id="Q7">
