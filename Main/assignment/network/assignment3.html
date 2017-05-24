@@ -1,0 +1,316 @@
+<!-- This file is hosted here : http://tom/moulard.org/assignment/network -->
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- this line removes any default padding and style. you might only need one of these values set. -->
+<style>
+body {
+    padding: 0;
+    margin: 0;
+}
+</style>
+<!-- HEAD SECTION -->
+
+<head>
+    <title>Assignment n3 (due date : 25/05/17) : Computer Networking : Tom Moulard, 16920041</title>
+    <meta name="author" content="Tom MOULARD">
+    <link rel="icon" type="image/css" href="http://tom.moulard.org/assets/img/cloneTrooper.ico">
+    <link href="http://tom.moulard.org/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="http://tom.moulard.org/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://tom.moulard.org/assets/css/style.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!--END HEAD SECTION -->
+
+<body>
+    <!-- INTRODUCTION SECTION -->
+    <div id="introduction" class="text-center">
+        <h1> 
+            <strong class="color-red">
+                Assignment n3
+            </strong>
+        </h1>
+        <p>
+            By Tom Moulard
+        </p>
+        <p>
+            student ID : 16920041
+        </p>
+        <hr />
+    </div>
+    <!-- INTRODUCTION SECTION -->
+    <!-- QUESTION SECTION -->
+    <div id="Questions" class="main-low-margin col-offset-md-1">
+        <h1>Questions about Chap3</h1>
+        <div id="Q1">
+            <H3>Question R14</H3>
+            <p>
+                True or false?
+                <table>
+                    <tr>
+                        <td>
+                            a.
+                        </td>
+                        <td>
+                            Host A is sending Host B a large file over a TCP connection. Assume Host B has no data to send Host A. Host B will not send acknowledgments to Host A because Host B cannot piggyback the acknowledgments on data.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            The size of the TCP rwnd never changes throughout the duration of the connection.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            c.
+                        </td>
+                        <td>
+                            Suppose Host A is sending Host B a large file over a TCP connection. The number of unacknowledged bytes that A sends cannot exceed the size of the receive buffer.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            d.
+                        </td>
+                        <td>
+                            Suppose Host A is sending a large file to Host B over a TCP connection. If the sequence number for a segment of this connection is m, then the sequence number for the subsequent segment will necessarily be m + 1.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            e.
+                        </td>
+                        <td>
+                            The TCP segment has a field in its header for rwnd.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            f.
+                        </td>
+                        <td>
+                            Suppose that the last SampleRTT in a TCP connection is equal to 1 sec. The current value of TimeoutInterval for the connection will necessarily be ≥ 1 sec.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            g.
+                        </td>
+                        <td>
+                            Suppose Host A sends one segment with sequence number 38 and 4 bytes of data over a TCP connection to Host B. In this same segment the acknowledgment number is necessarily 42.
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <h4>Response R14</h4>
+            <p>
+                <table>
+                    <tr>
+                        <td>
+                            a.
+                        </td>
+                        <td>
+                            True or False
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            True or False
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            c.
+                        </td>
+                        <td>
+                            True or False
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            d.
+                        </td>
+                        <td>
+                            True or False
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            e.
+                        </td>
+                        <td>
+                            True or False
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            f.
+                        </td>
+                        <td>
+                            True or False
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            g.
+                        </td>
+                        <td>
+                            True or False
+                        </td>
+                    </tr>
+                </table>
+            </p>
+        </div>
+        <div id="Q2">
+            <H3>Question R15</H3>
+            <p>
+                Suppose Host A sends two TCP segments back to back to Host B over a TCP connection. The first segment has sequence number 90; the second has sequence number 110.
+                <table>
+                    <tr>
+                        <td>
+                            a.
+                        </td>
+                        <td>
+                            How much data is in the first segment?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            Suppose that the first segment is lost but the second segment arrives at B. In the acknowledgment that Host B sends to Host A, what will be the acknowledgment number?
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <h4>Response R15</h4>
+            <p>
+            </p>
+        </div>
+        <div id="Q3">
+            <H3>Question P4</H3>
+            <p>
+                <table>
+                    <tr>
+                        <td>
+                            a.
+                        </td>
+                        <td>
+                            Suppose you have the following 2 bytes: 01011100 and 01100101. What is the 1s complement of the sum of these 2 bytes?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            b.
+                        </td>
+                        <td>
+                            Suppose you have the following 2 bytes: 11011010 and 01100101. What is the 1s complement of the sum of these 2 bytes?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            c.
+                        </td>
+                        <td>
+                            For the bytes in part (a), give an example where one bit is flipped in each of the 2 bytes and yet the 1s complement doesn’t change.
+                        </td>
+                    </tr>
+                </table>
+            </p>
+            <h4>Response P4</h4>
+            <p>
+            </p>
+        </div>
+        <div id="Q4">
+            <H3>Question P31</H3>
+            <p>
+                Suppose that the five measured SampleRTT values (see Section 3.5.3) are 106 ms, 120 ms, 140 ms, 90 ms, and 115 ms.
+                Compute the EstimatedRTT after each of these SampleRTT values is obtained, using a value of α = 0.125 and assuming that the value of EstimatedRTT was 100 ms just before the first of these five samples were obtained.
+                Compute also the DevRTT after each sample is obtained, assuming a value of β = 0.25 and assuming the value of DevRTT was 5 ms just before the first of these five samples was obtained.
+                Last, compute the TCP TimeoutInterval after each of these samples is obtained.
+            </p>
+            <h4>Response P31</h4>
+            <p>
+            </p>
+        </div>
+    </div>
+    <!-- END QUESTION SECTION -->
+    <hr />
+    <!-- QUESTION OPTIONAL SECTION -->
+    <div id="OptionalQuestions" class="main-low-margin col-offset-md-1">
+        <h1>Optional Questions</h1>
+        <div id="Q5">
+            <H3>Question P26</H3>
+            <p>
+                Consider transferring an enormous file of L bytes from Host A to Host B. Assume an MSS of 536 bytes.
+                a. What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.
+                b. For the L you obtain in (a), find how long it takes to transmit the file. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can pump out the segments back to back and continuously.
+            </p>
+            <h4>Response P26</h4>
+            <p>
+            </p>
+        </div>
+        <div id="Q6">
+            <H3>Question P40</H3>
+            <p>
+            </p>
+            <h4>Response P40</h4>
+            <p>
+                Consider Figure 3.58. Assuming TCP Reno is the protocol experiencing the behavior shown above, answer the following questions. In all cases, you should provide a short discussion justifying your answer.
+                a. Identify the intervals of time when TCP slow start is operating.
+                b. Identify the intervals of time when TCP congestion avoidance is operating.
+                c. After the 16th transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+                d. After the 22nd transmission round, is segment loss detected by a triple duplicate ACK or by a timeout?
+                e. What is the initial value of ssthresh at the first transmission round?
+                f. What is the value of ssthresh at the 18th transmission round?
+                g. What is the value of ssthresh at the 24th transmission round?
+                h. During what transmission round is the 70th segment sent?
+                i. Assuming a packet loss is detected after the 26th round by the receipt of a triple duplicate ACK, what will be the values of the congestion window size and of ssthresh?
+
+                <img src="http://tom.moulard.org/assignment/network/p40.png" alt="">
+
+                j. Suppose TCP Tahoe is used (instead of TCP Reno), and assume that triple duplicate ACKs are received at the 16th round. What are the ssthresh and the congestion window size at the 19th round?
+                k. Again suppose TCP Tahoe is used, and there is a timeout event at 22nd round. How many packets have been sent out from 17th round till 22nd round, inclusive?
+            </p>
+        </div>
+        <div id="Q7">
+            <H3>Question P45</H3>
+            <p>
+                Recall the macroscopic description of TCP throughput. In the period of time from when the connection’s rate varies from W/(2 · RTT) to W/RTT, only one packet is lost (at the very end of the period). a. Show that the loss rate (fraction of packets lost) is equal to
+                <!-- L -->
+                b. Use the result above to show that if a connection has loss rate L, then its average rate is approximately given by
+                <!-- average loss rate  -->
+            </p>
+            <h4>Response P45</h4>
+            <p>
+            </p>
+        </div>
+    </div>
+    <!-- END QUESTION OPTIONAL SECTION -->
+    <!--FOOTER SECTION -->
+    <div id="footer">
+        <div class="container">
+            <div class="">
+                &copy; 2017 tom.moulard.org | All Right Reserved | http://tom.moulard.org/assignment/network/assignment3.html
+            </div>
+        </div>
+    </div>
+    <!--END FOOTER SECTION -->
+</body>
+
+</html>
