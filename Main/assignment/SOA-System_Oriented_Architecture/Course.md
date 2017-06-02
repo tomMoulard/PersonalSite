@@ -18,4 +18,7 @@ execute the server
 ├> wso2
 ├─> msf4j
 └──> bin
+
 ### Create REST FULL API
+├> Use switches to make routes
+└─> Use logs for each case to log activities and use XPath Extension functions
