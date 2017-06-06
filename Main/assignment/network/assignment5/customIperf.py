@@ -28,7 +28,9 @@ import os
 # import threading
 
 def get_constants(prefix):
-    """Create a dictionary mapping socket module constants to their names."""
+    """
+    Create a dictionary mapping socket module constants to their names.
+    """
     return dict( (getattr(socket, n), n)
                  for n in dir(socket)
                  if n.startswith(prefix)
@@ -124,17 +126,17 @@ def main():
         isServer()
     elif "-c" in sys.argv:
         args = sys.argv[2]
-        ip = ""
+        ip   = ""
         port = ""
-        pos = 0
-        ll = len(args)
+        pos  = 0
+        ll   = len(args)
         while pos < ll and args[pos] != ":":
-            ip += args[pos]
+            ip  += args[pos]
             pos += 1
         pos += 1
         while pos < ll:
             port += args[pos]
-            pos += 1
+            pos  += 1
         isClient((ip, port), sys.argv[3])
     else:
         print(usage)

@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}       
+%\usepackage{geometry}
+\usepackage[left=4cm,right=3cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage{vmargin}
+\usepackage{fancyhdr}
+\usepackage{epsfig}
+\usepackage{eurosym}
+\usepackage{url}
+\graphicspath{ {figures/} }
+\usepackage{array}
+\usepackage{listings}
+\usepackage{mathtools}
+
+\newenvironment{Times}{\fontfamily{ptm}\selectfont}{}
+\fancyhf{}
+\pagestyle{fancy}
+\fancyfoot[R]{\thepage}
+\fancyhead[L]{\leftmark}
+\usepackage{setspace}
+\setstretch{1.5}
+
+%Python code
+\usepackage{listings}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\title{\underline{\textbf{\begin{Huge}Network\end{Huge}}}\\\vspace{1cm}
+    \begin{huge}
+        \textbf{Coucou}
+    \end{huge}\\}
+    
+\author{
+        Tom Moulard (16920041)
+        \date{}
+        }
+        
+        
+\begin{document}
+l\maketitle
+\begin{center}
+\vspace{1cm}
+\date{2017 March 4}
+\vspace{2cm}\\
+\end{center}    
+    \thispagestyle{empty}
+
+\newpage{}
+
+\tableofcontents
+\thispagestyle{empty}
+
+\lstinputlisting[language=Python]{source_filename.py}
+
+\newpage
+\section{Introduction}
+
+
+\newpage 
+
+\section{Conclusion}
+
+\newpage
+
+\listoffigures
+
+\end{document}
+
+% \par
+
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.6\textwidth]{three-tier_architecture.png}
+% \caption{Three-tier architecture schema}\label{}
+% \end{figure}
+
