@@ -42,13 +42,16 @@ def isServer():
     as the one sent.
     """
     port      = 10000
-    families  = get_constants('AF_')
-    types     = get_constants('SOCK_')
-    protocols = get_constants('IPPROTO_')
+    families  = get_constants("AF_")
+    types     = get_constants("SOCK_")
+    protocols = get_constants("IPPROTO_")
     sock      = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # Bind the socket to the port
-    server_address = ('localhost', port)
-    sock.bind(server_address)
+    server_address = ("localhost", port)
+    try:
+        sock.bind(server_address)
+    except Exception as e:
+        print(e)
     sock.listen(1)
     print("------------------------------------------------------------")
     print("Server Listening on port {}".format(port))
@@ -60,25 +63,20 @@ def isServer():
         connection, client_address = sock.accept()
         try:
             print("Client connected: {}".format(client_address))
-
+            lenFileName = int(connection.recv(512).\
+                decode(encoding="utf-8", errors="strict"))
+            fileName    = str(connection.recv(lenFileName).\
+                decode(encoding="utf-8", errors="strict"))
             # Receive the data in small chunks and retransmit it
+            f = open(fileName, "w+b")
             while True:
-                file = ""
-                data = connection.recv(16)
-                print("received \"{}\"".format(data))
-                if data:
-                    file += data
-                else:
-                    fileName = ""
-                    pos, ll = 0, len(file)
-                    while pos < ll and file[pos] != "\n":
-                        fileName += file[pos]
-                        pos += 1
-                    print([file])
-                    print("EOF from {}".format(client_address))
-                    f = open(fileName, "r+")
-                    f.write(file[pos:])
+                data = connection.recv(64)
+                # print("received \"{}\"".format([data]))
+                f.write(data)
+                if not data:
                     f.close()
+                    print("EOF from {} for the file \"{}\"".\
+                        format(client_address, fileName))
                     break
         finally:
             # Clean up the connection
@@ -100,15 +98,21 @@ def isClient(serverIP, fileName):
         pass
     print("Connection established")
     try:
+        # sending fileName:
+        # first the len
+        sock.sendall("{:>512}".format(str(len(fileName))).\
+            encode(encoding="utf-8", errors="strict"))
+        # and then the name
+        sock.sendall("{}".format(fileName).\
+            encode(encoding="utf-8", errors="strict"))
         # crushing data
-        message = fileName +"\n"
-        file = open(fileName, "r")
-        lines = file.readlines()
-        for line in lines:
-            message += line + "\n"
+        file    = open(fileName, "r+b")
+        lines   = file.read()
+        file.close()
         # Send data
         print("Sending file")
-        sock.sendall(message)
+        # sock.sendall(fileName)
+        sock.sendall(lines)
         print("File sent")
     finally:
         print("Closing Connection")
@@ -136,5 +140,5 @@ def main():
         print(usage)
         return 1
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
