@@ -13,7 +13,7 @@ Usage:
 
 usage = """
 Usage:
-    - server : "python3 customIperf.py -s"
+    - server : "python3 customIperf.py -s [-p <port>]"
     - client : "python3 customIperf.py -c <server IP @> <file>"
 """
 
