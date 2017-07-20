@@ -7,13 +7,13 @@ Created on Mon Jun 5 13:00:00 2017
 The goal is to do the same as "iperf" but by using large files
 
 Usage:
-    - server : "python3 customIperf.py -s [-p <port>]"
+    - server : "python3 customIperf.py -s"
     - client : "python3 customIperf.py -c <server IP @> <file>"
 """
 
 usage = """
 Usage:
-    - server : "python3 customIperf.py -s [-p <port>]"
+    - server : "python3 customIperf.py -s"
     - client : "python3 customIperf.py -c <server IP @> <file>"
 """
 
@@ -25,7 +25,7 @@ import sys
 import os
 
 # Miscellaneous
-import re
+# import threading
 
 def get_constants(prefix):
     """
@@ -37,18 +37,13 @@ def get_constants(prefix):
                  )
 
 
-def isServer(port=-1):
+def isServer():
     """
     This manages the server part
     will save by default the file in the current folder with the same name
     as the one sent.
     """
-    if port == -1:
-        # No port set so, getting on free now
-        s = socket.socket()
-        s.bind(('localhost',0))
-        addr,port = s.getsockname()
-        s.close()
+    port      = 10000
     families  = get_constants("AF_")
     types     = get_constants("SOCK_")
     protocols = get_constants("IPPROTO_")
@@ -128,16 +123,7 @@ def isClient(serverIP, fileName):
 
 def main():
     if "-s" in sys.argv:
-        port = -1
-        if "-p" in sys.argv:
-            pos, ll, found, reg = 0, len(sys.argv), False, re.compile("\d+")
-            while pos < ll and not found:
-                tmpRes = reg.findall(sys.argv[pos])
-                if len(tmpRes) != 0:
-                    port  = int(sys.argv[pos])
-                    found = True
-                pos += 1
-        isServer(port=port)
+        isServer()
     elif "-c" in sys.argv:
         args = sys.argv[2]
         ip   = ""
