@@ -1,0 +1,121 @@
+\documentclass{article}
+
+\usepackage{graphicx}%pictures
+\usepackage{wrapfig}%wrapping pictures into text
+\usepackage{subcaption}%wrapping pictures into text
+\usepackage{multicol}%columns managment
+\usepackage{titlesec}%better section
+\usepackage{titling}%better maketitle
+\usepackage[margin=1in]{geometry}
+
+\titleformat{\section}
+{\huge\bfseries}
+{}
+{0em}
+{}[\titlerule]
+
+\titleformat{\subsection}
+{\bfseries\Large}
+{$\bullet$}
+{.25em}
+{}
+
+\titleformat{\subsubsection}[runin]
+{\bfseries}
+{}
+{0em}
+{}[ --- ]
+
+% \titlespacing{\subsection}
+% {0em}%left margin
+% {0.25em}%space before
+% {0em}%space after
+
+\titlespacing{\subsubsection}
+{0em}%left margin
+{0.25em}%space before
+{0.25em}%space after
+
+\pagestyle{empty} %to remove page numbers
+\setlength{\columnsep}{2cm}%set col separation length
+    
+\begin{document}
+
+    \title{CV - EN - Tom MOULARD}
+
+    \author{Tom Moulard}
+
+
+    \begin{center}
+        \begin{figure}
+            \centering
+            \begin{subfigure}[b]{0.3\textwidth}
+                \includegraphics[width=.5\textwidth]{me.jpeg}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.3\textwidth}
+                {\huge\bfseries\theauthor}\\
+                \vspace{.25em}
+                http://tom.moulard.org/\\
+                tom@moulard.org\\
+                +33 6 51 48 72 60\\
+                21 years old.
+            \end{subfigure}
+        \end{figure}
+    \end{center}
+
+%    \hspace{.25em}
+    \section{Training And Diploma}
+        \subsubsection{June 2014}
+            Scientific High School Diploma.
+        \subsubsection{June 2014}
+            PSE1 and BNSSA(Lifeguard).
+        \subsubsection{September 2014 - Nowadays}
+            Epita Student(IT Engineering School).
+        \subsubsection{May, 23 2015}
+            PSE1 recycling.
+        \subsubsection{February 2017 - July 2017}
+            BJTU student(Beijing Jiaotong University).
+
+    \vspace{1cm}
+
+    \begin{multicols}{2}
+        \section{Work Experience}
+            \subsection{Professional Experience}
+                \subsubsection{5 month}
+                    Chinese Environment Ministry, Natural Language Processing in Python to collect and store data in a graph database(Neo4j).
+            \subsection{Professional Internships}
+                \subsubsection{2x1 month}
+                    Orange, IT internship, one in mailing database structures and gesture, the other one in cloud managing for National 7 project.
+            \subsection{Personal Internships}
+                \subsubsection{2 weeks}
+                    English internship in Hern Bay(GB).
+            \subsection{School Internships}
+                \subsubsection{5 month}
+                    Beijing internship in a local university.
+            \subsection{Lifeguard Services}
+                \subsubsection{1 month}
+                    Abyssea pool in Civaux(France) as a lifeguard(B.N.S.S.A.).
+
+        \columnbreak
+
+        \section{Skills}
+            \subsection{IT}
+                \subsubsection{General Skills}
+                    Word, Excel, Access, PowerPoint, Unity, Meteor, Django,  MongoDB, Neo4j, MySQL, GIT, VirtualBox.
+                \subsubsection{Programming Languages}
+                    Python, C, C\#, OCamL, JS, SQL, shell.
+                \subsubsection{Markup Languages}
+                    {\LaTeX}, HTML, CSS.
+                \subsubsection{Multimedia and Images}
+                    GIMP, Imagemagick, Inkscape.
+            \subsection{Languages}
+                \subsubsection{English}
+                    Fluent(TOEIC: 815).
+                \subsubsection{Spanish}
+                    Writing and speaking.
+                \subsubsection{Chinese}
+                    Low understanding.
+                \subsection{Sports}
+                    Swimming, Badminton, Roller.
+    \end{multicols}
+\end{document}      

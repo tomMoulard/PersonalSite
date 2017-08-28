@@ -1,0 +1,128 @@
+\documentclass{article}
+
+\usepackage{graphicx}%pictures
+\usepackage{wrapfig}%wrapping pictures into text
+\usepackage{subcaption}%wrapping pictures into text
+\usepackage{multicol}%columns managment
+\usepackage{titlesec}%better section
+\usepackage{titling}%better maketitle
+\usepackage[margin=1in]{geometry}
+
+\titleformat{\section}
+{\huge\bfseries}
+{}
+{0em}
+{}[\titlerule]
+
+\titleformat{\subsection}
+{\bfseries\Large}
+{$\bullet$}
+{.25em}
+{}
+
+\titleformat{\subsubsection}[runin]
+{\bfseries}
+{}
+{0em}
+{}[ --- ]
+
+% \titlespacing{\subsection}
+% {0em}%left margin
+% {0.25em}%space before
+% {0em}%space after
+
+\titlespacing{\subsubsection}
+{0em}%left margin
+{0.25em}%space before
+{0.25em}%space after
+
+\titlespacing{\subsection}
+{0em}%left margin
+{0.25em}%space before
+{0em}%space after
+
+\pagestyle{empty} %to remove page numbers
+\setlength{\columnsep}{2cm}%set col separation length
+    
+\begin{document}
+
+    \title{CV - FR - Tom MOULARD}
+
+    \author{Tom Moulard}
+
+    \begin{center}
+        \begin{figure}
+            \centering
+            \begin{subfigure}[b]{0.3\textwidth}
+                \includegraphics[width=.5\textwidth]{me.jpeg}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.3\textwidth}
+                {\huge\bfseries\theauthor}\\
+                \vspace{.25em}
+                http://tom.moulard.org/\\
+                tom@moulard.org\\
+                +33 6 51 48 72 60\\
+                2 Rue de Gu\'ebriant,
+                75020 Paris
+                27 avril 1996(21 ans).
+            \end{subfigure}
+        \end{figure}
+    \end{center}
+
+    \hspace{-.25em}
+    \section{\'Etudes et Dipl\^omes}
+        \subsubsection{Juin 2014}
+            Baccalaur\'eat s\'erie S
+        \subsubsection{Juin 2014}
+            PSE1(Premiers Secours en \'Equipe de niveau 1) et BNSSA(Brevet Sup\'erieur de Sauvetage Aquatique).
+        \subsubsection{Septembre 2014 - Actuellement}
+            \'Etudiant \`a l'EPITA.
+        \subsubsection{23 mai 2015}
+            Recyclage PSE1 par la croix blanche 78.
+        \subsubsection{F\'evrier 2017 - Juillet 2017}
+            \'Etudiant \`a BJTU(Beijing Jiaotong University).
+
+    \vspace{1cm}
+
+    \begin{multicols}{2}
+        \section{Exp\'eriences}
+            \subsection{Exp\'erience Professionnelles}
+                \subsubsection{5 mois}
+                    Minist\`ere des l'environnement Chinois, D\'eveloppement python avec du Natural Language Processing pour r\'ecup\'erer et enregistrer des donn\'ees dans Neo4j(base de donnée graphique).
+            \subsection{Stage Professionnel}
+                \subsubsection{1 mois}
+                    Orange, Mise en \oe{}uvre de firewal pfsense dans un cloud openstack(haute disponibilit\'e, filtrage, tunneling).
+            \subsection{Exp\'erience internationale}
+                \subsubsection{5 mois}
+                    Stage \`a Beijing(P\'ekin) dans une universit\'e locale.
+            \subsection{Stage Personnels}
+                \subsubsection{2 semaines}
+                    Stage d'anglais \`a Hern Bay(GB).
+            \subsection{Travail En Piscine}
+                \subsubsection{1 mois}
+                    Piscine Abyssea \`a Civaux, en tant que surveillant de la piscine (B.N.S.S.A.).
+
+        \columnbreak
+
+        \section{Comp\'etences}
+            \subsection{Informatique}
+                \subsubsection{Langages De Programmation}
+                    Python, C, C\#, OCamL, JS, SQL, shell.
+                \subsubsection{Outils}
+                    Unity, Meteor, Django,  MongoDB, Neo4j, MySQL, GIT, VirtualBox
+                \subsubsection{Langages Descriptifs}
+                    {\LaTeX}, HTML, CSS.
+                \subsubsection{Multim\'edia and Bureautique}
+                    GIMP, Imagemagick, Inkscape, Word, Excel, Access, PowerPoint.
+            \subsection{Langues}
+                \subsubsection{Anglais}
+                    Courant(TOEIC: 815).
+                \subsubsection{Espagnol}
+                    \'Ecrit et oral.
+                \subsubsection{Chinois}
+                    Compr\'ehension l\'eg\`ere.
+                \subsection{Sports}
+                    Natation, Badminton, Roller.
+                \subsection{Permis B}
+    \end{multicols}
+\end{document}      
