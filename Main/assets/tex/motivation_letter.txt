@@ -1,0 +1,30 @@
+[haut / gauche]
+Tom MOULARD
+tom@moulard.org
++33651487260
+2 rue guébriant,
+75020 Paris
+
+[Droite]
+[Noms de l'entreprise]
+
+[Date](Paris le XX/XX/XXXX, )
+
+
+[Madame/Monsieur]
+
+Étudiant à l'Epita, je souhaite, durant cette année 2017 - 2018, mettre mes compétences en informatique au profit de votre entreprise tout en développant mes connaissances du milieu professionnel.
+Après cette année, j’intégrerai le cycle ingénieur de mon école en septembre 2018.
+
+Durant ma formation et mes stages, j'ai pu utiliser plusieurs langages de programmation, tels que le Python, le C, le C#, le sql, entre autre et plusieurs langages descriptifs tels que le HTML, le Latex et le CSS.
+
+[Laïus sur l'entreprise visée] (Votre entreprise, connue internationalement, ....)
+
+Je suis très motivé par [qualité de l'entreprise].
+
+Je suis disponible pour toute question complémentaire, et je vous remercie de l'attention que vous porterez à ma candidature.
+
+Je vous prie d'agréer, [Madame/Monsieur] l'expression de mes respectueuses salutation.
+
+Tom MOULARD
+[Signature]
