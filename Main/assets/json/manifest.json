@@ -1,0 +1,16 @@
+{
+  "short_name": "Tom Moulard",
+  "name": "Tom Moulard",
+  "icons": [
+    {
+      "src":"assets/img/cloneTrooper.ico",
+      "sizes": "128x128",
+      "type": "image/css"
+
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fff",
+  "Theme_color": "#000",
+  "display": "fullscreen"
+}
