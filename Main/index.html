@@ -46,7 +46,7 @@ body {
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/cloneTrooper.ico">
         <![endif]-->
-    <link rel="icon" type="image/css" href="assets/img/cloneTrooper.ico">
+    <link rel="icon" type="image/css" href="http://tom.moulard.org/assets/img/cloneTrooper.ico">
     <title>Tom Moulard</title>
     <!--GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -420,6 +420,16 @@ body {
     <script src="assets/js/scrollReveal.js"></script>
     <!-- CUSTOM SCRIPT-->
     <script src="assets/js/custom.js"></script>
-    <script src="../assets/js/serviceWorker.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+    console.log("Will the service worker register?");
+    navigator.serviceWorker.register('serviceWorker.js')
+        .then(function(reg) {
+            console.log("Yes, it did.");
+        }).catch(function(err) {
+            console.log("No it didn't. This happened: ", err)
+        });
+    }
+    </script>
 </body>
 </html>
