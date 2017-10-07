@@ -75,12 +75,12 @@
     var pauseButton = document.getElementById("pause");
     pauseButton.style.visibility = 'hidden';
     var keys = [
-        // {key:81, direction:"down", tune:grossTune}, //q
-        // {key:87, direction:"up", tune:grossTune},   //w
-        // {key:69, direction:"down", tune:mediumTune},//e
-        // {key:82, direction:"up", tune:mediumTune},  //r
-        // {key:84, direction:"down", tune:fineTune},  //t
-        // {key:89, direction:"up", tune:fineTune}     //y
+        // {key:81, direction:"down", tune:grossTune, val: -5}, //q
+        // {key:87, direction:"up", tune:grossTune, val: 5},   //w
+        // {key:69, direction:"down", tune:mediumTune, val: -1},//e
+        // {key:82, direction:"up", tune:mediumTune, val: 1},  //r
+        // {key:84, direction:"down", tune:fineTune, val: -0.25},  //t
+        // {key:89, direction:"up", tune:fineTune, val: 0.25}     //y
         { key: 65, direction: "down", tune: grossTune, val: -5 }, //a
         { key: 90, direction: "up", tune: grossTune, val: 5 }, //z
         { key: 69, direction: "down", tune: mediumTune, val: -1 }, //e
@@ -108,7 +108,8 @@
     }
     pause();
     function getURLParameter(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' +
+        '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
     }
     //to use: add this a the end of the url "?freq=<num>" and <num> is a float number
     var newFreq = parseFloat(getURLParameter('freq'));
@@ -118,7 +119,6 @@
     else{
         var frequency = 500;
     }
-    console.log(newFreq);
     oscillatorNode.connect(gainNode);
     gainNode.connect(audioCtx.destination)
     oscillatorNode.start();
@@ -159,6 +159,10 @@
     document.addEventListener('keyup', function(event) {
         direction = "";
     });
+    var autoplay = getURLParameter('play');
+    if (autoplay != "false"){
+        play();
+    }
     </script>
 </body>
 
