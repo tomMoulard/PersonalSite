@@ -8,6 +8,57 @@
 
 <body>
     <div>Frequence: <span id="frequency"></span></div>
+    <button type="button" id="play" onclick="play()">Play</button>
+    <button type="button" id="pause" onclick="pause()">Pause</button>
+    <div>
+        <table>
+            <tr>
+                <td>Space - on/off</td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td>a - Frequency---</td>
+                <td>
+                    <button type="button" id="a" onclick="setFrequence(keys[0]);">---</button>
+                </td>
+            </tr>
+            <tr>
+                <td>z - Frequency+++</td>
+                <td>
+                    <button type="button" id="z" onclick="setFrequence(keys[1])">+++</button>
+                </td>
+            </tr>
+            <tr>
+                <td>e - Frequency--</td>
+                <td>
+                    <button type="button" id="e" onclick="setFrequence(keys[2])">--</button>
+                </td>
+            </tr>
+            <tr>
+                <td>r - Frequency++</td>
+                <td>
+                    <button type="button" id="r" onclick="setFrequence(keys[3])">++</button>
+                </td>
+            </tr>
+            <tr>
+                <td>t - Frequency-</td>
+                <td>
+                    <button type="button" id="t" onclick="setFrequence(keys[4])">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>y - Frequency+</td>
+                <td>
+                    <button type="button" id="y" onclick="setFrequence(keys[5])">+</button>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <a href="https://gist.github.com/steventhebrave/7c16a72fb940b05b5e5218390418b5bf">Source</a> : 
+            <a href="https://gist.github.com/steventhebrave">Author</a>
+        </p>
+    </div>
     <script type="text/javascript">
     var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
     var oscillatorNode = audioCtx.createOscillator();
@@ -20,6 +71,9 @@
     var grossTune = 5;
     var mediumTune = 0.5;
     var fineTune = 0.05;
+    var playButton = document.getElementById("play");
+    var pauseButton = document.getElementById("pause");
+    pauseButton.style.visibility = 'hidden';
     var keys = [
         // {key:81, direction:"down", tune:grossTune}, //q
         // {key:87, direction:"up", tune:grossTune},   //w
@@ -27,13 +81,44 @@
         // {key:82, direction:"up", tune:mediumTune},  //r
         // {key:84, direction:"down", tune:fineTune},  //t
         // {key:89, direction:"up", tune:fineTune}     //y
-        { key: 65, direction: "down", tune: grossTune }, //a
-        { key: 90, direction: "up", tune: grossTune }, //z
-        { key: 69, direction: "down", tune: mediumTune }, //e
-        { key: 82, direction: "up", tune: mediumTune }, //r
-        { key: 84, direction: "down", tune: fineTune }, //t
-        { key: 89, direction: "up", tune: fineTune } //y
+        { key: 65, direction: "down", tune: grossTune, val: -5 }, //a
+        { key: 90, direction: "up", tune: grossTune, val: 5 }, //z
+        { key: 69, direction: "down", tune: mediumTune, val: -1 }, //e
+        { key: 82, direction: "up", tune: mediumTune, val: 1 }, //r
+        { key: 84, direction: "down", tune: fineTune, val: -0.25 }, //t
+        { key: 89, direction: "up", tune: fineTune, val: 0.25 } //y
     ];
+    var aButton = document.getElementById("a");
+    var zButton = document.getElementById("z");
+    var eButton = document.getElementById("e");
+    var rButton = document.getElementById("r");
+    var tButton = document.getElementById("t");
+    var yButton = document.getElementById("y");
+    function play() {
+        playButton.style.visibility = 'hidden';
+        pauseButton.style.visibility = 'visible';
+        gainNode.gain.value = volume;
+        mute = false;
+    }
+    function pause() {
+        playButton.style.visibility = 'visible';
+        pauseButton.style.visibility = 'hidden';
+        gainNode.gain.value = 0;
+        mute = true;
+    }
+    pause();
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+    }
+    //to use: add this a the end of the url "?freq=<num>" and <num> is a float number
+    var newFreq = parseFloat(getURLParameter('freq'));
+    if (newFreq){
+        var frequency = newFreq;
+    }
+    else{
+        var frequency = 500;
+    }
+    console.log(newFreq);
     oscillatorNode.connect(gainNode);
     gainNode.connect(audioCtx.destination)
     oscillatorNode.start();
@@ -55,11 +140,9 @@
     document.addEventListener('keydown', function(event) {
         if (event.keyCode == 32) { // space bar
             if (mute) {
-                gainNode.gain.value = volume;
-                mute = false;
+                play();
             } else {
-                gainNode.gain.value = 0;
-                mute = true;
+                pause();
             }
         }
         for (var i = keys.length - 1; i >= 0; i--) {
@@ -69,24 +152,14 @@
             }
         }
     });
+
+    function setFrequence(k) {
+        frequency += k.val;
+    }
     document.addEventListener('keyup', function(event) {
         direction = "";
     });
     </script>
-    <div>
-        <ul>
-            <li>Space - on/off</li>
-            <li>a - Frequency---</li>
-            <li>z - Frequency+++</li>
-            <li>e - Frequency--</li>
-            <li>r - Frequency++</li>
-            <li>t - Frequency-</li>
-            <li>y - Frequency+</li>
-        </ul> 
-        <p>
-            <a href="https://gist.github.com/steventhebrave/7c16a72fb940b05b5e5218390418b5bf">Source</a> : <a href="https://gist.github.com/steventhebrave">Author</a>
-        </p>
-    </div>
 </body>
 
 </html>
