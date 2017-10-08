@@ -55,7 +55,7 @@
             </tr>
         </table>
         <p>
-            <a href="https://gist.github.com/steventhebrave/7c16a72fb940b05b5e5218390418b5bf">Source</a> : 
+            <a href="https://gist.github.com/steventhebrave/7c16a72fb940b05b5e5218390418b5bf">Source</a> :
             <a href="https://gist.github.com/steventhebrave">Author</a>
         </p>
     </div>
@@ -94,12 +94,14 @@
     var rButton = document.getElementById("r");
     var tButton = document.getElementById("t");
     var yButton = document.getElementById("y");
+
     function play() {
         playButton.style.visibility = 'hidden';
         pauseButton.style.visibility = 'visible';
         gainNode.gain.value = volume;
         mute = false;
     }
+
     function pause() {
         playButton.style.visibility = 'visible';
         pauseButton.style.visibility = 'hidden';
@@ -107,16 +109,16 @@
         mute = true;
     }
     pause();
+
     function getURLParameter(name) {
         return decodeURIComponent((new RegExp('[?|&]' + name + '=' +
-        '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+            '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
     }
     //to use: add this a the end of the url "?freq=<num>" and <num> is a float number
     var newFreq = parseFloat(getURLParameter('freq'));
-    if (newFreq){
+    if (newFreq) {
         var frequency = newFreq;
-    }
-    else{
+    } else {
         var frequency = 500;
     }
     oscillatorNode.connect(gainNode);
@@ -160,9 +162,23 @@
         direction = "";
     });
     var autoplay = getURLParameter('play');
-    if (autoplay != "false"){
+    if (autoplay != "false") {
         play();
     }
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-78797532-1', 'auto');
+    ga('send', 'pageview');
     </script>
 </body>
 
