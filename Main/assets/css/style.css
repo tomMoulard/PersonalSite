@@ -218,11 +218,12 @@ p {
     background-color: #FAFAFA;
     height: auto;
     width: auto;
-    position: relative;
+    position: centered;
     width: 100%
 }
 
 .img-china {
+    background: url(../img/header.jpg) no-repeat center top;
     float: left;
     margin-top: 30px;
     position: relative;
@@ -230,13 +231,24 @@ p {
     width: 100%;
 }
 
+/* ==========================================================================
+   CHATBOT SECTION
+   ========================================================================== */
+
+#chatbot-section {
+    background-color: #000000;
+    height: auto;
+    width: auto;
+    position: relative;
+    width: 100%
+}
 
 /* ==========================================================================
    CONTACT SECTION
    ========================================================================== */
 
 #contact-section{
-      /*background-color: #000000;*/
+    background-color: #FAFAFA;
 }
 
 .tableContact{

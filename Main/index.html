@@ -299,6 +299,24 @@ body {
         </div>
     </div>
     <!-- END CHINA SECTION -->
+    <!-- CHATBOT SECTION -->
+    <div id="chatbot-section">
+        <div class="container">
+            <div class="row main-top-margin bottam-pad">
+                <div class="col-md-10  col-md-offset-2 ">
+                    <div class="col-md-8 col-md-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.3s">
+                        <h1>My Chatbot</h1>
+                        <hr />
+                        <div style="text-align: center;" class="dialogue" id="dialogue"></div>
+                        <p style="text-align: center;">
+                            <input id="user_input">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ENDCHATBOT SECTION -->
     <!--CONTACT SECTION -->
     <div id="contact-section">
         <div class="container">
@@ -420,16 +438,12 @@ body {
     <script src="assets/js/scrollReveal.js"></script>
     <!-- CUSTOM SCRIPT-->
     <script src="assets/js/custom.js"></script>
-    <script>
-    if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('serviceWorker.js')
-        .then(function(reg) {
-            console.log("Yes, it did.");
-        }).catch(function(err) {
-            console.log("No it didn't. This happened: ", err)
-        });
-    }
-    </script>
+    <!-- Chat bot -->
+    <script language="javascript" type="text/javascript" src="http://tom.moulard.org/fun/0/libraries/p5.js"></script>
+    <script language="javascript" src="http://tom.moulard.org/fun/0/libraries/p5.dom.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>
