@@ -11,7 +11,7 @@ function setup() {
     let response = select("#dialogue");
 
     user_input.changed(function (e) {
-            ask(user_input.value().toSring());
+            ask(user_input.value());
             user_input.value("");
     });
 
