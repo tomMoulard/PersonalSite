@@ -27,7 +27,7 @@ function setup() {
         anwser(bot.reply("local-user", things));
     }
     function anwser(things){
-        conv += "<font color='red'><p><b>Bot</b>: " + betterstr(things) + "</p></font>";
+        conv += "<font color='red'><p><b>Bot</b>: " + things + "</p></font>";
         response.html(conv);
     }
     function betterstr(inpu){
