@@ -14,24 +14,23 @@ function setup() {
             ask(user_input.value());
             user_input.value("");
     });
-
-    // button.mousePressed(chat);
-
     function brainReady(){
         console.log("Chat bot ready!");
         bot.sortReplies();
     }
-
     function brainError(){
         console.log("Chat bot ERROR!");
     }
     function ask(things){
-        conv += "<font color='blue'><p><b>You</b>: " + things + "</p></font>";
+        conv += "<font color='blue'><p><b>You</b>: " + betterstr(things) + "</p></font>";
         response.html(conv);
         anwser(bot.reply("local-user", things));
     }
     function anwser(things){
-        conv += "<font color='red'><p><b>Bot</b>: " + things + "</p></font>";
+        conv += "<font color='red'><p><b>Bot</b>: " + betterstr(things) + "</p></font>";
         response.html(conv);
+    }
+    function betterstr(inpu){
+        return inpu.replace("<", "&lt;").replace(">", "&gt;").replace("\'", "&apos;");
     }
 }
