@@ -2,7 +2,8 @@
 ! version = 0.1
 
 ! var botName = substitute of Tom Moulard
-! var name = unknown 
+
+! array colors = red blue green yellow cyan fuchsia orange black white silver gold gray grey pink
 
 // Substitutions
 ! sub &quot;    = "
@@ -148,12 +149,15 @@
 + *
 - I am sorry, i did not catch that.
 
-+ hello
++ (hello|hi|what's up|wassup)
 - Hi
-- What's up ?
-* <get name> != unknown => Hello <get name>
+- What's up
+- Hello
 
 + (what is your name|who are you|who is this)
+- I am a <bot botName>
+
++ (what is my name|who i am)
 - I am a <bot botName>
 
 + [*]purpose[*]
@@ -170,4 +174,49 @@
 - Tom used some <a href = "https://www.rivescript.com/">RiveScript</a> to create me !
 
 + [*]mail|email[*]
-- Oh, yeah <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
+- Oh, yeah my {random}email mail{/random} is tom@moulard.org, <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
+
++ how are you [today]
+- I am great, how are you?
+
++ do you think i *
+- I don't think you {person}<star>{/person}.
+
++ base64 encode *
+- "<star>" encoded in Base64: &encode.base64(<star>)
+ 
++ md5 encode *
+- "<star>" encoded in MD5: &encode.md5(<star>)
+
++ what did i just say
+- You just said "<input1>"
+
++ why did you say that
+- I said "<reply1>" because you said "<input1>"
+
++ say something random
+- This {random}reply response output{/random} has a random {random}word noun{/random}.
+
++ give me a fortune cookie
+- Your fortune: {random}You will be rich.|You will be famous.{/random}
+
++ [*]phone[*]
+- You can call me at +33 6 51 48 72 60, <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
+
++ [*]btc|bitcoin|xbt|bitc[*]
+- My address is: 3CQQq2WaVpE2YMuNc5M7ygZb8oKWnPBsGf, <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
+
++ [*]address[*]
+- You can find me here: 2 street Guébriant, 75020 Paris, France, <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
+
++ [*]trips[*]
+- If you want so see my trips, go <a href = "http://tom.moulard.org/#china-section">there</a> !
+
++ [*]project|work|product[*]
+- If you want so see my work, go <a href = "http://tom.moulard.org/#products-section">there</a>, and <a href = "https://github.com/tomMoulard">there</a>!
+
++ [*]tom|who|moulard[*]
+- If you want to know me better, go <a href = "http://tom.moulard.org/#about-section">there</a>, or send me an email <a href = "mailto:tom@moulard.org">there</a> !
+
++ [*]resume[*]
+- If you want so see my resume, go <a href = "http://tom.moulard.org/assets/tex/cv-en-tomMOULARD.pdf">there</a> !
