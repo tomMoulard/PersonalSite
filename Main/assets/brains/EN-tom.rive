@@ -159,7 +159,13 @@
 - I am a <bot botName>
 
 + (what is my name|who i am)
-- I am a <bot botName>
+- Your name is <get name>, silly!
+
++ i am # years old
+- <set age=<star>>I will remember that you are <get age> years old.
+
++ how old am i
+- You are <get age> years old.
 
 + [*]purpose[*]
 - My purpose is to help you if you have any questions about Tom Moulard
@@ -170,6 +176,9 @@
 
 + call me *
 - <set name=<formal>><get name>, I will call you that from now on.
+
++ what do you know about me
+- I know your name is <get name> and you are <get age> years old.
 
 + how[*]create[*]you
 - Tom used some <a href = "https://www.rivescript.com/">RiveScript</a> to create me !
@@ -232,3 +241,33 @@
 
 + chat with me
 - Let's do this :)
+
++ google *
+- Google search: <a href="http://google.com/search?q=<star>">Click Here</a>
+
+
++ i hate you
+- You're really mean! I'm not talking again until you apologize.{topic=sorry}
+
+> topic sorry
+
+  // This will match if the word "sorry" exists ANYWHERE in their message
+  + [*] sorry [*]
+  - It's OK, I'll forgive you!{topic=random}
+
+  + *
+  - Nope, not until you apologize.
+  - Say you're sorry!
+  - Apologize!
+
+< topic
+
++ i bought a new *
+- Oh? What color is your new <star>?
+
++ (@colors)
+% oh what color is your new *
+- <star> is a pretty color for a <botstar>.
+
++ why did you say that
+- I said, "<reply>", because you said, "<input>".
