@@ -173,7 +173,7 @@
 + how[*]create[*]you
 - Tom used some <a href = "https://www.rivescript.com/">RiveScript</a> to create me !
 
-+ [*]mail|email[*]
++ [*](mail|email)[*]
 - Oh, yeah my {random}email mail{/random} is tom@moulard.org, <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
 
 + how are you [today]
@@ -203,7 +203,7 @@
 + [*]phone[*]
 - You can call me at +33 6 51 48 72 60, <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
 
-+ [*]btc|bitcoin|xbt|bitc[*]
++ [*](btc|bitcoin|xbt|bitc)[*]
 - My address is: 3CQQq2WaVpE2YMuNc5M7ygZb8oKWnPBsGf, <a href = "http://tom.moulard.org/#contact-section">contact me</a> !
 
 + [*]address[*]
@@ -212,14 +212,17 @@
 + [*]trips[*]
 - If you want so see my trips, go <a href = "http://tom.moulard.org/#china-section">there</a> !
 
-+ [*]project|work|product[*]
++ [*](project|work|product)[*]
 - If you want so see my work, go <a href = "http://tom.moulard.org/#products-section">there</a>, and <a href = "https://github.com/tomMoulard">there</a>!
 
-+ [*]tom|who|moulard[*]
++ [*](tom|who|moulard)[*]
 - If you want to know me better, go <a href = "http://tom.moulard.org/#about-section">there</a>, or send me an email <a href = "mailto:tom@moulard.org">there</a> !
 
 + [*]resume[*]
 - If you want so see my resume, go <a href = "http://tom.moulard.org/assets/tex/cv-en-tomMOULARD.pdf">there</a> !
+
++ [*](&lt;[*]script[*]&gt;|&lt;[*]p&gt[*];|&lt;[*]h[*]&gt;)[*]
+- Oh, no! just don't
 
 + help
 - If you want to talk to me, just write down everything you want :)
