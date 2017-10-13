@@ -31,6 +31,9 @@ function setup() {
         response.html(conv);
     }
     function betterstr(inpu){
-        return inpu.replace("<", "&lt;").replace(">", "&gt;").replace("\'", "&apos;");
+        return inpu.replace(/</g, "&lt;")
+                   .replace(/>/g, "&gt;")
+                   .replace(/\'/g, "&apos;")
+                   .replace(/\"/g, "&apos;&apos;");
     }
 }
