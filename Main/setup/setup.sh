@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #To use:
-# curl http://tom.moulard.org/setup/setup.sh | sh
+# curl http://tom.moulard.org/setup/setup.sh | bash
 
 if [ "$HOME/.bashrc" ]
 then
