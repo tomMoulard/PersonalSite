@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#To use:
+# curl http://tom.moulard.org/setup/setup.sh | sh
+
 if [ "$HOME/.bashrc" ]
 then
     #put git:bashrc > .bashrc
