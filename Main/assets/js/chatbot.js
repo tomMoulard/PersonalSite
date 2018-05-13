@@ -22,8 +22,10 @@ function setup() {
         console.log("Chat bot ERROR!");
     }
     function ask(things){
-        conv += "<font color='blue'><p><b>You</b>: " + betterstr(things) + "</p></font>";
+        things = betterstr(things);
+        conv += "<font color='blue'><p><b>You</b>: " + things + "</p></font>";
         response.html(conv);
+        console.log(things);
         anwser(bot.reply("local-user", things));
     }
     function anwser(things){

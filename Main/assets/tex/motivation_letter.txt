@@ -13,7 +13,7 @@ tom@moulard.org
 
 [Madame/Monsieur]
 
-Étudiant à l'Epita, je souhaite, durant cette année 2017 - 2018, mettre mes compétences en informatique au profit de votre entreprise tout en développant mes connaissances du milieu professionnel.
+Étudiant à l'Epita, je souhaite, durant cette année 2018, mettre mes compétences en informatique au profit de votre entreprise tout en développant mes connaissances du milieu professionnel.
 Après cette année, j’intégrerai le cycle ingénieur de mon école en septembre 2018.
 
 Durant ma formation et mes stages, j'ai pu utiliser plusieurs langages de programmation, tels que le Python, le C, le C#, le sql, entre autre et plusieurs langages descriptifs tels que le HTML, le Latex et le CSS.
