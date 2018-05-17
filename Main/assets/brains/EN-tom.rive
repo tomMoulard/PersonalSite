@@ -253,7 +253,7 @@
 
   // This will match if the word "sorry" exists ANYWHERE in their message
   + [*] (sorry|apologize) [*]
-  - It's OK, I'll forgive you!{topic=random}
+  - It's OK, I'll forgive you!
 
   + *
   - Nope, not until you apologize.
