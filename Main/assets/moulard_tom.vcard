@@ -1,0 +1,31 @@
+BEGIN:VCARD
+VERSION:4.0
+REV:20180627T200000Z
+N:Moulard;Tom;;;
+FN:Tom Moulard
+SORT-STRING:Moulard
+TITLE:Developer
+PHOTO;MEDIATYPE=image/png:https://tom.moulard.org/assets/img/team/team1.png
+TY:Europe/Paris
+SOURCE:https://tom.moulard.org/assets/moulard_tom.vcf
+TEL;TYPE=Mobile Phone;VALUE=uri:tel:+33 651 48 72 60
+ADR;TYPE=home:;;2 rue de Gébriant;Paris;IDF;75020;Paris
+CALADRURI;PREF:mailto:tomtomone247@gmail.com
+CATEGORIES:developer,swimmer
+EMAIL:tom@moulard.org
+GENDER:H
+LANG:fr-FR,en-US,es-ES
+LOGO;MEDIATYPE=image/ico:https://tom.moulard.org/assets/img/cloneTrooper.ico
+URL:https://tom.moulard.org/
+URL:https://github.com/tomMoulard
+URL:https://www.linkedin.com/in/tommoulard/
+URL:https://www.mendeley.com/profiles/tom-moulard/
+URL:https://www.facebook.com/tommoulard
+URL:https://plus.google.com/u/0/112536561937877985074
+EXPERTISE;LEVEL=Junior:Computer Science
+HOBBY;LEVEL=high:roller blade
+X-GENDER:Male
+X-WAB-GENDER:2
+X-SKYPE-USERNAME:tommoulard
+X-MOZILLA-HTML:TRUE
+END:VCARD
