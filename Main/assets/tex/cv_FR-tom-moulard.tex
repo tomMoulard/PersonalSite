@@ -7,6 +7,7 @@
 \usepackage{titlesec}%better section
 \usepackage{titling}%better maketitle
 \usepackage[margin=1in]{geometry}
+\usepackage[super]{nth}%27th
 
 \titleformat{\section}
 {\huge\bfseries}
@@ -26,105 +27,103 @@
 {0em}
 {}[ --- ]
 
-% \titlespacing{\subsection}
-% {0em}%left margin
-% {0.25em}%space before
-% {0em}%space after
+\titlespacing{\section}
+{0em}%left margin
+{0em}%space before
+{0.1em}%space after
 
 \titlespacing{\subsubsection}
 {0em}%left margin
 {0.25em}%space before
 {0.25em}%space after
 
-\titlespacing{\subsection}
-{0em}%left margin
-{0.25em}%space before
-{0em}%space after
-
 \pagestyle{empty} %to remove page numbers
 \setlength{\columnsep}{1cm}%set col separation length
-    
+
 \begin{document}
-
-    \title{CV - FR - Tom MOULARD}
-
+    \title{CV - EN - Tom MOULARD}
     \author{Tom Moulard}
 
     \begin{center}
         \begin{figure}
             \centering
             \begin{subfigure}[b]{0.3\textwidth}
-                \includegraphics[width=.5\textwidth]{me.jpeg}
+                \includegraphics[width=.52\textwidth]{moular_b.jpeg}
             \end{subfigure}
             \begin{subfigure}[b]{0.3\textwidth}
                 {\huge\bfseries\theauthor}\\
-                \vspace{.25em}
-                2 Rue de Gu\'ebriant, 75020 Paris\\
-                http://tom.moulard.org/\\
+                %\vspace{.25em}
+                2 Rue Gu\'ebriant, 75020 Paris\\
+                https://tom.moulard.org/\\
                 tom@moulard.org\\
                 +33 6 51 48 72 60\\
                 27 avril 1996.
             \end{subfigure}
         \end{figure}
     \end{center}
-
-    %\hspace{-.25em}
+\vspace{-1cm}
+%    \hspace{.25em}
     \section{\'Etudes et Dipl\^omes}
-        \subsubsection{F\'evrier 2018}
-            D\'ecouverte du m\'etier d'ing\'enieur chez Google pendant une journ\'ee.
-        \subsubsection{F\'evrier 2017 - Juillet 2017}
-            \'Etudiant \`a BJTU (Beijing Jiaotong University) dans le cadre de la formation de l'\'Epita.
-        \subsubsection{23 mai 2015}
-            Recyclage PSE1.
         \subsubsection{Septembre 2014 - Actuellement}
-            \'Etudiant \`a l'\'EPITA (validation de trois semestres).
+            \'Etudiant \'a l'EPITA (\'Ecole d'ing\'enieur en informatique).
+        \subsubsection{Septembre 2014 - Actuellement}
+            \'Etudiant \'a l'UPEC (Universit\'e).
+        \subsubsection{F\'evrier 2018}
+            Rencontre avec un ing\'enieur chez Google.
+        \subsubsection{F\'evrier 2017 - Juillet 2017}
+            \'Etudiant \'a la BJTU (Beijing Jiaotong University).
         \subsubsection{Juin 2014}
-            BNSSA (Brevet Sup\'erieur de Sauvetage Aquatique) et PSE1 (Premiers Secours en \'Equipe de niveau 1), recyclage en mai 2015.
+            PSE1 and BNSSA.
         \subsubsection{Juin 2014}
             Baccalaur\'eat s\'erie S.
 
 %    \vspace{1cm}
 
     \begin{multicols}{2}
-        \section{Exp\'eriences}
+        \section{Exp\'erinces}
             \subsection{Exp\'erience Professionnelles}
                 \subsubsection{4 mois - 2018}
-                    Zeodine, Mise en place d'un Produit Minumiun Viable (MVP) avec la partie backend en Golang et le frontend avec JS/CSS/HTML et en utilisant la librairie P5.js (Test unitaire, test d'acceptance, mise en production automatique, manipulation d'images, gestion d'utilisateurs).
+                    Zeodine, Full stack. Back-end; Go; Front-end: HTML, CSS, JS and P5.js.
+                    Unit Testing, Acceptance Testing, Automatic Deployment, image manipulations, user management.
                 \subsubsection{2 mois - 2017}
-                    Minist\`ere des l'environnement Chinois, D\'eveloppement python avec du Natural Language Processing pour r\'ecup\'erer et enregistrer des donn\'ees dans Neo4j (base de donn\'ees graphique).
-                \subsubsection{1 mois - 2015}
-                    Piscine Abyssea \`a Civaux, en tant que surveillant de baignade (B.N.S.S.A.).
+                    Minist\`ere des l'environnement Chinois, NLP en Python et management d'une base de donn\'ee graphique (Neo4j).
             \subsection{Stage Professionnel}
-                \subsubsection{1 mois - 2017}
+                \subsubsection{1 month - 2017}
                     Orange, Mise en \oe{}uvre de firewal pfsense dans un cloud openstack (haute disponibilit\'e, filtrage, tunneling).
-            \subsection{Formation Internationale}
+            \subsection{Projets Scolaires}
+                \subsubsection{3 semaines - 2018}
+                    Spider Web Server
+                \subsubsection{2 semaine - 2018}
+                    MyVSwitch, switch virtuel.
+            \subsection{Formation Internationnale}
                 \subsubsection{5 mois - 2017}
                     Beijing Jiaotong University, ensemble des cours en anglais (examens valid\'es).
             \subsection{Stage Linguistique}
-                \subsubsection{2 semaines - 2013}
-                    Stage d'anglais \`a Hern Bay (GB).
+                \subsubsection{2 semaines - 2015}
+                    English internship in Hern Bay (GB).
 
         \columnbreak
 
         \section{Comp\'etences}
             \subsection{Informatique}
                 \subsubsection{Langages De Programmation}
-                    Python, C, Golang, C\#, OCamL, JS, SQL, shell.
+                    Python, C, Golang, C++, C\#, OCamL, JS, SQL, shell.
                 \subsubsection{Outils}
-                    Unity, Meteor, Django,  MongoDB, Neo4j, MySQL, GIT, VirtualBox, Agouti, Drone, Traefik, Ansible.
+                    Docker, Docker-compose, Unity, Meteor, Django, MongoDB, Neo4j, MySQL, GIT, VirtualBox, Agouti, Drone, Traefik, Ansible.
                 \subsubsection{Langages Descriptifs}
                     {\LaTeX}, HTML, CSS, YAML, toml.
-                \subsubsection{Multim\'edia et Bureautique}
+                \subsubsection{Multim\'edia Et Bureautique}
                     GIMP, Imagemagick, Inkscape, Word, Excel, Access, PowerPoint.
             \subsection{Langues}
-                \subsubsection{Anglais}
-                    Courant (TOEIC: 815).
+                \subsubsection{English}
+                    Courant (TOEIC: 920).
                 \subsubsection{Espagnol}
                     \'Ecrit et oral.
                 \subsubsection{Chinois}
-                    Niveau interm\'ediaire et usuel (A1).
+                    \'Ecrit et oral.
                 \subsection{Sports}
-                    Natation, Badminton, Roller.
-                \subsection{Permis B}
+                    Swimming, Badminton, Roller.
+                \subsection{French Driving license}
+                 Driving license type B.
     \end{multicols}
 \end{document}
