@@ -1,3 +1,4 @@
 #!/bin/bash
 
-curl https://raw.githubusercontent.com/tomMoulard/configLoader/master/setup.sh | /bin/sh
+git clone https://github.com/tomMoulard/configLoader.git $HOME/workspace/configLoader/
+cd $HOME/workspace/configLoader && ./install.sh
