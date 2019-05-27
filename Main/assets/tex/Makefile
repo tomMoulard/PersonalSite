@@ -1,8 +1,12 @@
+all: cv-en-tomMOULARD
+all: cv-fr-tomMOULARD
+# all: clean
+
 all-pdf:
 	pdflatex *.tex
 
 %: %.pdf
-	pdflatex $@.tex
+	pdflatex --shell-escape $@.tex
 
 clean-pdf:
 	rm -f *.pdf

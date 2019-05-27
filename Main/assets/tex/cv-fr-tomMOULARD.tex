@@ -1,0 +1,107 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+\moderncvstyle{classic}
+% possible styles : 'casual' (by default),
+% 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{orange}
+% possible colors : 'blue' (by default),
+% 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\usepackage[top=1.0cm, bottom=1.0cm, left=1.6cm, right=1.6cm]{geometry}
+\usepackage{helvet}
+\usepackage[utf8]{inputenc}
+
+% personal data
+\name{Tom}{Moulard}
+\title{Software Developer}
+\email{tom@moulard.org}
+\homepage{tom.moulard.org}
+\address{2 rue Gu\'ebriant}{75020 Paris}{France}
+\phone[mobile]{+33 6 51 48 72 60}
+\social[linkedin]{tommoulard}
+\social[github]{tommoulard}
+\extrainfo{Permis B}
+\photo[64pt][0.4pt]{moular_b.jpeg}
+% \quote{"Our virtues and our failings are inseparable, like force and matter.
+% When they separate, man is no more" Nikola Tesla}
+
+\begin{document}
+\makecvtitle
+\vspace*{-10mm}
+
+\section{Objectifs}
+Je cherche \`a appliquer mes comp\'etences analytiques aux d\'efis propos\'es
+par un stage dans votre entreprise. Mes capacit\'es en Algorithmique et en
+recherche permettront \`a votre organisation d'atteindre ses objectifs.
+
+\section{Education}
+% \cventry{years}{degree}{institution}{location}{grade}{description}
+\cventry{2014-date}{EPITA}{\'Ecole d'ing\'enieur en informatique}{FR}{}{}
+\cventry{2014-date}{UPEC}{Universit\'e d'informatique}{FR}{}{}
+% \cventry{2018}{Google}{Q{\&}A Meeting with an Google Software Engineer.}{FR}{}{}
+\cventry{2017}{BJTU}{\'Ecole d'ing\'enieur en informatique}{ZH}{}{}
+% \cventry{2014}{BNSSA and PSE1}{lifeguard}{}{}{}
+\cventry{2014}{Baccalor\'eat}{S\'erie Scientifique}{}{}{}
+
+\section{Exp\'eriences Professionelles}
+% \cventry{}{}{}{}{}{}
+% \cventry{years}{position}{company}{location}{length}{description}
+\cventry{2018}{Full Stack}{Zeodine}{FR}{4 mois}{
+Cr\'eation d'un site internet utilisant:
+\begin{itemize}
+  \item Back-end: Go;
+  \item Front-end: HTML, CSS, JS and P5.js.
+\end{itemize}
+En utilisant: tests unitaires, tests d'acceptance et du d\'eploiement automatique.
+}
+\cventry{2017}{D\'evelopper Python}{Minist\`ere de l'environnement Chinois}{ZH}
+{2 mois}{
+Natural Language Processing en Python et management de base de donnée
+graphique (Neo4j).
+}
+\cventry{2017}{Stage}{Orange}{FR}{1 mois}{
+Management de firewall pfsence dans un cloud OpenStack
+(Haute disponibilit\'e, tunneling, tri).
+}
+\cventry{2015}{Sauveteur}{Abyssea}{FR}{1 mois}{}
+
+\section{Projets}
+% \cventry{years}{project name}{language}{link}{length}{description}
+\cventry{2019}{Serveur Web}{C++}{\href{https://github.com/tommoulard/sws}{lien}}
+{7 semaines}{Spider Web Server est un projet p\'edagogique. Spider est un serveur HTTP}
+\cventry{2019}{Switch Virtuel}{C}
+{\href{https://github.com/tommoulard/myvswitch}{lien}}{2 semaines}{
+Impl\'ementation d'un switch virtuel. Comprends des notions de vlans et de Port
+mirroring.
+}
+% \cventry{2018}{Malloc}{C}
+% {\href{https://github.com/tommoulard/malloc}{link}}{1 weeks}{
+% Memory allocator without any call to sbrk
+% }
+
+\section{Comp\'etences}
+\cventry{Langages}{Python, C, Golang, shell}{}
+{Java, C++, C\#, OCamL, JS, SQL}{}{}
+\cventry{Outils}{Docker, GIT, CircleCI, Django, Ansible}{}{Docker-compose,
+Unity, MongoDB, Neo4j, MySQL, PostgreSQL, VirtualBox, Agouti, Traefik,
+Apache}{}{}
+\cventry{Markup}{{\LaTeX}}{}{HTML, CSS, YAML, toml}{}{}
+\cventry{Multim\'edia}{Word, Excel, Access, PowerPoint}{}
+{GIMP, Imagemagick, Inkscape}{}{}
+\cventry{Langues}{Fran\c{c}ais, Anglais}{}{Espagnol, Chinois}{}{
+Natale, Bilingue (TOEIC: 945/990), \'Ecrit et parl\'e, Compr\'ehention
+partielle.
+}
+% \subsection{Languages}
+% \cvitemwithcomment{Language}{Level}{Comments}
+% \cvlanguage{French}{Native}{}
+% \cvlanguage{English}{Fluent}{TOEIC: 945/990}
+% \cvlanguage{Spanish}{Writing and speaking}{}
+% \cvlanguage{Chinese}{Low understanding}{}
+% \cventry{Additionel}{Sauveteur}{Depuis 2014}{}{}{}
+
+\section{Int\'er\^ets}
+\cvitem{Technologie}{Fondations Open Source, Robotique, Drones, Interfaces
+physique/digital.}
+\cvitem{Environment}{Impact social et responsable, influence de la
+technologie.}
+\cvitem{Sports}{Natation, badminton et roller}
+\end{document}
