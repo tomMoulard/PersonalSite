@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <script type="text/javascript" src="https://tom.moulard.org/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://tom.moulard.org/assets/js/qrcode.js"></script>
+    <!--GOOGLE FONT -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--BOOTSTRAP MAIN STYLES -->
+    <link href="https://tom.moulard.org/assets/css/bootstrap.css" rel="stylesheet" />
+    <!--FONTAWESOME MAIN STYLE -->
+    <link href="https://tom.moulard.org/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <!--CUSTOM STYLE -->
+    <link href="https://tom.moulard.org/assets/css/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/css" href="http://tom.moulard.org/assets/img/cloneTrooper.ico">
+    <title>QR Code - Tom Moulard</title>
+</head>
+<style>
+body {
+    padding: 25px;
+    margin: 0 0 100px;
+}
+footer{
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+}
+</style>
+<body>
+    <!--WORK/PRODUCTS SECTION -->
+    <div class="container">
+        <div class="row main-top-margin text-center">
+            <div class="col-md-8 col-md-offset-2 ">
+                <h1>Input text here : </h1>
+                <button id=tom>Tom</button>
+                <button id="guillaume">Guillaume</button>
+                <div id="qrcode" class="col-md-8 col-md-offset-2 " style="width:100%; height:100%; margin-top:5%;"></div>
+            </div>
+        </div>
+        <!-- ./ Main Heading-->
+    </div>
+    <!--END WORK/PRODUCTS SECTION -->
+</body>
+<!-- FOOTER SECTION -->
+<footer>
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                &copy; 2017 tom.moulard.org | All Right Reserved | Thanks to <a href="https://github.com/davidshimjs/qrcodejs">qrcode.js</a>
+            </div>
+        </div>
+    </div>
+<!--END FOOTER SECTION -->
+</footer>
+<script type="text/javascript">
+var motif = ["travail", "courses", "sante", "famille", "sport", "judiciaire", "missions"]
+
+var text = "Cree le: &c_day&/&c_month&/&c_year& a &c_hour&h&c_min&; Nom: &lastname&; Prenom: &firstname&; Naissance: &birthdate& a &birthplace&; Adresse: &place&; Sortie: &d_day&/&d_month&/&d_year& a &d_hour&h&d_min&; Motifs: &motif&"
+
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    width: 100,
+    height: 100
+});
+
+function generateText(firstname, lastname, birthdate, birthplace, place) {
+    var past = new Date(new Date() - new Date(1*1000*60*24))
+    return text.replace(/&c_day&/, past.getDay()).
+        replace(/&c_month&/, past.getMonth()).
+        replace(/&c_year&/, past.getFullYear()).
+        replace(/&c_hour&/, past.getHours()).
+        replace(/&c_min&/, past.getMinutes()).
+        replace(/&lastname&/, lastname.toUpperCase()).
+        replace(/&firstname&/, firstname.toUpperCase()).
+        replace(/&birthdate&/, birthdate).
+        replace(/&birthplace&/, birthplace).
+        replace(/&place&/, place).
+        replace(/&d_day&/, past.getDay()).
+        replace(/&d_month&/, past.getMonth()).
+        replace(/&d_year&/, past.getFullYear()).
+        replace(/&d_hour&/, past.getHours()).
+        replace(/&d_min&/, past.getMinutes()).
+        replace(/&motif&/, motif[1])
+}
+
+function makeCode(firstname, lastname, birthdate, birthplace, place) {
+    return function (){
+        console.log(generateText(firstname, lastname, birthdate, birthplace, place))
+        qrcode.makeCode(generateText(firstname, lastname, birthdate, birthplace, place));
+        console.log(generateText(firstname, lastname, birthdate, birthplace, place) === "Cree le: 06/04/2020 a 17h54; Nom: MOULARD; Prenom: GUILLAUME; Naissance: 9/9/1968 a Saint jean d'angely; Adresse: 1542F Chemin Des Luquettes 83740 La cadiere d'azure; Sortie: 06/04/2020 a 17h51; Motifs: courses")
+    }
+}
+
+document.getElementById("guillaume").addEventListener("click", makeCode("guillaume", "moulard", "9/9/1968", "Saint jean d'angely", "1542F Chemin Des Luquettes 83740 La cadiere d'azure"))
+document.getElementById("tom").addEventListener("click", makeCode("tom", "moulard", "27/4/1996", "clamart", "1542F Chemin Des Luquettes 83740 La cadiere d'azure"))
+
+$("#text").
+on("blur", function() {
+    makeCode();
+}).
+on("keydown", function(e) {
+    if (e.keyCode == 13) {
+        makeCode();
+    }
+});
+</script>
