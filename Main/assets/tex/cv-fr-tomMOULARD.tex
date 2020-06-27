@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,sans]{moderncv}
+\documentclass[8pt,a4paper,sans]{moderncv}
 \moderncvstyle{classic}
 % possible styles : 'casual' (by default),
 % 'classic', 'oldstyle' and 'banking'
@@ -18,7 +18,7 @@
 \phone[mobile]{\href{tel:+33-6-51-48-72-60}{+33 6 51 48 72 60}}
 \social[linkedin]{tommoulard}
 \social[github]{tommoulard}
-\extrainfo{Permis B}
+\extrainfo{Permis B - voiture}
 \photo[64pt][0.4pt]{tom_v.jpeg}
 % \quote{"Our virtues and our failings are inseparable, like force and matter.
 % When they separate, man is no more" Nikola Tesla}
@@ -34,15 +34,14 @@ recherche permettront \`a votre organisation d'atteindre ses objectifs.
 
 \section{\'Education}
 % \cventry{years}{degree}{institution}{location}{grade}{description}
-\cventry{2014-date}{EPITA}{\'Ecole d'ing\'enieur en informatique}{FR}{}{}
-\cventry{2014-2019}{UPEC}{Universit\'e d'informatique}{FR}{}{}
+\cventry{2014-date}{EPITA}{\'Ecole d'ing\'enieur en informatique}{FR}{Membre Prologin et Assistant TCOM}{}
+\cventry{2014-2019}{UPEC}{Universit\'e d'informatique}{FR}{Licence d'informatique}{}
 % \cventry{2018}{Google}{Q{\&}A Meeting with an Google Software Engineer.}{FR}{}{}
-\cventry{2017}{BJTU}{\'Ecole d'ing\'enieur en informatique}{ZH}{}{}
+% \cventry{2017}{BJTU}{\'Ecole d'ing\'enieur en informatique}{ZH}{}{}
 % \cventry{2014}{BNSSA and PSE1}{lifeguard}{}{}{}
 \cventry{2014}{Baccalaur\'eat}{S\'erie Scientifique}{}{}{}
 
 \section{Exp\'eriences Professionelles}
-% \cventry{}{}{}{}{}{}
 % \cventry{years}{position}{company}{location}{length}{description}
 \cventry{2019-date}{Co-fondateur et CTO}{Eiko}{FR}{}{
 Cr\'eaction d'une application web progressive(PWA) en:
@@ -72,17 +71,26 @@ Management de firewall pfsense dans un cloud OpenStack
 
 \section{Projets}
 % \cventry{years}{project name}{language}{link}{length}{description}
-\cventry{2019}{Serveur Web}{C++}{\href{https://github.com/tommoulard/sws}{lien}}
-{7 semaines}{Spider Web Server est un projet p\'edagogique. Spider est un serveur HTTP}
-%\cventry{2019}{Switch Virtuel}{C}
-%{\href{https://github.com/tommoulard/myvswitch}{lien}}{2 semaines}{
-%Impl\'ementation d'un switch virtuel. Comprends des notions de vlans et de Port
-%mirroring.
-%}
+
+% \cventry{2019}{Serveur Web}{C++}
+% {\href{https://github.com/tommoulard/sws}{lien}}{7 semaines}
+% {Spider Web Server est un projet p\'edagogique. Spider est un serveur HTTP}
+
+% \cventry{2019}{Switch Virtuel}{C}
+% {\href{https://github.com/tommoulard/myvswitch}{lien}}{2 semaines}{
+% Impl\'ementation d'un switch virtuel. Comprends des notions de vlans et de Port
+% mirroring.
+% }
+
 % \cventry{2018}{Malloc}{C}
 % {\href{https://github.com/tommoulard/malloc}{link}}{1 weeks}{
 % Memory allocator without any call to sbrk
 % }
+
+\cventry{}{make-my-server}{docker, docker-compose}
+{\href{https://github.com/tommoulard/make-my-server}{github}}{}{
+Set de scripts pour manager la configuration de mon server
+}
 
 \section{Comp\'etences}
 \cventry{Langages}{Python, C, Golang, shell}{}
