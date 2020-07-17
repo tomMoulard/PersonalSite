@@ -5,31 +5,6 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
 <!--<![endif]-->
-<script>
-(function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-ga('create', 'UA-78797532-1', 'auto');
-ga('send', 'pageview');
-</script>
-<!-- this line removes any default padding and style. you might only need one of these values set. -->
-<style>
-body {
-    padding: 0;
-    margin: 0;
-}
-</style>
-<!-- HEAD SECTION -->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,18 +19,18 @@ body {
     <meta name="twitter:url" content="Tom Moulard">
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <link rel="shortcut icon" type="image/x-icon" href="../assets/img/cloneTrooper.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/img/cloneTrooper.ico">
         <![endif]-->
-    <link rel="icon" type="image/css" href="../assets/img/cloneTrooper.ico">
+    <link rel="icon" type="image/css" href="/assets/img/cloneTrooper.ico">
     <title>Tom Moulard</title>
     <!--GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!--BOOTSTRAP MAIN STYLES -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
     <!--FONTAWESOME MAIN STYLE -->
-    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet" />
     <!--CUSTOM STYLE -->
-    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -70,8 +45,13 @@ body {
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="/json/manifest.json">
+    <style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    </style>
 </head>
-<!--END HEAD SECTION -->
 
 <body>
     <!-- NAV SECTION -->
@@ -91,7 +71,7 @@ body {
                     <li><a href="#products-section">MES-PROJETS</a></li>
                     <li><a href="#contact-section">CONTACT</a></li>
                     <li>
-                        <a href="../"><img src="../assets/img/flags.png" alt=""></a>
+                        <a href="/index.html"><img src="/assets/img/flags.png" alt=""></a>
                     </li>
                     <li><a href="#header-section"><i class="fa fa-angle-double-up down-icon"></i></a></li>
                 </ul>
@@ -104,8 +84,8 @@ body {
         <div class="container">
             <div class="row centered">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1><strong> Tom Moulard </strong>          
-                     
+                    <h1><strong> Tom Moulard </strong>
+
                     </h1>
                     <br />
                     <br />
@@ -132,7 +112,7 @@ body {
             <!-- ./ Main Heading-->
             <div class="row main-low-margin text-center">
                 <div class="col-md-3 " data-scrollreveal="enter left and move 100px, wait 0.4s">
-                    <img class="img-circle" src="../assets/img/team/moular_b_small.jpeg" alt="">
+                    <img class="img-circle" src="/assets/img/team/moular_b_small.jpeg" alt="">
                     <h4><strong>Tom Moulard</strong> </h4>
                     <p>
                         "Nos vertus et nos défauts sont inséparables, comme la force et la matière. Quant ils se séparent, l'homme n'est plus" ~Nikola Tesla
@@ -155,7 +135,7 @@ body {
                             Après avoir maîtrisé <a href="https://unity3d.com/">Unity</a> et <a href="https://www.visualstudio.com/">Visual Studio</a>. J’ai appris plusieurs langages de programmation que j'utilise quotidiennement : le <a href="https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx">C#</a>, le <a href="https://www.python.org/">Python</a>, le <a href="https://fr.wikipedia.org/wiki/C_(langage)">C</a> et même le <a href="https://en.wikipedia.org/wiki/TI-BASIC">BASIC</a>. Bien sûr, j'utilise <a href="https://httpd.apache.org/">Apache</a>, le <a href="http://www.php.net">PHP</a> et <a href="https://www.mysql.com/">MySQL</a> avec lesquels je suis à l'aise.
                         </p>
                         <p>
-                            <a href="http://tom.moulard.org/assets/tex/cv-fr-tomMOULARD.pdf"><i class="fa fa-download" aria-hidden="true"></i> Télécharger mon CV</a>
+                            <a href="/assets/tex/cv-fr-tomMOULARD.pdf"><i class="fa fa-download" aria-hidden="true"></i> Télécharger mon CV</a>
                             <br />
                         </p>
                 </div>
@@ -178,7 +158,7 @@ body {
             <div class="row main-low-margin">
                 <div class="col-md-10  col-md-offset-1 ">
                     <div class="col-md-4 col-sm-4" data-scrollreveal="enter left and move 100px, wait 0.8s">
-                        <img src="../assets/img/product/jaquette.png" alt="">
+                        <img src="/assets/img/product/jaquette.png" alt="">
                     </div>
                     <div class="col-md-8 " data-scrollreveal="enter right and move 100px, wait 0.4s">
                         <h4>  <strong class="color-red">Un jeu créé grâce à Unity : A-Type </strong></h4>
@@ -225,17 +205,17 @@ body {
                             <i class="fa fa-check"></i> Code Open Source
                             <br />
                         </p>
-                        <a href="../assets/itaScript.py" class="btn btn-danger"> Essayez le </a>
+                        <a href="/assets/itaScript.py" class="btn btn-danger"> Essayez le </a>
                     </div>
                     <div class="col-md-4 " data-scrollreveal="enter right and move 100px, wait 0.4s">
-                        <img class="img-margin-product" src="../assets/img/product/cat.jpg" alt="">
+                        <img class="img-margin-product" src="/assets/img/product/cat.jpg" alt="">
                     </div>
                 </div>
             </div>
             <!-- Third part-->
             <div class="col-md-10  col-md-offset-1 ">
                 <div class="col-md-4 col-sm-4" data-scrollreveal="enter left and move 100px, wait 0.8s">
-                    <img src="../assets/img/OCR.png" alt="">
+                    <img src="/assets/img/OCR.png" alt="">
                 </div>
                 <div class="col-md-8 " data-scrollreveal="enter right and move 100px, wait 0.4s">
                     <h4>  <strong class="color-red">OCR : Optical Character Recognition (reconnaissance de caractères) </strong></h4>
@@ -276,23 +256,12 @@ body {
                         <hr />
                     </div>
                     <div class="col-md-8 " data-scrollreveal="enter left and move 100px, wait 0.4s">
-                        <!--
-                        <p>
-                            During my SPE year (second year) in <a href="http://www.epita.net/">Epita</a>, I went in China to study. My school, <a href='http://www.bjtu.edu.cn/'>BJTU</a> is a famous University in <a href="http://www.china.com.cn/">China</a>. I learned a lot of interesting subject like Database System, Computer Network, Quality Assurance, Software Architecture, Operating System, Comprehensive Practice on Software Engineering, Service Oriented Architecture and of course Chinese. 
-                        </p>
-                        <p>
-                            Also, I met a lot of very interesting peoples. Since there is a lot of foreign students in my University, i met some Canadian, Spanish, Swedish and Chinese peoples. 
-                        </p>
-                        <p>
-                            Something unexpeced happened to us while we where still students of the university, a teacher asked us to work for him.
-                        </p>
-                    -->
                         <p>
                             Ça y est, j'y suis. Je suis arrivé dans l'université Chinoise <a href="http://www.bjtu.edu.cn/">Beijing Jiatong University</a>, et je vais y rester pour les quelques prochains mois. Je prends des cours uniquement en anglais et chinois avec des professeurs locaux. Le plus gros challenge est d'arriver a discuter avec les chinois, en effet, seulement <a href="https://www.quora.com/What-is-the-population-of-English-speakers-in-China">1%</a> de la population parle anglais. Mais il y a plein d'étudiants qui parlent anglais, étranger ou non, ici. Mais l’expérience n'est toujours pas finie :)
                         </p>
                     </div>
                     <div class="col-4 " data-scrollreveal="enter right and move 100px, wait 0.4s">
-                        <img class="img-china" src="assets/img/team/china.jpg">
+                        <img class="img-china" src="/assets/img/team/china.jpg">
                     </div>
                 </div>
             </div>
@@ -414,13 +383,13 @@ body {
     <!--END FOOTER SECTION -->
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY LIBRARY -->
-    <script src="../assets/js/jquery.js"></script>
+    <script src="/assets/js/jquery.js"></script>
     <!-- CORE BOOTSTRAP LIBRARY -->
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <!-- SCROLL REVEL LIBRARY FOR SCROLLING ANIMATIONS-->
-    <script src="../assets/js/scrollReveal.js"></script>
+    <script src="/assets/js/scrollReveal.js"></script>
     <!-- CUSTOM SCRIPT-->
-    <script src="../assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js"></script>
     <script>
     if ('serviceWorker' in navigator) {
     console.log("Will the service worker register?");
