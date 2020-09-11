@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,sans]{moderncv}
+\documentclass[10pt,a4paper,sans]{moderncv}
 \moderncvstyle{classic}
 % possible styles : 'casual' (by default),
 % 'classic', 'oldstyle' and 'banking'
@@ -10,8 +10,8 @@
 \usepackage[utf8]{inputenc}
 
 % Language
-\newcommand\en[1]{#1}
-\newcommand\fr[1]{}
+\newcommand\en[1]{}
+\newcommand\fr[1]{#1}
 \newcommand\full[1]{}
 
 % personal data
@@ -19,11 +19,19 @@
 \title{Software Developer}
 \email{tom@moulard.org}
 \homepage{tom.moulard.org}
-\address{\fr{2 rue Guébriant}\en{2, street guébriant}}{75020 Paris}{\fr{France}}
-\phone[mobile]{\href{tel:+33-6-51-48-72-60}{+33 6 51 48 72 60}}
+\address{\fr{2 rue Guébriant}\en{2, street guébriant}}{75020 Paris}{\en{France}}
+\phone[mobile]{\href{tel:+33-6-51-48-72-60} {+33 6 51 48 72 60}}
 \social[linkedin]{tommoulard}
 \social[github]{tommoulard}
-\extrainfo{\fr{Permis B - voiture - Proactif en télétravail}\en{Experienced in remote work}}
+\extrainfo
+{
+    \fr{
+        Permis B - voiture\\
+        Proactif en télétravail\\
+        24 ans
+    }
+    \en{24 years old - Experienced in remote work}
+}
 \fr{\photo[64pt][0.4pt]{tom_v.jpeg}}
 \full{\quote{"Our virtues and our failings are inseparable, like force and
 matter. When they separate, man is no more" Nikola Tesla}}
@@ -34,9 +42,16 @@ matter. When they separate, man is no more" Nikola Tesla}}
 
 \section{\fr{Objectifs}\en{Objectives}}
 \fr{
+    Actuellement en dernière année d'école d'ingénieur en informatique à
+    l'EPITA.
+    Je cherche un stage de 6 mois pour valoriser ma dernière année d'étude. Mon
+    stage commencera en Février 2021.
+    \full{
     Je cherche à appliquer mes compétences analytiques aux défis proposés
-    par un stage dans votre entreprise. Mes capacités en Algorithmique et en
-    recherche permettront à votre organisation d'atteindre ses objectifs.
+    par un stage dans votre entreprise.
+    Mes capacités en Algorithmique et en recherche permettront à votre
+    organisation d'atteindre ses objectifs.
+    }
 }
 \en{
     Seeking to apply my analytical skills to the challenges posed by an
@@ -48,19 +63,13 @@ matter. When they separate, man is no more" Nikola Tesla}}
 % \cventry{years}{degree}{institution}{location}{grade}{description}
 \cventry{2014-date}{EPITA}
 {
-    \fr{\'Ecole d'ingénieur en informatique}
-    \en{Computer Engineering}
-}
+    \fr{\'Ecole d'ingénieur en informatique}\en{Computer Engineering}}
 {FR}
 {
-    \fr{Membre Prologin et Assistant TCOM}
-    \en{Member of the Prologin Association and TCOM assistant}
-}{}
+    \fr{Membre Prologin et Assistant TCOM}\en{Member of the Prologin Association and TCOM assistant}}{}
 \cventry{2014-2019}{UPEC}
 {
-    \fr{Université d'informatique}
-    \en{Computer Engineering focused School}
-}
+    \fr{Université d'informatique}\en{Computer Engineering focused School}}
 {FR}
 {
     \fr{Licence d'informatique}
@@ -69,25 +78,17 @@ matter. When they separate, man is no more" Nikola Tesla}}
 \cventry{2017}{BJTU}{\fr{\'Ecole d'ingénieur en informatique}\en{Computer Engineering}}{ZH}{}{}
 \full{\cventry{2014}{BNSSA et PSE1}{lifeguard}{}{}{}}
 \cventry{2014}
-{
-    \fr{Baccalauréat}
-    \en{High School diploma}
-}
-{
-    \fr{Série Scientifique}
-    \en{Scientific section}
-}{}{}{}
+{\fr{Baccalauréat}\en{High School diploma}}
+{\fr{Série Scientifique}\en{Scientific section}}{}
+{}{}
 
 \section{Expériences Professionnelles}
 % \cventry{years}{position}{company}{location}{length}{description}
 \cventry{2019-date}{\fr{Co-fondateur et CTO}\en{Co-Funder and CTO}}{Eiko}{FR}
 {}{
     \fr{
-        Création d'une application web progressive(PWA) en:
-        \begin{itemize}
-            \item Back-end: Go, GCP et Algolia;
-            \item Front-end: HTML, CSS, JS and materializecss.
-        \end{itemize}
+        Création d'une application web progressive(PWA) en: Go, GCP et Algolia;
+        HTML, CSS, JS.
     }
     \en{
         Creating a Progressive Web App using:
@@ -100,9 +101,7 @@ matter. When they separate, man is no more" Nikola Tesla}}
 \cventry{2018}{Full Stack}{Zeodine}{FR}{4 \fr{mois}\en{month}}
 {
     \fr{
-        Création d'un site internet utilisant: Go; HTML; CSS; JS et P5.js.
-        En utilisant: tests unitaires, tests d'acceptation et du déploiement
-        automatique.
+        Création d'un site internet utilisant: Go, CI/CD; HTML, CSS, JS et P5.js.
     }
     \en{
         Creating a web site using: Go; HTML; CSS; JS and P5.js.
@@ -124,7 +123,7 @@ matter. When they separate, man is no more" Nikola Tesla}}
 \cventry{2017}{\fr{Stage}\en{Internship}}{Orange}{FR}{1 \fr{mois}\en{month}}
 {
     \fr{
-        Management de firewall pfsense dans un cloud OpenStack
+        Management de firewall pfsense dans un Cloud OpenStack
         (Haute disponibilité, tunneling, tri).
     }
     \en{
@@ -136,6 +135,17 @@ matter. When they separate, man is no more" Nikola Tesla}}
 
 \section{\fr{Projets}\en{Projects}}
 % \cventry{years}{project name}{language}{link}{length}{description}
+
+\cventry{2020}{\fr{Projet de transformation SI}\en{IS Transformation project}}{}
+{}{\textit{1 an}}
+{
+    \fr{ Projet de fusion de SI de trois compagnies aérienne. Étude de
+    l’existant, vision globale et stratégique déclinée sous les angles
+    techniques, économiques et humains.}
+    \en{Project to transform the IS of an airline company. Benchmarks, studies
+    and strategy with IT, economic and humans goals.  Goal definition and the
+    trajectory to reach it.}
+}
 
 \full{\cventry{2019}{Serveur Web}{C++}
 {\href{https://github.com/tommoulard/sws}{lien}}{7 semaines}
@@ -154,19 +164,23 @@ Memory allocator without any call to sbrk}}
 {\href{https://github.com/tommoulard/make-my-server}{github}}{}
 {
     \fr{
-        Set de scripts pour manager la configuration de mon server
+        Scripts pour manager la configuration de mon server.
     }
     \en{
-        Set of script to manage my server configuration
+        Set of script to manage my server configuration.
     }
 }
 
 \section{\fr{Compétences}\en{Skills}}
-\cventry{\fr{Langages}\en{Languages}}{Python, C, Golang, shell}{}
+\cventry{\fr{Langages}\en{Languages}}{Python, C, Go, shell}{}
 {Java, C++, C\#, OCamL, JS, SQL}{}{}
-\cventry{\fr{Outils}\en{Tools}}{Docker, GIT, CircleCI, Django, Ansible,
-Terraform}{}{Docker-compose, Unity, MongoDB, Neo4j, MySQL, PostgreSQL,
-VirtualBox, Agouti, Traefik, Apache, Hugo}{}{}
+\cventry{\fr{Outils}\en{Tools}}
+{
+    Docker, GIT, CircleCI, Django, Ansible, Terraform, OpenStack, AWS, GCP,
+    OVH}{}
+{
+    Docker-compose, Unity, MongoDB, Neo4j, MySQL, PostgreSQL, VirtualBox,
+    Agouti, Traefik, Apache, Hugo, \textit{R5}, PFSense, Heroku}{}{}
 \cventry{Markup}{{\LaTeX}}{}{HTML, CSS, YAML, toml}{}{}
 \cventry{\fr{Multimédia}\en{Multimedia}}{Word, Excel, Access, PowerPoint}{}
 {GIMP, Imagemagick, Inkscape}{}{}
@@ -197,8 +211,8 @@ VirtualBox, Agouti, Traefik, Apache, Hugo}{}{}
 }
 \cvitem{Sports}
 {
-    \fr{Natation, badminton et roller.}
-    \en{Swimming; Badminton; Roller.}
+    \fr{Natation, badminton et roller hockey.}
+    \en{Swimming; Badminton; Roller hockey.}
 }
 
 \end{document}
