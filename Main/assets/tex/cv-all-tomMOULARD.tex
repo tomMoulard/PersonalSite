@@ -1,0 +1,204 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+\moderncvstyle{classic}
+% possible styles : 'casual' (by default),
+% 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{orange}
+% possible colors : 'blue' (by default),
+% 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\usepackage[top=1.0cm, bottom=1.0cm, left=1.6cm, right=1.6cm]{geometry}
+\usepackage{helvet}
+\usepackage[utf8]{inputenc}
+
+% Language
+\newcommand\en[1]{#1}
+\newcommand\fr[1]{}
+\newcommand\full[1]{}
+
+% personal data
+\name{Tom}{Moulard}
+\title{Software Developer}
+\email{tom@moulard.org}
+\homepage{tom.moulard.org}
+\address{\fr{2 rue Guébriant}\en{2, street guébriant}}{75020 Paris}{\fr{France}}
+\phone[mobile]{\href{tel:+33-6-51-48-72-60}{+33 6 51 48 72 60}}
+\social[linkedin]{tommoulard}
+\social[github]{tommoulard}
+\extrainfo{\fr{Permis B - voiture - Proactif en télétravail}\en{Experienced in remote work}}
+\fr{\photo[64pt][0.4pt]{tom_v.jpeg}}
+\full{\quote{"Our virtues and our failings are inseparable, like force and
+matter. When they separate, man is no more" Nikola Tesla}}
+
+\begin{document}
+\makecvtitle
+\vspace*{-10mm}
+
+\section{\fr{Objectifs}\en{Objectives}}
+\fr{
+    Je cherche à appliquer mes compétences analytiques aux défis proposés
+    par un stage dans votre entreprise. Mes capacités en Algorithmique et en
+    recherche permettront à votre organisation d'atteindre ses objectifs.
+}
+\en{
+    Seeking to apply my analytical skills to the challenges posed by an
+    internship at your company. Poses proven algorithmic and research abilities
+    that will aid your company in meeting its milestones.
+}
+
+\section{\fr{\'Education}\en{Education}}
+% \cventry{years}{degree}{institution}{location}{grade}{description}
+\cventry{2014-date}{EPITA}
+{
+    \fr{\'Ecole d'ingénieur en informatique}
+    \en{Computer Engineering}
+}
+{FR}
+{
+    \fr{Membre Prologin et Assistant TCOM}
+    \en{Member of the Prologin Association and TCOM assistant}
+}{}
+\cventry{2014-2019}{UPEC}
+{
+    \fr{Université d'informatique}
+    \en{Computer Engineering focused School}
+}
+{FR}
+{
+    \fr{Licence d'informatique}
+}{}
+\full{\cventry{2018}{Google}{Q{\&}A Meeting with an Google Software Engineer.}{FR}{}{}}
+\cventry{2017}{BJTU}{\fr{\'Ecole d'ingénieur en informatique}\en{Computer Engineering}}{ZH}{}{}
+\full{\cventry{2014}{BNSSA et PSE1}{lifeguard}{}{}{}}
+\cventry{2014}
+{
+    \fr{Baccalauréat}
+    \en{High School diploma}
+}
+{
+    \fr{Série Scientifique}
+    \en{Scientific section}
+}{}{}{}
+
+\section{Expériences Professionnelles}
+% \cventry{years}{position}{company}{location}{length}{description}
+\cventry{2019-date}{\fr{Co-fondateur et CTO}\en{Co-Funder and CTO}}{Eiko}{FR}
+{}{
+    \fr{
+        Création d'une application web progressive(PWA) en:
+        \begin{itemize}
+            \item Back-end: Go, GCP et Algolia;
+            \item Front-end: HTML, CSS, JS and materializecss.
+        \end{itemize}
+    }
+    \en{
+        Creating a Progressive Web App using:
+        \begin{itemize}
+            \item Back-end: Go, GCP and Algolia;
+            \item Front-end: HTML, CSS, JS and materializecss.
+        \end{itemize}
+    }
+}
+\cventry{2018}{Full Stack}{Zeodine}{FR}{4 \fr{mois}\en{month}}
+{
+    \fr{
+        Création d'un site internet utilisant: Go; HTML; CSS; JS et P5.js.
+        En utilisant: tests unitaires, tests d'acceptation et du déploiement
+        automatique.
+    }
+    \en{
+        Creating a web site using: Go; HTML; CSS; JS and P5.js.
+        And using: Unit Testing; Acceptance Testing; Automatic Deployment.
+    }
+}
+\cventry{2017}{\fr{Développeur Python}\en{Python Developer}}
+{\fr{Ministère de l'environnement Chinois}}{ZH}{2 \fr{mois}\en{month}}
+{
+    \fr{
+        Natural Language Processing en Python et management de base de donnée
+        graphique (Neo4j).
+    }
+    \en{
+        Natural Language Processing in Python and graph database management
+        (Neo4j).
+    }
+}
+\cventry{2017}{\fr{Stage}\en{Internship}}{Orange}{FR}{1 \fr{mois}\en{month}}
+{
+    \fr{
+        Management de firewall pfsense dans un cloud OpenStack
+        (Haute disponibilité, tunneling, tri).
+    }
+    \en{
+        pfsense firewall managing inside an OpenStack cloud
+        (High Availability, tunneling, sorting).
+    }
+}
+\full{\cventry{2015}{Sauveteur}{Abyssea}{FR}{1 mois}{}}
+
+\section{\fr{Projets}\en{Projects}}
+% \cventry{years}{project name}{language}{link}{length}{description}
+
+\full{\cventry{2019}{Serveur Web}{C++}
+{\href{https://github.com/tommoulard/sws}{lien}}{7 semaines}
+{Spider Web Server est un projet pédagogique. Spider est un serveur HTTP}}
+
+\full{\cventry{2019}{Switch Virtuel}{C}
+{\href{https://github.com/tommoulard/myvswitch}{lien}}{2 semaines}{
+Implémentation d'un switch virtuel. Comprends des notions de vlans et de Port
+mirroring.}}
+
+\full{\cventry{2018}{Malloc}{C}
+{\href{https://github.com/tommoulard/malloc}{link}}{1 weeks}{
+Memory allocator without any call to sbrk}}
+
+\cventry{}{make-my-server}{docker, docker-compose}
+{\href{https://github.com/tommoulard/make-my-server}{github}}{}
+{
+    \fr{
+        Set de scripts pour manager la configuration de mon server
+    }
+    \en{
+        Set of script to manage my server configuration
+    }
+}
+
+\section{\fr{Compétences}\en{Skills}}
+\cventry{\fr{Langages}\en{Languages}}{Python, C, Golang, shell}{}
+{Java, C++, C\#, OCamL, JS, SQL}{}{}
+\cventry{\fr{Outils}\en{Tools}}{Docker, GIT, CircleCI, Django, Ansible,
+Terraform}{}{Docker-compose, Unity, MongoDB, Neo4j, MySQL, PostgreSQL,
+VirtualBox, Agouti, Traefik, Apache, Hugo}{}{}
+\cventry{Markup}{{\LaTeX}}{}{HTML, CSS, YAML, toml}{}{}
+\cventry{\fr{Multimédia}\en{Multimedia}}{Word, Excel, Access, PowerPoint}{}
+{GIMP, Imagemagick, Inkscape}{}{}
+\cventry{\fr{Langues}\en{Languages}}
+{\fr{Français, Anglais}\en{French, English}}{}
+{\fr{Espagnol, Chinois}\en{Spanish, Chinese}}{}
+{
+    \fr{
+        Natale, Bilingue (TOEIC: 945/990), \'Ecrit et parlé, Compréhension
+        partielle.
+    }
+    \en{
+        Native, Fluent (TOEIC: 945/990), Writing and Speaking, Low
+        understanding
+    }
+}
+
+\section{\fr{Intérêts}\en{Interests}}
+\cvitem{\fr{Technologie}\en{Technology}}
+{
+    \fr{Fondations Open Source, Robotique, Drones, Interfaces physique/digital.}
+    \en{Open Source fondations; Robotics; drones;}
+}
+\cvitem{\fr{Environnement}\en{Environment}}
+{
+    \fr{Impact social et responsable, influence de la technologie.}
+    \en{Social impact and responsibility; influence of technology.}
+}
+\cvitem{Sports}
+{
+    \fr{Natation, badminton et roller.}
+    \en{Swimming; Badminton; Roller.}
+}
+
+\end{document}
