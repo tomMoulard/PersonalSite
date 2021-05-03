@@ -10,8 +10,8 @@
 \usepackage[utf8]{inputenc}
 
 % Language
-\newcommand\en[1]{}
-\newcommand\fr[1]{#1}
+\newcommand\en[1]{#1}
+\newcommand\fr[1]{}
 \newcommand\full[1]{}
 
 % personal data
@@ -30,7 +30,7 @@
         \full{Proactif en télétravail\\}
         24 ans
     }
-    \en{24 years old\full{ - Experienced in remote work}}
+    \en{25 years old\full{ - Experienced in remote work}}
 }
 \fr{\photo[64pt][0.4pt]{tom_v.jpeg}}
 \full{\quote{"Our virtues and our failings are inseparable, like force and
@@ -44,8 +44,8 @@ matter. When they separate, man is no more" Nikola Tesla}}
 \fr{
     Actuellement en dernière année d'école d'ingénieur en informatique à
     l'EPITA.
-    Je cherche un stage de 6 mois pour valoriser mon parcours ingénieur. Mon
-    stage commencera en Février 2021.
+    Je cherche un CDI pour valoriser mon parcours ingénieur.
+    Je serai disponible a partir de Septembre 2021.
     \full{
         Je cherche à appliquer mes compétences analytiques aux défis proposés
         par un stage dans votre entreprise.
@@ -54,9 +54,10 @@ matter. When they separate, man is no more" Nikola Tesla}}
     }
 }
 \en{
-    Seeking to apply my analytical skills to the challenges posed by an
-    internship at your company. Poses proven algorithmic and research abilities
-    that will aid your company in meeting its milestones.
+    Seeking to apply my analytical skills to the challenges posed by a
+    job at your company.
+    Poses proven algorithmic and research abilities that will aid your company
+    in meeting its milestones.
 }
 
 \section{\fr{\'Education}\en{Education}}
@@ -104,6 +105,15 @@ matter. When they separate, man is no more" Nikola Tesla}}
 
 \section{Expériences Professionnelles}
 % \cventry{years}{position}{company}{location}{length}{description}
+\cventry{F\fr{év}\en{eb} 2021-date}{\fr{Développeur Stagiaire Junior}\en{Junior Developer}}{Traefik Labs}{\fr{Télétravail}\en{Remote}}
+{}{
+    \fr{
+        Mainteneur du projet Open Source \href{https://github.com/traefik/traefik}{Traefik Proxy}.
+    }
+    \en{
+        Maintainer of the \href{https://github.com/traefik/traefik}{Traefik Proxy} Open Source Project.
+    }
+}
 \cventry{2019-date}{\fr{Co-fondateur et CTO}\en{Co-Funder and CTO}}{Eiko}{FR}
 {}{
     \fr{
@@ -112,10 +122,10 @@ matter. When they separate, man is no more" Nikola Tesla}}
     }
     \en{
         Creating a Progressive Web App using:
-        \begin{itemize}
-            \item Back-end: Go, GCP and Algolia;
-            \item Front-end: HTML, CSS, JS and materializecss.
-        \end{itemize}
+        % \begin{itemize}
+            % \item Back-end: Go, GCP and Algolia;
+            % \item Front-end: HTML, CSS, JS and materializecss.
+        % \end{itemize}
     }
 }
 \cventry{2018}{Full Stack}{Zeodine}{FR}{4 \fr{mois}\en{month}}
@@ -125,7 +135,7 @@ matter. When they separate, man is no more" Nikola Tesla}}
     }
     \en{
         Creating a web site using: Go; HTML; CSS; JS and P5.js.
-        And using: Unit Testing; Acceptance Testing; Automatic Deployment.
+        And using: Unit Testing; Automatic Deployment.
     }
 }
 \cventry{2017}{\fr{Développeur Python}\en{Python Developer}}
@@ -156,14 +166,14 @@ matter. When they separate, man is no more" Nikola Tesla}}
 \section{\fr{Projets}\en{Projects}}
 % \cventry{years}{project name}{language}{link}{length}{description}
 
-\cventry{2020}{Traefik hackaethon}{Golang}
+\cventry{2020}{\fr{Première place au Hackaethon Traefik}\en{First place at the Traefik Hackaethon}}{Golang}
 {\href{https://twitter.com/traefik/status/1320768681119490056}{\fr{lien}\en{link}}}{3 \fr{jours}\en{days}}{
-    \fr{Première place pour la réalisation de deux plugins middleware pour le
-    reverse proxy \href{https://traefik.io/}{Traefik}:
+    \fr{Première place pour la réalisation de deux plugins \full{middleware }pour le
+    proxy \href{https://traefik.io/}{Traefik}:
     \href{https://github.com/tomMoulard/fail2ban}{Fail2Ban} et
     \href{https://github.com/tomMoulard/htransformation}{Header Transformation}.}
-    \en{First place awarded for the creation of two middleware plugins for the
-    \href{https://traefik.io/}{Traefik} reverse proxy:
+    \en{First place awarded for the creation of two \full{middleware }plugins for the
+    \href{https://traefik.io/}{Traefik} proxy:
     \href{https://github.com/tomMoulard/fail2ban}{Fail2Ban} and
     \href{https://github.com/tomMoulard/htransformation}{Header Transformation}.}
 }
@@ -204,7 +214,7 @@ pour résoudre des problèmes NP}
 \en{World wide contest to implement and optimize solution for NP problems}}}
 
 \cventry{}{make-my-server}{docker, docker-compose}
-{\href{https://github.com/tommoulard/make-my-server}{\fr{lien}\en{link} github}}{}
+{\href{https://github.com/tommoulard/make-my-server}{\fr{lien github}\en{github link}}}{}
 {
     \fr{
         Scripts pour manager la configuration de mon server.
@@ -215,15 +225,15 @@ pour résoudre des problèmes NP}
 }
 
 \section{\fr{Compétences}\en{Skills}}
-\cventry{\fr{Langages}\en{Languages}}{Python, C, Go, shell}{}
+\cventry{\fr{Langages}\en{Languages}}{Go, Python, C, shell}{}
 {Java, C++, C\#, OCamL, JS, SQL}{}{}
 \cventry{\fr{Outils}\en{Tools}}
 {
-    Docker, GIT, CircleCI, Django, Ansible, Terraform, OpenStack, AWS, GCP,
+    Docker, GIT, Kubernetes, Ansible, Terraform, OpenStack, AWS, GCP,
     OVH}{}
 {
-    Docker-compose, TensorFlow, MongoDB, Neo4j, MySQL, PostgreSQL, VirtualBox,
-    Agouti, Traefik, Apache, Hugo, \textit{R5}, PFSense, Heroku, Unity}{}{}
+    Docker-compose, Traefik, TensorFlow, k3s, Django, MongoDB, Neo4j, MySQL, PostgreSQL, VirtualBox,
+    Agouti, CircleCI, Apache, Hugo, \textit{R5}, PFSense, Heroku, Unity}{}{}
 \cventry{Markup}{{\LaTeX}}{}{HTML, CSS, YAML, toml}{}{}
 \cventry{\fr{Multimédia}\en{Multimedia}}{Word, Excel, Access, PowerPoint}{}
 {GIMP, Imagemagick, Inkscape}{}{}
@@ -247,11 +257,15 @@ pour résoudre des problèmes NP}
     \fr{Fondations Open Source, Robotique, Drones, Interfaces physique/digital.}
     \en{Open Source fondations; Robotics; drones;}
 }
-\cvitem{\fr{Environnement}\en{Environment}}
-{
-    \fr{Impact social et responsable, influence de la technologie.}
-    \en{Social impact and responsibility; influence of technology.}
+
+\full{
+    \cvitem{\fr{Environnement}\en{Environment}}
+    {
+        \fr{Impact social et responsable, influence de la technologie.}
+        \en{Social impact and responsibility; influence of technology.}
+    }
 }
+
 \cvitem{Sports}
 {
     \fr{Natation, badminton et roller hockey.}
