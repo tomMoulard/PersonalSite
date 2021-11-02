@@ -1,0 +1,57 @@
+==================================================================
+https://keybase.io/tommoulard
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://tom.moulard.org
+  * I am tommoulard (https://keybase.io/tommoulard) on keybase.
+  * I have a public key ASBO7shsRGvIfknZaZw-s9JqjNZMh1u9fr_AhAyfLHJVzgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01204eeec86c446bc87e49d9699c3eb3d26a8cd64c875bbd7ebfc0840c9f2c7255ce0a",
+      "host": "keybase.io",
+      "kid": "01204eeec86c446bc87e49d9699c3eb3d26a8cd64c875bbd7ebfc0840c9f2c7255ce0a",
+      "uid": "ba9d0de95a84a58f314cdb079614db19",
+      "username": "tommoulard"
+    },
+    "merkle_root": {
+      "ctime": 1635847904,
+      "hash": "40cb3d8d4bfd71b3d1daf362d70ffd3f60a1dc640863760cf0dcc05657fd1900cd61cb8f341dca111d076f2bee580b93751a26e7314b168c3deca1d6809f6f30",
+      "hash_meta": "3d9465e97891fe8f6f5d4c37150ce20c88d8456d8958226d0ab4e202ead74d11",
+      "seqno": 21118449
+    },
+    "service": {
+      "entropy": "3YXQA3gkP1nP/H2yGjRGcUef",
+      "hostname": "tom.moulard.org",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.8.1"
+  },
+  "ctime": 1635847957,
+  "expire_in": 504576000,
+  "prev": "82776e2c6344f05bd630f7da6238bb739b0ec95cbc1326c6cb09e5d78b39dc1c",
+  "seqno": 14,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgTu7IbERryH5J2WmcPrPSaozWTIdbvX6/wIQMnyxyVc4Kp3BheWxvYWTESpcCDsQggnduLGNE8FvWMPfaYji7c5sOyVy8EybGywnl14s53BzEIJEh8B6lp1MAFgFdK4LOpDOycnP2aLGP3nFqst7h33vqAgHCo3NpZ8RAtsU8Kys3kgOsJmy9wM4txfsp9ySEimKkZtXmbSDCY9WShHH+6Z9Bf9Iy70XS7MxlsOTheALy3po9lF5aZYiFB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIC40Rr4qzs8mOWKv+2QdJkDJgHsNWcpvxZqD8bOPVBNOo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/tommoulard
+
+==================================================================
+
