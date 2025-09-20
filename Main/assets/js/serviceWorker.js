@@ -11,16 +11,24 @@ const STATIC_ASSETS = [
   '/assets/tex/cv-fr-tomMOULARD.pdf',
 
   // Core JavaScript files
-  '/assets/js/jquery.js',
-  '/assets/js/bootstrap.min.js',
+  '/assets/js/jquery.min.js',
+  '/assets/js/bootstrap.bundle.min.js',
   '/assets/js/scrollReveal.js',
   '/assets/js/custom.js',
   '/assets/js/chatbot.js',
 
   // Core CSS files
-  '/assets/css/bootstrap.css',
+  '/assets/css/bootstrap.min.css',
   '/assets/css/font-awesome.min.css',
   '/assets/css/style.css',
+  
+  // Font Awesome fonts
+  '/assets/webfonts/fa-solid-900.woff2',
+  '/assets/webfonts/fa-solid-900.ttf',
+  '/assets/webfonts/fa-regular-400.woff2',
+  '/assets/webfonts/fa-regular-400.ttf',
+  '/assets/webfonts/fa-brands-400.woff2',
+  '/assets/webfonts/fa-brands-400.ttf',
 
   // Important images
   '/assets/img/team/moular_b_small.jpeg',
