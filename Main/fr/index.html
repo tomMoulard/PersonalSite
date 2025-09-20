@@ -42,9 +42,9 @@
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#000000">
     <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="manifest" href="/json/manifest.json">
+    <link rel="manifest" href="/assets/json/manifest.json">
     <style>
     body {
         padding: 0;
@@ -392,10 +392,8 @@
     <script src="/assets/js/custom.js"></script>
     <script>
     if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('serviceWorker.js')
+    navigator.serviceWorker.register('/assets/js/serviceWorker.js')
         .then(function(reg) {
-            console.log("Yes, it did.");
         }).catch(function(err) {
             console.log("No it didn't. This happened: ", err)
         });

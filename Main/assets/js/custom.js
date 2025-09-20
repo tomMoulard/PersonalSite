@@ -34,9 +34,8 @@ jQuery(function($) {
    SCROLL REVEL SCRIPTS
    =====================================================*/
 
-    
-       window.scrollReveal = new scrollReveal(); 
-    
+    // Initialize ScrollReveal with default settings
+    ScrollReveal().reveal('[data-scrollreveal]');
 
     /*==========================================
     WRITE  YOUR  SCRIPTS BELOW

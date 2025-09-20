@@ -150,7 +150,7 @@
 - Can you say it with more precision ?
 - I am sorry, i did not catch that.
 
-+ (hello|hi|what's up|wassup)[*]
++ (hello|hi|whats up|wassup)[*]
 - Hi
 - What's up
 - Hello
@@ -231,9 +231,7 @@
 + [*]resume[*]
 - If you want so see my resume, go <a href = "http://tom.moulard.org/assets/tex/cv-en-tomMOULARD.pdf">there</a> !
 
-+ [*](&lt;[*]script[*]&gt;|&lt;[*]p[*]&gt;|&lt;[*]h[*]&gt;)[*]
-+ [*](\&lt\;[*]script[*]\&gt\;|\&lt\;[*]p[*]\&gt\;|\&lt\;[*]h[*]\&gt\;)[*]
-+ [*](\<[*]script[*]\>|\<[*]p[*]\>|\<[*]h[*]\>)[*]
++ [*](<[*]script[*]>|<[*]p[*]>|<[*]h[*]>)[*]
 - Oh, no! just don't
 
 + help
