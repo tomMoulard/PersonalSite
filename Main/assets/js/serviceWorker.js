@@ -11,14 +11,11 @@ const STATIC_ASSETS = [
   '/assets/tex/cv-fr-tomMOULARD.pdf',
 
   // Core JavaScript files
-  '/assets/js/jquery.min.js',
-  '/assets/js/bootstrap.bundle.min.js',
   '/assets/js/scrollReveal.js',
   '/assets/js/custom.js',
   '/assets/js/chatbot.js',
 
   // Core CSS files
-  '/assets/css/bootstrap.min.css',
   '/assets/css/font-awesome.min.css',
   '/assets/css/style.css',
   
@@ -44,16 +41,14 @@ const STATIC_ASSETS = [
 
 // Install event - cache static assets
 self.addEventListener('install', event => {
-  console.log('Service Worker: Installing...');
-
   event.waitUntil(
     Promise.all([
       // Cache static assets with error handling
       caches.open(CACHE_NAME).then(cache => {
-        console.log('Service Worker: Caching static assets');
         return cache.addAll(STATIC_ASSETS).catch(error => {
           console.log('Service Worker: Some assets failed to cache:', error);
           // Cache individual files that succeed
+          console.log('Service Worker: Installation failed:', error);
           return Promise.allSettled(
             STATIC_ASSETS.map(url =>
               cache.add(url).catch(err =>
@@ -66,12 +61,10 @@ self.addEventListener('install', event => {
 
       // Pre-cache CV files specifically
       caches.open(CV_CACHE_NAME).then(cache => {
-        console.log('Service Worker: Pre-caching CV files');
         return cache.addAll([
           '/assets/tex/cv-en-tomMOULARD.pdf',
           '/assets/tex/cv-fr-tomMOULARD.pdf'
         ]).catch(error => {
-          console.log('Service Worker: CV files failed to cache:', error);
           return Promise.allSettled([
             cache.add('/assets/tex/cv-en-tomMOULARD.pdf'),
             cache.add('/assets/tex/cv-fr-tomMOULARD.pdf')
@@ -79,7 +72,6 @@ self.addEventListener('install', event => {
         });
       })
     ]).then(() => {
-      console.log('Service Worker: Installation complete');
       return self.skipWaiting();
     }).catch(error => {
       console.log('Service Worker: Installation failed:', error);
@@ -90,20 +82,16 @@ self.addEventListener('install', event => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {
-  console.log('Service Worker: Activating...');
-
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
           if (cacheName !== CACHE_NAME && cacheName !== CV_CACHE_NAME) {
-            console.log('Service Worker: Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
     }).then(() => {
-      console.log('Service Worker: Activation complete');
       return self.clients.claim();
     })
   );
@@ -128,7 +116,6 @@ self.addEventListener('fetch', event => {
     caches.match(request).then(response => {
       // Return cached version if available
       if (response) {
-        console.log('Service Worker: Serving from cache:', request.url);
         return response;
       }
 
@@ -150,14 +137,11 @@ self.addEventListener('fetch', event => {
 
         // Cache the response
         caches.open(cacheToUse).then(cache => {
-          console.log('Service Worker: Caching new resource:', request.url);
           cache.put(request, responseToCache);
         });
 
         return fetchResponse;
       }).catch(error => {
-        console.log('Service Worker: Fetch failed:', request.url, error);
-
         // Return offline page for navigation requests
         if (request.mode === 'navigate') {
           return caches.match('/') || caches.match('/fr/');
@@ -194,5 +178,3 @@ self.addEventListener('message', event => {
     });
   }
 });
-
-console.log('Service Worker: Script loaded');
