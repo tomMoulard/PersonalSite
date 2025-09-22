@@ -8,14 +8,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Available for hire ! Contact me by email : tom@moulard.org or by phone at 0033 6 51 48 72 60">
+    <meta name="description" content="Tom Moulard - Software Engineer at Traefik Labs. Available for hire! Specialized in Go, Python, cloud technologies, and open source development. Contact: tom@moulard.org">
     <meta name="author" content="Tom MOULARD">
-    <meta name="keywords" content="Hire, Available, Tom, Moulard, Python, C, C#, OCamL, JS, SQL, shell, Unity, Meteor, Django, MongoDB, Neo4j, MySQL, GIT, VirtualBox, LATEX, HTML, CSS, GIMP, Imagemagick,InkscapeWord, Excel, Access, PowerPoint">
-    <meta property="og:title" content="Tom Moulard">
-    <meta property="og:image" content="/assets/img/team/moular_b_small.jpeg">
-    <meta property="og:description" content="This is the website of Tom Moulard. Available for hire ! Contact me by email : tom@moulard.org or by phone at 0033 6 51 48 72 60">
-    <meta name="twitter:title" content="Tom Moulard">
-    <meta name="twitter:url" content="Tom Moulard">
+    <meta name="keywords" content="Software Engineer, Tom Moulard, Go, Python, Traefik, Open Source, Cloud Technologies, Available for Hire, Developer, Programmer">
+    <link rel="canonical" href="https://tom.moulard.org/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tom Moulard - Software Engineer">
+    <meta property="og:image" content="https://tom.moulard.org/assets/img/team/moular_b_small.jpeg">
+    <meta property="og:description" content="Software Engineer at Traefik Labs. Available for hire! Specialized in Go, Python, cloud technologies, and open source development.">
+    <meta property="og:url" content="https://tom.moulard.org/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tom Moulard - Software Engineer">
+    <meta name="twitter:description" content="Software Engineer at Traefik Labs. Available for hire! Specialized in Go, Python, cloud technologies.">
+    <meta name="twitter:image" content="https://tom.moulard.org/assets/img/team/moular_b_small.jpeg">
     <script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -50,14 +56,72 @@
         <![endif]-->
     <link rel="icon" type="image/css" href="/assets/img/cloneTrooper.ico">
     <title>Tom Moulard</title>
-    <!--GOOGLE FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <!--BOOTSTRAP MAIN STYLES -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!--FONTAWESOME MAIN STYLE -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-    <!--CUSTOM STYLE -->
-    <link href="/assets/css/style.css" rel="stylesheet" />
+    <!--GOOGLE FONT - Non-blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel="stylesheet" media="print" onload="this.media='all'" type='text/css'>
+    <noscript>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet' type='text/css'>
+    </noscript>
+    <!-- Preconnect to external script domains -->
+    <link rel="preconnect" href="https://ajax.googleapis.com">
+    <link rel="preconnect" href="https://unpkg.com">
+
+    <!-- Non-blocking CSS - Load asynchronously -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="/assets/css/style.css" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <!-- Optimized FontAwesome loading with font-display -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Font-display optimization -->
+    <style>
+    /* Override FontAwesome font loading behavior */
+    .fa, .fas, .far, .fab, .fal, .fad {
+        font-display: swap !important;
+    }
+
+    /* Font metric overrides to prevent layout shifts */
+    .fa, .fas, .far, .fab, .fal, .fad {
+        font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif !important;
+        font-weight: 900;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1;
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+    }
+
+    /* Preload critical FontAwesome icons with fallback */
+    .fa-github:before { content: "\f09b"; }
+    .fa-facebook:before { content: "\f09a"; }
+    .fa-linkedin:before { content: "\f08c"; }
+    .fa-external-link-square:before { content: "\f14c"; }
+    .fa-check:before { content: "\f00c"; }
+    .fa-thumbs-up:before { content: "\f164"; }
+    .fa-cog:before { content: "\f013"; }
+    .fa-angle-double-down:before { content: "\f103"; }
+    .fa-angle-double-up:before { content: "\f102"; }
+    .fa-home:before { content: "\f015"; }
+    .fa-phone:before { content: "\f095"; }
+    .fa-envelope:before { content: "\f0e0"; }
+
+    /* Fallback for when fonts haven't loaded yet */
+    .fa:before {
+        font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
+        font-weight: 900;
+    }
+    </style>
+
+    <!-- Fallback for browsers that don't support onload -->
+    <noscript>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link href="/assets/css/style.css" rel="stylesheet">
+    </noscript>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -73,23 +137,160 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="manifest" href="/assets/json/manifest.json">
     <style>
+    /* Critical CSS - Above the fold */
     img {
         border: 0;
     }
     body {
         padding: 0;
         margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 1.6;
+    }
+
+    /* Navigation */
+    .navbar {
+        background-color: #000;
+        border: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .navbar-brand {
+        color: #fff !important;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .navbar-nav > li > a {
+        color: #fff !important;
+        padding: 15px;
+    }
+    .navbar-nav > li > a:hover {
+        color: #ccc !important;
+    }
+    .navbar-toggle {
+        border: 1px solid #fff;
+    }
+    .icon-bar {
+        background-color: #fff;
+    }
+
+    /* Header Section */
+    #header-section {
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(16, 185, 129, 0.8)),
+                    url(/assets/img/header.jpg) no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        color: white;
+        padding-top: 60px;
+    }
+    #header-section h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .down-icon {
+        color: #fff;
+        cursor: pointer;
+        font-size: 3rem;
+    }
+    .down-icon:hover {
+        color: #ccc;
+    }
+
+    /* Basic Layout */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .col-md-8, .col-md-6, .col-md-4, .col-md-3, .col-md-12 {
+        padding-left: 15px;
+        padding-right: 15px;
+        float: left;
+    }
+    .col-md-8 { width: 66.66666667%; }
+    .col-md-6 { width: 50%; }
+    .col-md-4 { width: 33.33333333%; }
+    .col-md-3 { width: 25%; }
+    .col-md-12 { width: 100%; }
+
+    /* Basic Typography */
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+
+    p {
+        margin-bottom: 1rem;
+    }
+
+    /* Skip Link */
+    .sr-only {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+    }
+    .sr-only-focusable:focus {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0.5rem !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        clip: auto !important;
+        white-space: normal !important;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        z-index: 10000;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .col-md-8, .col-md-6, .col-md-4, .col-md-3, .col-md-12 {
+            width: 100%;
+            float: none;
+        }
+        #header-section h1 {
+            font-size: 2.5rem;
+        }
     }
     </style>
 </head>
 <!--END HEAD SECTION -->
 
 <body>
+    <!-- SKIP LINK -->
+    <a href="#about-section" class="sr-only sr-only-focusable">Skip to main content</a>
     <!-- NAV SECTION -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="navbar-collapse">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="navbar-collapse" aria-label="Toggle navigation menu">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -97,16 +298,16 @@
                 <a class="navbar-brand" href="https://www.facebook.com/tommoulard">Tom Moulard</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about-section">ABOUT</a></li>
-                    <li><a href="#products-section">MY-WORK</a></li>
-                    <li><a href="#china-section">MY-TRIPS</a></li>
-                    <li><a href="#contact-section">CONTACT</a></li>
-                    <li><a href="#chatbot-section">CHAT</a></li>
-                    <li>
-                        <a href="/fr/index.html"><img src="/fr/flags.png" alt=""></a>
+                <ul class="nav navbar-nav navbar-right" role="menubar">
+                    <li role="none"><a href="#about-section" role="menuitem" aria-label="Navigate to About section">ABOUT</a></li>
+                    <li role="none"><a href="#products-section" role="menuitem" aria-label="Navigate to My Work section">MY-WORK</a></li>
+                    <li role="none"><a href="#china-section" role="menuitem" aria-label="Navigate to My Trips section">MY-TRIPS</a></li>
+                    <li role="none"><a href="#contact-section" role="menuitem" aria-label="Navigate to Contact section">CONTACT</a></li>
+                    <li role="none"><a href="#chatbot-section" role="menuitem" aria-label="Navigate to Chat section">CHAT</a></li>
+                    <li role="none">
+                        <a href="/fr/index.html" aria-label="Switch to French language version"><img src="/fr/flags.png" alt="Switch to French language"></a>
                     </li>
-                    <li><a href="#header-section"><i class="fa fa-angle-double-up down-icon"></i></a></li>
+                    <li role="none"><a href="#header-section" aria-label="Scroll to top of page"><i class="fa fa-angle-double-up down-icon" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -119,28 +320,28 @@
                 <div class="col-md-8 col-md-offset-2">
                     <h1><strong> Tom Moulard </strong></h1>
                     <br />
-                    <a href="#about-section"> <i class="fa fa-angle-double-down fa-5x down-icon"></i> </a>
+                    <a href="#about-section" aria-label="Scroll down to About section"> <i class="fa fa-angle-double-down fa-5x down-icon" aria-hidden="true"></i> </a>
                 </div>
             </div>
         </div>
     </div>
     <!--END HEADER SECTION -->
     <!--ABOUT SECTION -->
-    <div id="about-section">
+    <div id="about-section" role="main">
         <div class="container">
             <div class="row main-top-margin text-center">
                 <div class="col-md-8 col-md-offset-2 " data-scrollreveal="enter top and move 100px, wait 0.3s">
-                    <h1>Who Am I ?</h1>
-                    <h4>
+                    <h2>Who Am I ?</h2>
+                    <h3>
                        I am a Software Engineer.
-                    </h4>
+                    </h3>
                 </div>
             </div>
             <!-- ./ Main Heading-->
             <div class="row main-low-margin text-center">
                 <div class="col-md-3 " data-scrollreveal="enter left and move 100px, wait 0.4s">
-                    <img class="img-circle" src="/assets/img/team/moular_b_small.jpeg" alt="">
-                    <h4><strong>Tom Moulard</strong> </h4>
+                    <img class="img-circle" src="/assets/img/team/moular_b_small.jpeg" alt="Tom Moulard professional headshot" loading="eager">
+                    <h3><strong>Tom Moulard</strong> </h3>
                     <p>
                         "Our virtues and our failings are inseparable, like force and matter. When they separate, man is no more" ~Nikola Tesla
                     </p>
@@ -163,7 +364,7 @@
                         I'm passionate about open source development, cloud technologies, and distributed systems. I hold certifications in <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/">AWS Cloud Practitioner</a> and <a href="https://e.huawei.com/en/talent/#/cert/certificate-verification">Huawei HCIA Routing & Switching</a>. My experience spans from co-founding and serving as CTO at Eiko (creating Progressive Web Apps) to developing Python applications for the Chinese Ministry of Environment.
                     </p>
                     <p>
-                        <a href="/assets/tex/cv-en-tomMOULARD.pdf" target="_blank" class="btn btn-info">Download My Resume</a>
+                        <a href="/assets/tex/cv-en-tomMOULARD.pdf" target="_blank" class="btn btn-info" aria-label="Download Tom Moulard's resume in PDF format">Download My Resume</a>
                         <br />
                     </p>
                 </div>
@@ -177,10 +378,10 @@
         <div class="container">
             <div class="row main-top-margin text-center" data-scrollreveal="enter top and move 100px, wait 0.3s">
                 <div class="col-md-8 col-md-offset-2 ">
-                    <h1>Some Projects I Made</h1>
-                    <h4>
+                    <h2>Some Projects I Made</h2>
+                    <h3>
                         During my life and formation I went through various projects :
-                    </h4>
+                    </h3>
                 </div>
             </div>
             <!-- ./ Main Heading-->
@@ -189,10 +390,10 @@
             <div class="row main-low-margin">
                 <div class="col-md-10  col-md-offset-1 ">
                     <div class="col-md-4 col-sm-4" data-scrollreveal="enter left and move 100px, wait 0.8s">
-                        <img src="/assets/img/product/jaquette.png" alt="">
+                        <img src="/assets/img/product/jaquette.png" alt="A-Type Unity game cover art" loading="lazy">
                     </div>
                     <div class="col-md-8 " data-scrollreveal="enter right and move 100px, wait 0.4s">
-                        <h4>  <strong class="color-red">Unity Based Game : A-Type </strong></h4>
+                        <h3>  <strong class="color-red">Unity Based Game : A-Type </strong></h3>
                         <p>
                             One of the biggest projects I’ve made so far was a school assignment which took me, and the three other members of my team, nearly a whole month to finish. The workload was divided in half: one of use was taking care of the visual aspects of the game and the other three members had found ways to implement the game.
                         </p>
@@ -207,7 +408,7 @@
                             <i class="fa fa-check"></i> Made in France
                             <br />
                         </p>
-                        <a href="https://www.dropbox.com/s/xz4rwaymdquuwdp/gameV2.zip?dl=0" target="_blank" class="btn btn-success">Download Game</a>
+                        <a href="https://www.dropbox.com/s/xz4rwaymdquuwdp/gameV2.zip?dl=0" target="_blank" class="btn btn-success" aria-label="Download A-Type Unity game">Download Game</a>
                     </div>
                 </div>
             </div>
@@ -216,7 +417,7 @@
             <div class="row main-low-margin bottam-pad">
                 <div class="col-md-10  col-md-offset-1 ">
                     <div class="col-md-8 " data-scrollreveal="enter left and move 100px, wait 0.4s">
-                        <h4>  <strong class="color-red">Fun Hacking </strong></h4>
+                        <h3>  <strong class="color-red">Fun Hacking </strong></h3>
                         <p>
                             During my free time I wandering around on the internet discovering funny pictures and sharing them with friends (without forgetting to download them in order to have a good laugh again later on!).
                         </p>
@@ -231,10 +432,10 @@
                             <i class="fa fa-check"></i> Open Source Code
                             <br />
                         </p>
-                        <a href="/assets/itaScript.py" target="_blank" class="btn btn-danger"> Try It Yourself </a>
+                        <a href="/assets/itaScript.py" target="_blank" class="btn btn-danger" aria-label="Download Python script for cat image downloading"> Try It Yourself </a>
                     </div>
                     <div class="col-md-4 " data-scrollreveal="enter right and move 100px, wait 0.4s">
-                        <img class="img-margin-product" src="/assets/img/product/cat.jpg" alt="">
+                        <img class="img-margin-product" src="/assets/img/product/cat.jpg" alt="Cute cat image from fun hacking project" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -242,10 +443,10 @@
             <!-- Third part-->
             <div class="col-md-10  col-md-offset-1 ">
                 <div class="col-md-4 col-sm-4" data-scrollreveal="enter left and move 100px, wait 0.8s">
-                    <img src="/assets/img/OCR.png" alt="">
+                    <img src="/assets/img/OCR.png" alt="OCR Optical Character Recognition project interface" loading="lazy">
                 </div>
                 <div class="col-md-8 " data-scrollreveal="enter right and move 100px, wait 0.4s">
-                    <h4>  <strong class="color-red">OCR : Optical Character Recognition </strong></h4>
+                    <h3>  <strong class="color-red">OCR : Optical Character Recognition </strong></h3>
                     <p>
                         This is one of the biggest project I ever made as a school assignment. We were asked to create an OCR. The project's main goal is to give a great text reconstruction of a given picture. The program simply recognise the text in an image and try to make use of it.
                     </p>
@@ -261,7 +462,7 @@
                         <br />
                     </p>
                     <p>
-                        <a href="https://github.com/tomMoulard/OCR_spe" target="_blank" class="btn btn-success">See source code</a>
+                        <a href="https://github.com/tomMoulard/OCR_spe" target="_blank" class="btn btn-success" aria-label="View OCR project source code on GitHub">See source code</a>
                     </p>
                 </div>
             </div>
@@ -276,10 +477,10 @@
             <div class="row main-top-margin bottam-pad">
                 <div class="col-md-10  col-md-offset-2 ">
                     <div class="col-md-8 col-md-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.3s">
-                        <h1>My trips</h1>
-                        <h4 style="text-align: center;">
+                        <h2>My trips</h2>
+                        <h3 style="text-align: center;">
                            I went in China for 5 month to study IT in a local university !
-                        </h4>
+                        </h3>
                         <hr />
                     </div>
                     <div class="col-md-8 " data-scrollreveal="enter left and move 100px, wait 0.4s">
@@ -300,7 +501,7 @@
                     </div>
                     <div class="col-md-8 col-md-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.3s">
                         <!-- <div class="col-4 " data-scrollreveal="enter right and move 100px, wait 0.4s"> -->
-                        <img class="img-china" src="/assets/img/team/china.jpg" alt="Chinese Team on the Great Wall">
+                        <img class="img-china" src="/assets/img/team/china.jpg" alt="International students team photo at Beijing Jiaotong University" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -313,7 +514,7 @@
             <div class="row main-top-margin bottam-pad">
                 <div class="col-md-10  col-md-offset-2 ">
                     <div class="col-md-8 col-md-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.3s">
-                        <h1>Chat with me:</h1>
+                        <h2>Chat with me:</h2>
                         <hr />
                         <div style="text-align: center;" class="dialogue" id="dialogue"></div>
                         <p style="text-align: center;">
@@ -330,10 +531,10 @@
         <div class="container">
             <div class="row main-top-margin text-center">
                 <div class="col-md-8 col-md-offset-1 " data-scrollreveal="enter top and move 100px, wait 0.3s">
-                    <h1>Contact / Hire Me</h1>
-                    <h4>
+                    <h2>Contact / Hire Me</h2>
+                    <h3>
                        If you wish to contact me, just fill the form below and I'll answer right away!
-                    </h4>
+                    </h3>
                 </div>
             </div>
             <!-- ./ Main Heading-->
@@ -381,38 +582,43 @@
                     <div class="col-md-6" data-scrollreveal="enter right and move 100px, wait 0.4s">
                         <h3>Drop a Line or Hire Me </h3>
                         <hr />
-                        <form action="MAILTO:tom@moulard.org" method="post" enctype="text/plain">
+                        <form action="MAILTO:tom@moulard.org" method="post" enctype="text/plain" role="form" aria-label="Contact form">
                             <div class="row">
                                 <div class="col-md-6 ">
                                     <div class="form-group">
-                                        <input type="text" name="Name" class="form-control" required="required" placeholder="Name" autocomplete="name">
+                                        <label for="name-input" class="sr-only">Name</label>
+                                        <input type="text" id="name-input" name="Name" class="form-control" required="required" placeholder="Name" autocomplete="name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="Email Adress" class="form-control" required="required" placeholder="Email address" autocomplete="email">
+                                        <label for="email-input" class="sr-only">Email Address</label>
+                                        <input type="email" id="email-input" name="Email Adress" class="form-control" required="required" placeholder="Email address" autocomplete="email">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 ">
                                     <div class="form-group">
-                                        <input type="text" name="Subject" class="form-control" required="required" placeholder="Subject">
+                                        <label for="subject-input" class="sr-only">Subject</label>
+                                        <input type="text" id="subject-input" name="Subject" class="form-control" required="required" placeholder="Subject">
                                     </div>
                                 </div>
                                 <div class="col-md-6 ">
                                     <div class="form-group">
-                                        <input type="text" name="Ref." class="form-control" placeholder="Ref. (IF any)">
+                                        <label for="ref-input" class="sr-only">Reference</label>
+                                        <input type="text" id="ref-input" name="Ref." class="form-control" placeholder="Ref. (IF any)">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12 ">
                                     <div class="form-group">
-                                        <textarea name="Message" id="message" required="required" class="form-control" rows="3" placeholder="Message" autocomplete="nickname"></textarea>
+                                        <label for="message" class="sr-only">Message</label>
+                                        <textarea name="Message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" role="submit">Submit Request</button>
+                                        <button type="submit" class="btn btn-primary" role="submit" aria-label="Submit contact form">Submit Request</button>
                                     </div>
                                 </div>
                             </div>
@@ -434,18 +640,18 @@
     </div>
     <!--END FOOTER SECTION -->
     <!-- CORE JQUERY LIBRARY -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
     <!-- CORE BOOTSTRAP LIBRARY -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" defer></script>
     <!-- SCROLL REVEL LIBRARY FOR SCROLLING ANIMATIONS-->
-    <script src="/assets/js/scrollReveal.js"></script>
+    <script src="/assets/js/scrollReveal.js" defer></script>
     <!-- CUSTOM SCRIPT-->
-    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/custom.js" defer></script>
     <!-- Chat bot -->
-		<script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
-    <script src="/fun/0/libraries/p5.js"></script>
-    <script src="/fun/0/libraries/p5.dom.js"></script>
-    <script src="/assets/js/chatbot.js"></script>
+		<script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js" defer></script>
+    <script src="/fun/0/libraries/p5.js" defer></script>
+    <script src="/fun/0/libraries/p5.dom.js" defer></script>
+    <script src="/assets/js/chatbot.js" defer></script>
     <script>
     if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/assets/js/serviceWorker.js')
