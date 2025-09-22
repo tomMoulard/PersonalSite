@@ -290,7 +290,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="navbar-collapse" aria-label="Toggle navigation menu">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" role="navbar-collapse" aria-label="Toggle navigation menu">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -413,8 +413,8 @@
                 </div>
             </div>
             <!-- Second part-->
-            <hr />
             <div class="row main-low-margin bottam-pad">
+              <hr />
                 <div class="col-md-10  col-md-offset-1 ">
                     <div class="col-md-8 " data-scrollreveal="enter left and move 100px, wait 0.4s">
                         <h3>  <strong class="color-red">Fun Hacking </strong></h3>
@@ -439,31 +439,164 @@
                     </div>
                 </div>
             </div>
-            <hr />
             <!-- Third part-->
-            <div class="col-md-10  col-md-offset-1 ">
+            <div class="row main-low-margin">
+              <div class="col-md-10  col-md-offset-1 ">
+                <hr />
                 <div class="col-md-4 col-sm-4" data-scrollreveal="enter left and move 100px, wait 0.8s">
-                    <img src="/assets/img/OCR.png" alt="OCR Optical Character Recognition project interface" loading="lazy">
+                  <img src="/assets/img/OCR.png" alt="OCR Optical Character Recognition project interface" loading="lazy">
                 </div>
                 <div class="col-md-8 " data-scrollreveal="enter right and move 100px, wait 0.4s">
-                    <h3>  <strong class="color-red">OCR : Optical Character Recognition </strong></h3>
-                    <p>
-                        This is one of the biggest project I ever made as a school assignment. We were asked to create an OCR. The project's main goal is to give a great text reconstruction of a given picture. The program simply recognise the text in an image and try to make use of it.
-                    </p>
-                    <p>
-                        To make is project, we divided it into two great parts : The first was aiming to slice the picture and extract all letters. The second one was to create a neural network. The neural network is able to use a normalize picture and deduct the letter meaning. I configured the network in a way that it can by reused in an other program. you just have to take the code, adjust calling functions to allow it to train and then find a result.
-                    </p>
-                    <p>
-                        <i class="fa fa-check"></i> Three Month Project
-                        <br />
-                        <i class="far fa-thumbs-up"></i> Contain a Neural Network
-                        <br />
-                        <i class="fa fa-cog fa-fw fa-spin"></i> Can be set entirely
-                        <br />
-                    </p>
-                    <p>
+                  <h3>  <strong class="color-red">OCR : Optical Character Recognition </strong></h3>
+                  <p>
+                    This is one of the biggest project I ever made as a school assignment. We were asked to create an OCR. The project's main goal is to give a great text reconstruction of a given picture. The program simply recognise the text in an image and try to make use of it.
+                  </p>
+                  <p>
+                    To make is project, we divided it into two great parts : The first was aiming to slice the picture and extract all letters. The second one was to create a neural network. The neural network is able to use a normalize picture and deduct the letter meaning. I configured the network in a way that it can by reused in an other program. you just have to take the code, adjust calling functions to allow it to train and then find a result.
+                  </p>
+                  <p>
+                    <i class="fa fa-check"></i> Three Month Project
+                    <br />
+                    <i class="far fa-thumbs-up"></i> Contain a Neural Network
+                    <br />
+                    <i class="fa fa-cog fa-fw fa-spin"></i> Can be set entirely
+                    <br />
+                  </p>
+                  <p>
                         <a href="https://github.com/tomMoulard/OCR_spe" target="_blank" class="btn btn-success" aria-label="View OCR project source code on GitHub">See source code</a>
-                    </p>
+                        <span class="github-stars" data-repo="tomMoulard/OCR_spe" style="margin-left: 10px; color: #666;">
+                            <i class="fa fa-star"></i> <span class="star-count">Loading...</span>
+                        </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Fourth part - Traefik Plugin -->
+            <div class="row main-low-margin bottam-pad">
+              <div class="col-md-10  col-md-offset-1 ">
+                <hr />
+                <div class="col-md-8 " data-scrollreveal="enter left and move 100px, wait 0.4s">
+                  <h3>  <strong class="color-red">Traefik Fail2ban Plugin </strong></h3>
+                  <p>
+                    As a maintainer of the Traefik Proxy open source project, I developed a comprehensive fail2ban plugin that integrates seamlessly with Traefik's middleware system. This plugin provides advanced security features for protecting web applications from malicious traffic and brute force attacks.
+                  </p>
+                  <p>
+                    The plugin implements intelligent IP blocking mechanisms, configurable ban durations, and real-time monitoring of HTTP requests. It supports multiple backends including Redis and in-memory storage, making it suitable for both single-instance and distributed Traefik deployments. The plugin follows Traefik's plugin architecture and integrates with the existing middleware chain.
+                  </p>
+                  <p>
+                    <i class="fa fa-check"></i> Production Ready
+                    <br />
+                    <i class="fa fa-check"></i> Traefik Plugin Architecture
+                    <br />
+                    <i class="fa fa-check"></i> Multiple Storage Backends
+                    <br />
+                    <i class="fa fa-check"></i> Configurable Security Rules
+                    <br />
+                  </p>
+                  <p>
+                    <a href="https://github.com/tomMoulard/fail2ban" target="_blank" class="btn btn-danger" aria-label="View Traefik fail2ban plugin source code on GitHub">View on GitHub</a>
+                    <span class="github-stars" data-repo="tomMoulard/fail2ban" style="margin-left: 10px; color: #666;">
+                        <i class="fa fa-star"></i> <span class="star-count">Loading...</span>
+                    </span>
+                  </p>
+                </div>
+                <div class="col-md-4 col-sm-4" data-scrollreveal="enter right and move 100px, wait 0.8s">
+                  <img src="https://raw.githubusercontent.com/tomMoulard/fail2ban/main/.assets/f2b.png" alt="Traefik Fail2ban Plugin Logo" loading="lazy" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background-color: #000; padding: 20px;">
+                </div>
+              </div>
+            </div>
+            <!-- Fifth part - HTransformation Plugin -->
+            <div class="row main-low-margin">
+              <div class="col-md-10  col-md-offset-1 ">
+                <hr />
+                <div class="col-md-4 col-sm-4" data-scrollreveal="enter left and move 100px, wait 0.8s">
+                  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 8px; color: white; text-align: center;">
+                    <h4 style="color: white; margin-bottom: 1rem;">🔄 Header Transform</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem;">Dynamic HTTP header manipulation and transformation</p>
+                    <div style="display: flex; justify-content: space-around; margin-top: 1rem;">
+                      <div>
+                        <strong style="font-size: 1.5rem;">Go</strong>
+                        <br><small>Language</small>
+                      </div>
+                      <div>
+                        <strong style="font-size: 1.5rem;">Plugin</strong>
+                        <br><small>Architecture</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8 " data-scrollreveal="enter right and move 100px, wait 0.4s">
+                  <h3>  <strong class="color-red">Traefik HTransformation Plugin </strong></h3>
+                  <p>
+                    Another powerful Traefik plugin I developed that provides flexible HTTP header transformation capabilities. This plugin allows you to dynamically modify, add, remove, or transform HTTP headers based on configurable rules, making it incredibly versatile for various use cases.
+                  </p>
+                  <p>
+                    The plugin supports complex rule-based transformations, allowing you to manipulate headers based on request patterns, user agents, IP addresses, or any other HTTP attributes. It's perfect for API gateways, microservices architectures, and scenarios where you need to adapt headers between different services or clients.
+                  </p>
+                  <p>
+                    <i class="fa fa-check"></i> Rule-Based Transformations
+                    <br />
+                    <i class="fa fa-check"></i> Dynamic Header Manipulation
+                    <br />
+                    <i class="fa fa-check"></i> Flexible Configuration
+                    <br />
+                    <i class="fa fa-check"></i> Production Ready
+                    <br />
+                  </p>
+                  <p>
+                    <a href="https://github.com/tomMoulard/htransformation" target="_blank" class="btn btn-success" aria-label="View Traefik htransformation plugin source code on GitHub">View on GitHub</a>
+                    <span class="github-stars" data-repo="tomMoulard/htransformation" style="margin-left: 10px; color: #666;">
+                        <i class="fa fa-star"></i> <span class="star-count">Loading...</span>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Sixth part - Make My Server -->
+            <div class="row main-low-margin bottam-pad">
+                <div class="col-md-10  col-md-offset-1 ">
+                    <hr />
+                    <div class="col-md-8 " data-scrollreveal="enter left and move 100px, wait 0.4s">
+                        <h3>  <strong class="color-red">Make My Server </strong></h3>
+                        <p>
+                            A comprehensive collection of Docker Compose services designed to quickly deploy and manage various applications on any server. This project provides a curated list of popular services with pre-configured Docker Compose files, making server setup and management incredibly simple.
+                        </p>
+                        <p>
+                            The project includes a complete Traefik configuration that works out-of-the-box, providing automatic SSL certificates, load balancing, and reverse proxy capabilities. You can easily choose from available services like databases, monitoring tools, development environments, and productivity applications, then deploy them with a single command.
+                        </p>
+                        <p>
+                            <i class="fa fa-check"></i> Docker Compose Ready
+                            <br />
+                            <i class="fa fa-check"></i> Complete Traefik Setup
+                            <br />
+                            <i class="fa fa-check"></i> One-Command Deployment
+                            <br />
+                            <i class="fa fa-check"></i> Curated Service Collection
+                            <br />
+                        </p>
+                        <p>
+                            <a href="https://github.com/tomMoulard/make-my-server" target="_blank" class="btn btn-success" aria-label="View make-my-server project source code on GitHub">View on GitHub</a>
+                            <span class="github-stars" data-repo="tomMoulard/make-my-server" style="margin-left: 10px; color: #666;">
+                                <i class="fa fa-star"></i> <span class="star-count">Loading...</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-sm-4" data-scrollreveal="enter right and move 100px, wait 0.8s">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 8px; color: white; text-align: center;">
+                            <h4 style="color: white; margin-bottom: 1rem;">🐳 Docker Stack</h4>
+                            <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem;">Complete server deployment solution with Docker Compose</p>
+                            <div style="display: flex; justify-content: space-around; margin-top: 1rem;">
+                                <div>
+                                    <strong style="font-size: 1.5rem;">Docker</strong>
+                                    <br><small>Containerization</small>
+                                </div>
+                                <div>
+                                    <strong style="font-size: 1.5rem;">Traefik</strong>
+                                    <br><small>Proxy Setup</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -648,11 +781,35 @@
     <!-- CUSTOM SCRIPT-->
     <script src="/assets/js/custom.js" defer></script>
     <!-- Chat bot -->
-		<script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js" defer></script>
+    <script src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js" defer></script>
     <script src="/fun/0/libraries/p5.js" defer></script>
     <script src="/fun/0/libraries/p5.dom.js" defer></script>
     <script src="/assets/js/chatbot.js" defer></script>
     <script>
+    // Fetch GitHub stars for all projects
+    document.addEventListener('DOMContentLoaded', function() {
+        const starElements = document.querySelectorAll('.github-stars');
+        
+        starElements.forEach(function(element) {
+            const repo = element.getAttribute('data-repo');
+            const starCountElement = element.querySelector('.star-count');
+            
+            fetch(`https://api.github.com/repos/${repo}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.stargazers_count !== undefined) {
+                        starCountElement.textContent = data.stargazers_count;
+                    } else {
+                        starCountElement.textContent = '0';
+                    }
+                })
+                .catch(error => {
+                    console.log('Error fetching stars for', repo, error);
+                    starCountElement.textContent = '0';
+                });
+        });
+    });
+    
     if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/assets/js/serviceWorker.js')
         .then(function(reg) {
