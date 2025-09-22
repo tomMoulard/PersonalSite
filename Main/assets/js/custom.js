@@ -34,8 +34,13 @@ jQuery(function($) {
    SCROLL REVEL SCRIPTS
    =====================================================*/
 
-    // Initialize ScrollReveal with default settings
-    ScrollReveal().reveal('[data-scrollreveal]');
+    // Initialize ScrollReveal with settings that handle page refresh at any scroll position
+    ScrollReveal({
+        reset: false,           // Don't reset elements when they go out of view
+        viewFactor: 0.1,       // Reveal when 10% of element is visible
+        mobile: true,          // Enable on mobile
+        desktop: true          // Enable on desktop
+    }).reveal('[data-scrollreveal]');
 
     /*==========================================
     WRITE  YOUR  SCRIPTS BELOW
